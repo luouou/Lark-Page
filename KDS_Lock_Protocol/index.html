@@ -1,0 +1,6929 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+        <link rel="next" href="../log/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>协议文档 - KDS猫眼协议文档</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href=".." title="KDS猫眼协议文档" class="md-header__button md-logo" aria-label="KDS猫眼协议文档" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            KDS猫眼协议文档
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              协议文档
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+  
+    
+  
+  协议文档
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../log/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  修改记录
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../references/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  参考资料
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="KDS猫眼协议文档" class="md-nav__button md-logo" aria-label="KDS猫眼协议文档" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    KDS猫眼协议文档
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    协议文档
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    协议文档
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        串口通讯约定
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        帧格式说明
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        常用指令
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="常用指令">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#0x01" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        查询产品信息 0x01
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0x02" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        设备状态通知 0x02
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wi-fi-0x03" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        重置 Wi-Fi 0x03
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0x04" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        配网控制 0x04
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0x10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        获取格林时间 0x10
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0x06" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        获取本地日期 0x06
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0x07" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        时间同步 0x07
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0x0c" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        属性读取 0x0C
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0x05" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        属性上报 0x05
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0x09" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        属性下发 0x09
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0x08" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        事件上报 0x08
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0x0a" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        动作下发 0x0A
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0x0b" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        动作响应 0x0B
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0x11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        恢复出厂设置 0x11
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0x16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        比对动态密码 0x16
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ota" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OTA 升级服务
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="OTA 升级服务">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#0xa0" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        升级通知 0xA0
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0xa1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        升级数据传输 0xA1
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0xa2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        升级状态反馈 0xA2
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0xa3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        升级状态通知 0xA3
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        调试功能
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="调试功能">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#0xd0" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        猫眼版本号 0xD0
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0xd1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        电量读取 0xD1
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0xd2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        屏幕显示 0xD2
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0xd3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        语音控制 0xD3
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0xd4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        查询信号强度 0xD4
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0xd6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        获取推流状态 0xD6
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0xda" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        获取设备联网状态 0xDA
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0xdb" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        日志等级 0xDB
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wifi-mac-0xdd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        获取 WiFi MAC地址 0xDD
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mac-0xde" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        获取蓝牙MAC地址 0xDE
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        产测服务
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="产测服务">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#0xf0" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        猫眼产测 0xF0
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0xf1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        猫眼休眠 0xF1
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        加密功能
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="加密功能">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#0xe0" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        获取秘钥 0xE0
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0xe1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        请求秘钥 0xE1
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0xe2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        同步秘钥 0xE2
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0xe3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        清除秘钥 0xE3
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        门锁控制
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="门锁控制">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#0xc0" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        语音通知 0xC0
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kiot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        KIOT 动作定义
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="KIOT 动作定义">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#id" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        动作ID
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        读取用户数据
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        添加数字钥匙
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        取消添加数字钥匙
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        删除数字钥匙
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        添加用户
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        删除用户
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        设置用户
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        读取用户表的时间戳
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        远程开锁
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        读取历史记录数据
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ~~子设备绑定~~
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ~~子设备解绑~~
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        用户/钥匙操作通知
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        示例
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kiot_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        KIOT 属性定义
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="KIOT 属性定义">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#id_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        属性ID
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        属性参数
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        示例
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kiot_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        KIOT 事件定义
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="KIOT 事件定义">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#id_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        事件ID
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        事件参数
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        示例
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../log/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    修改记录
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../references/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    参考资料
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+  <h1>协议文档</h1>
+
+<p>KDS 猫眼对接协议</p>
+<div class="toc">
+<ul>
+<li><a href="#_1">串口通讯约定</a></li>
+<li><a href="#_2">帧格式说明</a></li>
+<li><a href="#_3">常用指令</a><ul>
+<li><a href="#0x01">查询产品信息 0x01</a></li>
+<li><a href="#0x02">设备状态通知 0x02</a></li>
+<li><a href="#wi-fi-0x03">重置 Wi-Fi 0x03</a></li>
+<li><a href="#0x04">配网控制 0x04</a></li>
+<li><a href="#0x10">获取格林时间 0x10</a></li>
+<li><a href="#0x06">获取本地日期 0x06</a></li>
+<li><a href="#0x07">时间同步 0x07</a></li>
+<li><a href="#0x0c">属性读取 0x0C</a></li>
+<li><a href="#0x05">属性上报 0x05</a></li>
+<li><a href="#0x09">属性下发 0x09</a></li>
+<li><a href="#0x08">事件上报 0x08</a></li>
+<li><a href="#0x0a">动作下发 0x0A</a></li>
+<li><a href="#0x0b">动作响应 0x0B</a></li>
+<li><a href="#0x11">恢复出厂设置 0x11</a></li>
+<li><a href="#0x16">比对动态密码 0x16</a></li>
+</ul>
+</li>
+<li><a href="#ota">OTA 升级服务</a><ul>
+<li><a href="#0xa0">升级通知 0xA0</a></li>
+<li><a href="#0xa1">升级数据传输 0xA1</a></li>
+<li><a href="#0xa2">升级状态反馈 0xA2</a></li>
+<li><a href="#0xa3">升级状态通知 0xA3</a></li>
+</ul>
+</li>
+<li><a href="#_4">调试功能</a><ul>
+<li><a href="#0xd0">猫眼版本号 0xD0</a></li>
+<li><a href="#0xd1">电量读取 0xD1</a></li>
+<li><a href="#0xd2">屏幕显示 0xD2</a></li>
+<li><a href="#0xd3">语音控制 0xD3</a></li>
+<li><a href="#0xd4">查询信号强度 0xD4</a></li>
+<li><a href="#0xd6">获取推流状态 0xD6</a></li>
+<li><a href="#0xda">获取设备联网状态 0xDA</a></li>
+<li><a href="#0xdb">日志等级 0xDB</a></li>
+<li><a href="#wifi-mac-0xdd">获取 WiFi MAC地址 0xDD</a></li>
+<li><a href="#mac-0xde">获取蓝牙MAC地址 0xDE</a></li>
+</ul>
+</li>
+<li><a href="#_5">产测服务</a><ul>
+<li><a href="#0xf0">猫眼产测 0xF0</a></li>
+<li><a href="#0xf1">猫眼休眠 0xF1</a></li>
+</ul>
+</li>
+<li><a href="#_6">加密功能</a><ul>
+<li><a href="#0xe0">获取秘钥 0xE0</a></li>
+<li><a href="#0xe1">请求秘钥 0xE1</a></li>
+<li><a href="#0xe2">同步秘钥 0xE2</a></li>
+<li><a href="#0xe3">清除秘钥 0xE3</a></li>
+</ul>
+</li>
+<li><a href="#_7">门锁控制</a><ul>
+<li><a href="#0xc0">语音通知 0xC0</a></li>
+</ul>
+</li>
+<li><a href="#kiot">KIOT 动作定义</a><ul>
+<li><a href="#id">动作ID</a></li>
+<li><a href="#_8">读取用户数据</a></li>
+<li><a href="#_9">添加数字钥匙</a></li>
+<li><a href="#_10">取消添加数字钥匙</a></li>
+<li><a href="#_11">删除数字钥匙</a></li>
+<li><a href="#_12">添加用户</a></li>
+<li><a href="#_13">删除用户</a></li>
+<li><a href="#_14">设置用户</a></li>
+<li><a href="#_15">读取用户表的时间戳</a></li>
+<li><a href="#_16">远程开锁</a></li>
+<li><a href="#_17">读取历史记录数据</a></li>
+<li><a href="#_18">~~子设备绑定~~</a></li>
+<li><a href="#_19">~~子设备解绑~~</a></li>
+<li><a href="#_20">用户/钥匙操作通知</a></li>
+<li><a href="#_21">示例</a></li>
+</ul>
+</li>
+<li><a href="#kiot_1">KIOT 属性定义</a><ul>
+<li><a href="#id_1">属性ID</a></li>
+<li><a href="#_22">属性参数</a></li>
+<li><a href="#_23">示例</a></li>
+</ul>
+</li>
+<li><a href="#kiot_2">KIOT 事件定义</a><ul>
+<li><a href="#id_2">事件ID</a></li>
+<li><a href="#_24">事件参数</a></li>
+<li><a href="#_25">示例</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 id="_1">串口通讯约定<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p>波特率：115200</p>
+</li>
+<li>
+<p>数据位：8</p>
+</li>
+<li>
+<p>奇偶校验：无</p>
+</li>
+<li>
+<p>停止位：1</p>
+</li>
+<li>
+<p>数据流控：无</p>
+</li>
+</ul>
+<h2 id="_2">帧格式说明<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>字节数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>帧头</td>
+<td>2</td>
+<td>固定为 0x55AA</td>
+</tr>
+<tr>
+<td>版本</td>
+<td>1</td>
+<td>升级扩展用</td>
+</tr>
+<tr>
+<td>命令字</td>
+<td>1</td>
+<td>具体帧类型</td>
+</tr>
+<tr>
+<td>数据长度 Len</td>
+<td>2</td>
+<td>Len 高 8 位<br/>Len 低 8 位</td>
+</tr>
+<tr>
+<td>序号</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>数据</td>
+<td>N</td>
+<td></td>
+</tr>
+<tr>
+<td>校验和</td>
+<td>1</td>
+<td>从帧头开始按字节求和得出的结果对 256 求余</td>
+</tr>
+</tbody>
+</table>
+<p><strong>说明</strong>：</p>
+<ul>
+<li>字节序：<strong>大端模式</strong>，所有大于 1 个字节的数据均采用大端模式传输，高字节先发，低字节后发。</li>
+<li>版本：版本用于拓展功能使用，为兼容新老版本协议。历史版本上出现过 0x00/0x03，<strong>模组暂不校验该字段</strong>。</li>
+<li>重传：一般情况下，采用同命令字一发一收同步机制，即一方发出命令，另一方应答。若发送方超时未收到正确的响应包，则超时传输，<strong>Wi-Fi 模组主动发起的通信发送包超时时间为 500ms，重传次数为 3 次</strong>。</li>
+<li>序号：有些指令带有序号，是为了过滤掉同一指令的重发，同一指令的相邻两次必须序号不同。</li>
+</ul>
+<h2 id="_3">常用指令<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<h3 id="0x01">查询产品信息 0x01<a class="headerlink" href="#0x01" title="Permanent link">&para;</a></h3>
+<p>使用场景：模组查询设备的产品信息，MCU 上报设备三元组（<code>pid</code>、<code>device_name</code>、<code>secret_key</code>），供模组/云端识别产品与设备身份。MCU 也可以主动发送，模组若自身没有也会来查询。</p>
+<p>**模组查询：</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>字节数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>帧头</td>
+<td>2</td>
+<td>0x55aa</td>
+</tr>
+<tr>
+<td>版本</td>
+<td>1</td>
+<td>0x00</td>
+</tr>
+<tr>
+<td>命令字</td>
+<td>1</td>
+<td>0x01</td>
+</tr>
+<tr>
+<td>数据长度</td>
+<td>2</td>
+<td>0x0001</td>
+</tr>
+<tr>
+<td>序号</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>数据</td>
+<td>0</td>
+<td>无</td>
+</tr>
+<tr>
+<td>校验和</td>
+<td>1</td>
+<td>从帧头开始，按字节求和，得出的结果对 256 求余</td>
+</tr>
+</tbody>
+</table>
+<p><strong>MCU 返回</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>字节数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>帧头</td>
+<td>2</td>
+<td>0x55aa</td>
+</tr>
+<tr>
+<td>版本</td>
+<td>1</td>
+<td>0x00</td>
+</tr>
+<tr>
+<td>命令字</td>
+<td>1</td>
+<td>0x01</td>
+</tr>
+<tr>
+<td>数据长度</td>
+<td>2</td>
+<td>1 + N</td>
+</tr>
+<tr>
+<td>序号</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>数据</td>
+<td>N</td>
+<td>设备三元组，TLV 编码，详见下文</td>
+</tr>
+<tr>
+<td>校验和</td>
+<td>1</td>
+<td>从帧头开始，按字节求和，得出的结果对 256 求余</td>
+</tr>
+</tbody>
+</table>
+<p><a id="Inquireproductinformation"></a></p>
+<p><strong>数据区格式（TLV 编码）</strong></p>
+<p>数据区由若干个 <strong>字段</strong> 拼接而成，每个字段为固定 TLV 结构：</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>字节数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>标签</td>
+<td>1</td>
+<td>字段标识，见下表</td>
+</tr>
+<tr>
+<td>长度</td>
+<td>1</td>
+<td>值域字节数</td>
+</tr>
+<tr>
+<td>值</td>
+<td>N</td>
+<td>字段内容（字符串，不含终止符）</td>
+</tr>
+</tbody>
+</table>
+<p><strong>字段标签表</strong></p>
+<table>
+<thead>
+<tr>
+<th>标签</th>
+<th>字段</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0x01</td>
+<td>pid（产品ID）</td>
+</tr>
+<tr>
+<td>0x02</td>
+<td>device_name（设备名）</td>
+</tr>
+<tr>
+<td>0x03</td>
+<td>secret_key（设备密钥）</td>
+</tr>
+</tbody>
+</table>
+<p><strong>示例</strong>：</p>
+<pre><code class="language-uart"># 模组查询产品信息。
+55 AA 00 01 00 00 00
+
+# MCU 回复设备三元组：
+# 01 0A wpwqx9gmw1        → pid，长度 10
+# 02 0E 1mz1l31ms6yyy1    → device_name，长度 14
+# 03 18 4c9a41a08a8a5afb630f2a95 → secret_key，长度 24
+55 AA 00 01 00 37 00 01 0A 77 70 77 71 78 39 67 6D 77 31 02 0E 31 6D 7A 31 6C 33 31 6D 73 36 79 79 79 31 03 18 34 63 39 61 34 31 61 30 38 61 38 61 35 61 66 62 36 33 30 66 32 61 39 35 EB
+</code></pre>
+<h3 id="0x02">设备状态通知 0x02<a class="headerlink" href="#0x02" title="Permanent link">&para;</a></h3>
+<ul>
+<li>当模组的 状态发生变化时，会主动下发 Wi-Fi 状态 至 MCU。</li>
+<li>这条指令是不重发的</li>
+</ul>
+<p><a id="Devlinkstatus"></a>
+<strong>设备状态</strong></p>
+<table>
+<thead>
+<tr>
+<th>描述</th>
+<th>状态值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>0x00</td>
+</tr>
+<tr>
+<td>蓝牙正在配网状态</td>
+<td>0x01</td>
+</tr>
+<tr>
+<td>Wi-Fi 已配置但未连上路由器</td>
+<td>0x02</td>
+</tr>
+<tr>
+<td>Wi-Fi 已配置且连上路由器</td>
+<td>0x03</td>
+</tr>
+<tr>
+<td>已连上路由器且连接到云端</td>
+<td>0x04</td>
+</tr>
+<tr>
+<td></td>
+<td>0x05</td>
+</tr>
+<tr>
+<td>二维码扫描识别成功（需支持二维码配网）</td>
+<td>0x06</td>
+</tr>
+<tr>
+<td>Wi-Fi 设备初始化完成 （表示可正常接收串口指令）</td>
+<td>0x07</td>
+</tr>
+<tr>
+<td></td>
+<td>0x08</td>
+</tr>
+<tr>
+<td></td>
+<td>0x09</td>
+</tr>
+<tr>
+<td></td>
+<td>0x0A</td>
+</tr>
+<tr>
+<td></td>
+<td>0x0B</td>
+</tr>
+<tr>
+<td></td>
+<td>0x0C</td>
+</tr>
+<tr>
+<td>网络数据重置</td>
+<td>0x30</td>
+</tr>
+<tr>
+<td>拉流开始</td>
+<td>0x60</td>
+</tr>
+<tr>
+<td>拉流结束</td>
+<td>0x61</td>
+</tr>
+<tr>
+<td>猫眼OTA开始</td>
+<td>0xA0</td>
+</tr>
+<tr>
+<td>猫眼OTA结束</td>
+<td>0xA1</td>
+</tr>
+<tr>
+<td>BLE配对成功</td>
+<td>0xB0</td>
+</tr>
+<tr>
+<td>BLE配对超时</td>
+<td>0xB2</td>
+</tr>
+<tr>
+<td>猫眼数据清除成功</td>
+<td>0xC0</td>
+</tr>
+<tr>
+<td>猫眼数据清除失败</td>
+<td>0xC1</td>
+</tr>
+<tr>
+<td>猫眼进入产测</td>
+<td>0xF0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>模组发送</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>字节数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>帧头</td>
+<td>2</td>
+<td>0x55aa</td>
+</tr>
+<tr>
+<td>版本</td>
+<td>1</td>
+<td>0x00</td>
+</tr>
+<tr>
+<td>命令字</td>
+<td>1</td>
+<td>0x02</td>
+</tr>
+<tr>
+<td>数据长度</td>
+<td>2</td>
+<td>0x0002</td>
+</tr>
+<tr>
+<td>序号</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>数据</td>
+<td>1</td>
+<td><a href="Devlinkstatus">设备状态</a></td>
+</tr>
+<tr>
+<td>校验和</td>
+<td>1</td>
+<td>从帧头开始，按字节求和，得出的结果对 256 求余</td>
+</tr>
+</tbody>
+</table>
+<p><strong>MCU 返回</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>字节数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>帧头</td>
+<td>2</td>
+<td>0x55aa</td>
+</tr>
+<tr>
+<td>版本</td>
+<td>1</td>
+<td>0x00</td>
+</tr>
+<tr>
+<td>命令字</td>
+<td>1</td>
+<td>0x02</td>
+</tr>
+<tr>
+<td>数据长度</td>
+<td>2</td>
+<td>0x0001</td>
+</tr>
+<tr>
+<td>序号</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>数据</td>
+<td>0</td>
+<td>无</td>
+</tr>
+<tr>
+<td>校验和</td>
+<td>1</td>
+<td>从帧头开始，按字节求和，得出的结果对 256 求余</td>
+</tr>
+</tbody>
+</table>
+<p><strong>示例</strong>：</p>
+<pre><code class="language-uart"># 模组发送连接状态，表示已连上路由器且连接到云端。
+55 AA 00 02 00 02 00 04 07
+
+# MCU 回复应答。
+55 AA 00 02 00 01 00 02 
+</code></pre>
+<h3 id="wi-fi-0x03">重置 Wi-Fi 0x03<a class="headerlink" href="#wi-fi-0x03" title="Permanent link">&para;</a></h3>
+<p><strong>MCU 发送</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>字节数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>帧头</td>
+<td>2</td>
+<td>0x55aa</td>
+</tr>
+<tr>
+<td>版本</td>
+<td>1</td>
+<td>0x00</td>
+</tr>
+<tr>
+<td>命令字</td>
+<td>1</td>
+<td>0x03</td>
+</tr>
+<tr>
+<td>数据长度</td>
+<td>2</td>
+<td>0x0001</td>
+</tr>
+<tr>
+<td>序号</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>数据</td>
+<td>0</td>
+<td>无</td>
+</tr>
+<tr>
+<td>校验和</td>
+<td>1</td>
+<td>从帧头开始，按字节求和，得出的结果对 256 求余</td>
+</tr>
+</tbody>
+</table>
+<p><strong>模组返回</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>字节数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>帧头</td>
+<td>2</td>
+<td>0x55aa</td>
+</tr>
+<tr>
+<td>版本</td>
+<td>1</td>
+<td>0x00</td>
+</tr>
+<tr>
+<td>命令字</td>
+<td>1</td>
+<td>0x03</td>
+</tr>
+<tr>
+<td>数据长度</td>
+<td>2</td>
+<td>0x0001</td>
+</tr>
+<tr>
+<td>序号</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>数据</td>
+<td>0</td>
+<td>无</td>
+</tr>
+<tr>
+<td>校验和</td>
+<td>1</td>
+<td>从帧头开始，按字节求和，得出的结果对 256 求余</td>
+</tr>
+</tbody>
+</table>
+<p><strong>示例</strong>：</p>
+<pre><code class="language-uart"># MCU 发送重置 Wi-Fi 指令。
+55 AA 00 03 00 01 00 03
+
+# 模组回复应答。
+55 AA 00 03 00 01 00 03
+</code></pre>
+<h3 id="0x04">配网控制 0x04<a class="headerlink" href="#0x04" title="Permanent link">&para;</a></h3>
+<p><strong>MCU 发送</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>字节数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>帧头</td>
+<td>2</td>
+<td>0x55aa</td>
+</tr>
+<tr>
+<td>版本</td>
+<td>1</td>
+<td>0x00</td>
+</tr>
+<tr>
+<td>命令字</td>
+<td>1</td>
+<td>0x04</td>
+</tr>
+<tr>
+<td>数据长度</td>
+<td>2</td>
+<td>0x0002</td>
+</tr>
+<tr>
+<td>序号</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>数据</td>
+<td>1</td>
+<td>0x00：取消配网<br />0x01：进入配网模式<br />0x03：没激活仍要配网<br />0x05：先重置后配网</td>
+</tr>
+<tr>
+<td>校验和</td>
+<td>1</td>
+<td>从帧头开始，按字节求和，得出的结果对 256 求余</td>
+</tr>
+</tbody>
+</table>
+<p><strong>模组返回</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>字节数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>帧头</td>
+<td>2</td>
+<td>0x55aa</td>
+</tr>
+<tr>
+<td>版本</td>
+<td>1</td>
+<td>0x00</td>
+</tr>
+<tr>
+<td>命令字</td>
+<td>1</td>
+<td>0x04</td>
+</tr>
+<tr>
+<td>数据长度</td>
+<td>2</td>
+<td>0x0002</td>
+</tr>
+<tr>
+<td>序号</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>数据</td>
+<td>1</td>
+<td>0x00：成功<br />0x01：失败<br />0x02：没有授权码</td>
+</tr>
+<tr>
+<td>校验和</td>
+<td>1</td>
+<td>从帧头开始，按字节求和，得出的结果对 256 求余</td>
+</tr>
+</tbody>
+</table>
+<p><strong>示例</strong>：</p>
+<pre><code class="language-uart"># MCU 发送指令，进入配网模式。
+55 AA 00 04 00 02 00 01 06
+
+# 模组回复设置成功应答。
+55 AA 00 04 00 02 00 00 05
+</code></pre>
+<h3 id="0x10">获取格林时间 0x10<a class="headerlink" href="#0x10" title="Permanent link">&para;</a></h3>
+<p><strong>格林时间</strong>，即 0 时区标准 UTC 时间戳，不带有时区和夏令时相关因素，是一个国际标准的时间基准。</p>
+<ul>
+<li>对于门锁产品，很多功能的正常使用都依赖于时间，因此确保门锁时间同步非常重要，请务必对接。</li>
+<li>模组每次上电在未联网成功之前无法同步时间，需要等待设备连接上云端（也就是收到设备联网状态 5）后可发送获取本地时间指令。</li>
+<li>设备连接上云端后 <strong>有可能会获取时间失败</strong> （在网络情况非常差的情况下，模组未同步到时间）。对于依赖时间的设备（如门锁），当获取失败时可在一定时间后重试获取，确保时间数据获取成功。</li>
+<li>建议每次连云成功均同步获取一次时间，已完成设备校时。</li>
+<li>获取完格林时间后可再获取一次本地时间，通过两者的时间差值可计算出当前 <strong>所处时区</strong>。</li>
+</ul>
+<p><strong>MCU 发送</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>字节数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>帧头</td>
+<td>2</td>
+<td>0x55aa</td>
+</tr>
+<tr>
+<td>版本</td>
+<td>1</td>
+<td>0x00</td>
+</tr>
+<tr>
+<td>命令字</td>
+<td>1</td>
+<td>0x10</td>
+</tr>
+<tr>
+<td>数据长度</td>
+<td>2</td>
+<td>0x0001</td>
+</tr>
+<tr>
+<td>序号</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>数据</td>
+<td>0</td>
+<td>无</td>
+</tr>
+<tr>
+<td>校验和</td>
+<td>1</td>
+<td>从帧头开始，按字节求和，得出的结果对 256 求余</td>
+</tr>
+</tbody>
+</table>
+<p><strong>模组返回</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>字节数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>帧头</td>
+<td>2</td>
+<td>0x55aa</td>
+</tr>
+<tr>
+<td>版本</td>
+<td>1</td>
+<td>0x00</td>
+</tr>
+<tr>
+<td>命令字</td>
+<td>1</td>
+<td>0x10</td>
+</tr>
+<tr>
+<td>数据长度</td>
+<td>2</td>
+<td>0x0009</td>
+</tr>
+<tr>
+<td>序号</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>数据</td>
+<td>8</td>
+<td>Data[0:1] 为年，0x0000 表示 2000 年<br />Data[2] 为月，从 1 开始到 12 结束<br />Data[3] 为日，从 1 开始到 31 结束<br />Data[4] 为时，从 0 开始到 23 结束<br />Data[5] 为分，从 0 开始到 59 结束<br />Data[6] 为秒，从 0 开始到 59 结束<br />Data[7] 为星期，从 1 开始到 7 结束，1 代表星期一</td>
+</tr>
+<tr>
+<td>校验和</td>
+<td>1</td>
+<td>从帧头开始，按字节求和，得出的结果对 256 求余</td>
+</tr>
+</tbody>
+</table>
+<p><strong>示例</strong>：</p>
+<pre><code class="language-uart"># MCU 获取格林时间。
+55 AA 00 10 00 01 00 10
+
+# 模组返回获取成功与格林时间数据。
+55 AA 00 10 00 09 00 00 1A 08 0B 07 11 32 02 91
+
+# 格林时间：2026-08-11 07:17:50 星期二。
+# 如设备所处东 8 区间，则对应本地时间：2026-08-11 15:17:50 星期二。
+</code></pre>
+<h3 id="0x06">获取本地日期 0x06<a class="headerlink" href="#0x06" title="Permanent link">&para;</a></h3>
+<p>本地时间即设备本地时间，是在格林时间的基础上加上当地（设备激活所在地）时区和夏令时的时间。可以通过年份数值的合理性，来判断整体时间是否正确。</p>
+<p><strong>MCU 发送</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>字节数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>帧头</td>
+<td>2</td>
+<td>0x55aa</td>
+</tr>
+<tr>
+<td>版本</td>
+<td>1</td>
+<td>0x00</td>
+</tr>
+<tr>
+<td>命令字</td>
+<td>1</td>
+<td>0x06</td>
+</tr>
+<tr>
+<td>数据长度</td>
+<td>2</td>
+<td>0x0001</td>
+</tr>
+<tr>
+<td>序号</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>数据</td>
+<td>0</td>
+<td>无</td>
+</tr>
+<tr>
+<td>校验和</td>
+<td>1</td>
+<td>从帧头开始，按字节求和，得出的结果对 256 求余</td>
+</tr>
+</tbody>
+</table>
+<p><strong>模组返回</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>字节数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>帧头</td>
+<td>2</td>
+<td>0x55aa</td>
+</tr>
+<tr>
+<td>版本</td>
+<td>1</td>
+<td>0x00</td>
+</tr>
+<tr>
+<td>命令字</td>
+<td>1</td>
+<td>0x06</td>
+</tr>
+<tr>
+<td>数据长度</td>
+<td>2</td>
+<td>0x0009</td>
+</tr>
+<tr>
+<td>序号</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>数据</td>
+<td>8</td>
+<td>Data[0:1] 为年，0x0000 表示 2000 年<br />Data[2] 为月，从 1 开始到 12 结束<br />Data[3] 为日，从 1 开始到 31 结束<br />Data[4] 为时，从 0 开始到 23 结束<br />Data[5] 为分，从 0 开始到 59 结束<br />Data[6] 为秒，从 0 开始到 59 结束<br />Data[7] 为星期，从 1 开始到 7 结束，1 代表星期一</td>
+</tr>
+<tr>
+<td>校验和</td>
+<td>1</td>
+<td>从帧头开始，按字节求和，得出的结果对 256 求余</td>
+</tr>
+</tbody>
+</table>
+<p><strong>示例</strong>：</p>
+<pre><code class="language-uart"># MCU 获取本地时间。
+55 AA 00 06 00 01 00 06
+
+# 模组返回获取成功结果与本地时间数据，2026-08-11 15:17:46 星期二。
+55 AA 00 06 00 09 00 00 1A 08 0B 0F 11 2E 02 8B
+</code></pre>
+<h3 id="0x07">时间同步 0x07<a class="headerlink" href="#0x07" title="Permanent link">&para;</a></h3>
+<p>考虑到 MCU 获取时间同步的便捷性以及信息的完整度，新增一条指令支持 MCU 直接获取当前 <strong>64 位时间戳（UTC，单位秒）以及时区信息</strong>。</p>
+<p><strong>MCU 发送</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>字节数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>帧头</td>
+<td>2</td>
+<td>0x55aa</td>
+</tr>
+<tr>
+<td>版本</td>
+<td>1</td>
+<td>0x00</td>
+</tr>
+<tr>
+<td>命令字</td>
+<td>1</td>
+<td>0x07</td>
+</tr>
+<tr>
+<td>数据长度</td>
+<td>2</td>
+<td>0x0001</td>
+</tr>
+<tr>
+<td>序号</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>数据</td>
+<td>0</td>
+<td>无</td>
+</tr>
+<tr>
+<td>校验和</td>
+<td>1</td>
+<td>从帧头开始，按字节求和，得出的结果对 256 求余</td>
+</tr>
+</tbody>
+</table>
+<p><strong>模组返回</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>字节数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>帧头</td>
+<td>2</td>
+<td>0x55aa</td>
+</tr>
+<tr>
+<td>版本</td>
+<td>1</td>
+<td>0x00</td>
+</tr>
+<tr>
+<td>命令字</td>
+<td>1</td>
+<td>0x07</td>
+</tr>
+<tr>
+<td>数据长度</td>
+<td>2</td>
+<td>0x000D</td>
+</tr>
+<tr>
+<td>序号</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>数据</td>
+<td>12</td>
+<td>数据长度 12 字节，格式定义如下：<br />Data[0]：获取时间结果标识<br />    0x00：失败<br />    0x01：成功<br />Data[1-8]：64 位时间戳（大端，单位秒，UTC 格林时间<br />Data[9]：获取时区信息结果标识<br />    0x00：失败<br />    0x01：成功<br />Data[10]：表示东/西时区及分钟位，用 bit 定义<br />    bit7-4：保留，默认 0<br />    bit3：3/4H-45分钟，0：无，1：有<br />    bit2：1/4H-15分钟，0：无，1：有<br />    bit1：1/2H-30分钟，0：无，1：有<br />    bit0：0：东区，1：西区<br />Data[11]：时区整数位。例如，东 8 区值=0x08，西 3 区值=0x03</td>
+</tr>
+<tr>
+<td>校验和</td>
+<td>1</td>
+<td>从帧头开始，按字节求和，得出的结果对 256 求余</td>
+</tr>
+</tbody>
+</table>
+<p><strong>示例</strong>：</p>
+<pre><code class="language-uart"># MCU 获取 64 位时间戳及时区信息。
+55 AA 00 07 00 01 00 07
+
+# 模组返回 64 位时间戳及时区信息。
+55 AA 00 07 00 0D 00 01 00 00 00 00 6A 82 DF 6D 01 00 08 55
+
+# 解析：
+# Data[0]=01，时间获取成功。
+# Data[1]~Data[8]=00 00 00 00 6A 82 DF 6D，即 64 位时间戳 0x000000006A82DF6D（秒级 unix 时间）。
+# Data[9]=01，时区获取成功。
+# Data[10]=00，东区。
+# Data[11]=08，东 8 区。
+</code></pre>
+<h3 id="0x0c">属性读取 0x0C<a class="headerlink" href="#0x0c" title="Permanent link">&para;</a></h3>
+<p>被叫号的属性，MCU 收到后应及时用 05 指令上报被点名的属性。 可一次性点名多个属性。</p>
+<p><strong>猫眼 发送</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>字节数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>帧头</td>
+<td>2</td>
+<td>0x55aa</td>
+</tr>
+<tr>
+<td>版本</td>
+<td>1</td>
+<td>0x00</td>
+</tr>
+<tr>
+<td>命令字</td>
+<td>1</td>
+<td>0x0C</td>
+</tr>
+<tr>
+<td>数据长度</td>
+<td>2</td>
+<td>3 +  N</td>
+</tr>
+<tr>
+<td>序号</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>数据</td>
+<td>N</td>
+<td>多个<a href="#kiot-prop-id">属性ID</a></td>
+</tr>
+<tr>
+<td>校验和</td>
+<td>1</td>
+<td>从帧头开始，按字节求和，得出的结果对 256 求余</td>
+</tr>
+</tbody>
+</table>
+<p><strong>MCU 回复</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>字节数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>帧头</td>
+<td>2</td>
+<td>0x55aa</td>
+</tr>
+<tr>
+<td>版本</td>
+<td>1</td>
+<td>0x00</td>
+</tr>
+<tr>
+<td>命令字</td>
+<td>1</td>
+<td>0x0C</td>
+</tr>
+<tr>
+<td>数据长度</td>
+<td>2</td>
+<td>0x0001</td>
+</tr>
+<tr>
+<td>序号</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>数据</td>
+<td>0</td>
+<td>无</td>
+</tr>
+<tr>
+<td>校验和</td>
+<td>1</td>
+<td>从帧头开始，按字节求和，得出的结果对 256 求余</td>
+</tr>
+</tbody>
+</table>
+<p><strong>示例</strong>：</p>
+<pre><code class="language-uart"># 通知上报属性[0x0115] 锁体类型
+55 AA 00 0C 00 03 00 01 15 24
+
+# 通知上报属性[0x0115] [0x0120], 锁体类型 和 开门方向
+55 AA 00 0C 00 05 00 01 15 01 20 47
+
+# 回复应答。
+55 AA 00 0C 00 01 00 0C
+</code></pre>
+<h3 id="0x05">属性上报 0x05<a class="headerlink" href="#0x05" title="Permanent link">&para;</a></h3>
+<ul>
+<li>实时状态数据会直接上报到云端，故设备联网状态必须为已连接到云端，否则数据上报失败。</li>
+<li>状态数据单元支持组合形式上报，一次可含多个状态数据单元。</li>
+<li>实时状态上报，主要触发机制有三类，分别如下：</li>
+<li>MCU 检测到状态有变化（如设备电量或某个检测状态），将变化后的 DP 状态发送至模组去上报。</li>
+<li>MCU 收到命令下发处理帧时，正确执行相应 DP 命令，再通过状态上报帧，将变化后的 DP 状态发送至模组去上报。</li>
+<li>
+<p>MCU 收到状态查询帧/或每次成功连上云时，建议将所有的 DP 状态发送至模组。</p>
+</li>
+<li>
+<p>MCU 上报的数据请注意数据的合法性，确保 属性ID 以及参数内容。</p>
+</li>
+</ul>
+<p><strong>MCU 发送</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>字节数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>帧头</td>
+<td>2</td>
+<td>0x55aa</td>
+</tr>
+<tr>
+<td>版本</td>
+<td>1</td>
+<td>0x00</td>
+</tr>
+<tr>
+<td>命令字</td>
+<td>1</td>
+<td>0x05</td>
+</tr>
+<tr>
+<td>数据长度</td>
+<td>2</td>
+<td>1+ 2 + 1 + N</td>
+</tr>
+<tr>
+<td>序号</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>数据</td>
+<td>2</td>
+<td><a href="#kiot-prop-id">属性ID</a> 2字节</td>
+</tr>
+<tr>
+<td>数据</td>
+<td>N</td>
+<td>属性参数</td>
+</tr>
+<tr>
+<td>校验和</td>
+<td>1</td>
+<td>从帧头开始，按字节求和，得出的结果对 256 求余</td>
+</tr>
+</tbody>
+</table>
+<p><strong>模组返回</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>字节数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>帧头</td>
+<td>2</td>
+<td>0x55aa</td>
+</tr>
+<tr>
+<td>版本</td>
+<td>1</td>
+<td>0x00</td>
+</tr>
+<tr>
+<td>命令字</td>
+<td>1</td>
+<td>0x05</td>
+</tr>
+<tr>
+<td>数据长度</td>
+<td>2</td>
+<td>0x0002</td>
+</tr>
+<tr>
+<td>序号</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>数据</td>
+<td>1</td>
+<td>0x00：上报成功 <br />0x01：失败<br />0x02：最后一个属性错误<br />0x03：没有该属性<br />0x04：属性类型错误</td>
+</tr>
+<tr>
+<td>校验和</td>
+<td>1</td>
+<td>从帧头开始，按字节求和，得出的结果对 256 求余</td>
+</tr>
+</tbody>
+</table>
+<p><strong>示例</strong>：</p>
+<pre><code class="language-uart"># 上报属性[0x0115] 锁体类型，机械锁体
+55 AA 00 05 00 05 00 01 15 01 01 21
+
+# 上报属性[0x0120] 开门方向，右开
+55 AA 00 05 00 05 00 01 20 01 01 2C
+
+# 同时上报 开门方向和 扭力
+55 AA 00 05 00 09 00 01 27 01 01 01 20 01 02
+
+# 模组回复应答，接收成功并上报到云端。
+55 AA 00 05 00 02 00 00 06
+</code></pre>
+<h3 id="0x09">属性下发 0x09<a class="headerlink" href="#0x09" title="Permanent link">&para;</a></h3>
+<p><strong>模组发送</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>字节数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>帧头</td>
+<td>2</td>
+<td>0x55aa</td>
+</tr>
+<tr>
+<td>版本</td>
+<td>1</td>
+<td>0x00</td>
+</tr>
+<tr>
+<td>命令字</td>
+<td>1</td>
+<td>0x09</td>
+</tr>
+<tr>
+<td>数据长度</td>
+<td>2</td>
+<td>1 + 2  + N</td>
+</tr>
+<tr>
+<td>序号</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>数据</td>
+<td>2</td>
+<td><a href="#kiot-prop-id">属性ID</a> 2字节</td>
+</tr>
+<tr>
+<td>数据</td>
+<td>N</td>
+<td>属性参数</td>
+</tr>
+<tr>
+<td>校验和</td>
+<td>1</td>
+<td>从帧头开始，按字节求和，得出的结果对 256 求余</td>
+</tr>
+</tbody>
+</table>
+<p><strong>MCU 回复</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>字节数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>帧头</td>
+<td>2</td>
+<td>0x55aa</td>
+</tr>
+<tr>
+<td>版本</td>
+<td>1</td>
+<td>0x00</td>
+</tr>
+<tr>
+<td>命令字</td>
+<td>1</td>
+<td>0x09</td>
+</tr>
+<tr>
+<td>数据长度</td>
+<td>2</td>
+<td>0x0001</td>
+</tr>
+<tr>
+<td>序号</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>数据</td>
+<td>0</td>
+<td>无</td>
+</tr>
+<tr>
+<td>校验和</td>
+<td>1</td>
+<td>从帧头开始，按字节求和，得出的结果对 256 求余</td>
+</tr>
+</tbody>
+</table>
+<p><strong>示例</strong>：</p>
+<pre><code class="language-uart"># 设置属性[0x0115] 锁体类型
+55 AA 00 09 00 05 00 01 15 01 01 25
+
+# 设置为右开门
+55 AA 00 09 00 05 00 01 20 01 01 30
+
+# 设置音量
+55 AA 00 09 00 05 00 01 3F 01 64 B2
+
+# MCU 回复应答。
+55 AA 00 09 00 01 00 09
+</code></pre>
+<h3 id="0x08">事件上报 0x08<a class="headerlink" href="#0x08" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p><strong>使用场景</strong>：门锁设备日常使用操作时，会产生开门记录（如指纹开门）以及告警记录（试错告警），设备需要通过该指令将对应的操作记录上报至云端从而在 App 上展示对应的操作记录。</p>
+</li>
+<li>
+<p>相同时间内不太可能同时发生多件记录型事件，要求相邻的同一种事件时间戳要不一样。</p>
+</li>
+</ul>
+<p><strong>MCU 发送</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>字节数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>帧头</td>
+<td>2</td>
+<td>0x55aa</td>
+</tr>
+<tr>
+<td>版本</td>
+<td>1</td>
+<td>0x00</td>
+</tr>
+<tr>
+<td>命令字</td>
+<td>1</td>
+<td>0x08</td>
+</tr>
+<tr>
+<td>数据长度</td>
+<td>2</td>
+<td>1 + 6 + N</td>
+</tr>
+<tr>
+<td>序号</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>数据</td>
+<td>6</td>
+<td>byte[0 ~ 3] 为32位时间戳，低位放在 byte[3]<br />byte[4 ~ 5] 为上报的<a href="#kiot-event-id">事件ID</a></td>
+</tr>
+<tr>
+<td>数据</td>
+<td>N</td>
+<td><a href="#kiot-event-args">事件参数</a> 可变长度，不同事件不一样</td>
+</tr>
+<tr>
+<td>校验和</td>
+<td>1</td>
+<td>从帧头开始，按字节求和，得出的结果对 256 求余</td>
+</tr>
+</tbody>
+</table>
+<p><strong>模组返回</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>字节数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>帧头</td>
+<td>2</td>
+<td>0x55aa</td>
+</tr>
+<tr>
+<td>版本</td>
+<td>1</td>
+<td>0x00</td>
+</tr>
+<tr>
+<td>命令字</td>
+<td>1</td>
+<td>0x08</td>
+</tr>
+<tr>
+<td>数据长度</td>
+<td>2</td>
+<td>0x0002</td>
+</tr>
+<tr>
+<td>序号</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>数据</td>
+<td>1</td>
+<td>上报结果：<br />0x00：上报成功<br />0x01：缓存成功，等待上报<br />0x02：上报失败<br />0x03：没有该事件ID<br />0x04：事件参数错误</td>
+</tr>
+<tr>
+<td>校验和</td>
+<td>1</td>
+<td>从帧头开始，按字节求和，得出的结果对 256 求余</td>
+</tr>
+</tbody>
+</table>
+<p><strong>示例</strong>：</p>
+<pre><code class="language-uart"># 开锁，事件ID=0x0102，编号 05 的指纹
+55 AA 00 08 00 0A 00 00 00 00 00 01 02 04 00 05 1D
+
+# 锁定告警，事件ID=0x0109
+55 AA 00 08 00 07 00 00 00 00 00 01 09 18
+
+# 模组回复应答，接收上报成功。
+55 AA 00 08 00 02 00 00 09
+</code></pre>
+<h3 id="0x0a">动作下发 0x0A<a class="headerlink" href="#0x0a" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>使用场景</strong>：云端下发动作指令（如添加/删除数字钥匙、远程开锁等），模组通过该指令将动作下发至 MCU 执行。</li>
+<li>MCU 收到指令后 <strong>需先回复 0x0A 应答包</strong>，然后根据动作 ID 执行对应功能，执行结果通过 0x0C 动作回应指令上报。</li>
+</ul>
+<p><strong>模组发送</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>字节数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>帧头</td>
+<td>2</td>
+<td>0x55aa</td>
+</tr>
+<tr>
+<td>版本</td>
+<td>1</td>
+<td>0x00</td>
+</tr>
+<tr>
+<td>命令字</td>
+<td>1</td>
+<td>0x0A</td>
+</tr>
+<tr>
+<td>数据长度</td>
+<td>2</td>
+<td>1 +２＋２＋ N</td>
+</tr>
+<tr>
+<td>序号</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>数据</td>
+<td>2</td>
+<td><a href="#kiot-action-id">动作ID</a></td>
+</tr>
+<tr>
+<td>数据</td>
+<td>2</td>
+<td>动作输入参数长度（2 字节，大端）</td>
+</tr>
+<tr>
+<td>数据</td>
+<td>N</td>
+<td>动作输入参数</td>
+</tr>
+<tr>
+<td>校验和</td>
+<td>1</td>
+<td>从帧头开始，按字节求和，得出的结果对 256 求余</td>
+</tr>
+</tbody>
+</table>
+<p><strong>MCU 回复</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>字节数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>帧头</td>
+<td>2</td>
+<td>0x55aa</td>
+</tr>
+<tr>
+<td>版本</td>
+<td>1</td>
+<td>0x00</td>
+</tr>
+<tr>
+<td>命令字</td>
+<td>1</td>
+<td>0x0A</td>
+</tr>
+<tr>
+<td>数据长度</td>
+<td>2</td>
+<td>0x0001</td>
+</tr>
+<tr>
+<td>序号</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>数据</td>
+<td>0</td>
+<td>无</td>
+</tr>
+<tr>
+<td>校验和</td>
+<td>1</td>
+<td>从帧头开始，按字节求和，得出的结果对 256 求余</td>
+</tr>
+</tbody>
+</table>
+<p><strong>示例</strong>：</p>
+<pre><code class="language-uart"># 00用户添加卡片，动作ID=0x0103，参数长度=17（0x0011）
+55 AA 00 0A 00 16 00 01 03 00 11 00 FF 03 00 31 32 33 00 00 00 00 00 00 00 00 00 00 CC
+
+# MCU 回复应答。
+55 AA 00 0A 00 01 00 0A
+</code></pre>
+<h3 id="0x0b">动作响应 0x0B<a class="headerlink" href="#0x0b" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>使用场景</strong>：MCU 执行动作完成后，通过该指令将执行结果回传给模组，由模组上报云端。</li>
+<li>动作回应可含输出参数，不同动作不一样。</li>
+</ul>
+<p><strong>MCU 发送</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>字节数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>帧头</td>
+<td>2</td>
+<td>0x55aa</td>
+</tr>
+<tr>
+<td>版本</td>
+<td>1</td>
+<td>0x00</td>
+</tr>
+<tr>
+<td>命令字</td>
+<td>1</td>
+<td>0x0B</td>
+</tr>
+<tr>
+<td>数据长度</td>
+<td>2</td>
+<td>1 + ２ + N</td>
+</tr>
+<tr>
+<td>序号</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>数据</td>
+<td>2</td>
+<td><a href="#kiot-action-id">动作ID</a></td>
+</tr>
+<tr>
+<td>数据</td>
+<td>N</td>
+<td>动作输出参数</td>
+</tr>
+<tr>
+<td>校验和</td>
+<td>1</td>
+<td>从帧头开始，按字节求和，得出的结果对 256 求余</td>
+</tr>
+</tbody>
+</table>
+<p><strong>模组返回</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>字节数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>帧头</td>
+<td>2</td>
+<td>0x55aa</td>
+</tr>
+<tr>
+<td>版本</td>
+<td>1</td>
+<td>0x00</td>
+</tr>
+<tr>
+<td>命令字</td>
+<td>1</td>
+<td>0x0B</td>
+</tr>
+<tr>
+<td>数据长度</td>
+<td>2</td>
+<td>0x0002</td>
+</tr>
+<tr>
+<td>序号</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>数据</td>
+<td>1</td>
+<td>上报结果：<br />0x00 成功<br />0x01 失败<br />0x04 事件参数错误</td>
+</tr>
+<tr>
+<td>校验和</td>
+<td>1</td>
+<td>从帧头开始，按字节求和，得出的结果对 256 求余</td>
+</tr>
+</tbody>
+</table>
+<p><strong>示例</strong>：</p>
+<pre><code class="language-uart">
+
+# 模组回复应答，接收回应成功。
+55 AA 00 0B 00 02 00 00 0C
+</code></pre>
+<h3 id="0x11">恢复出厂设置 0x11<a class="headerlink" href="#0x11" title="Permanent link">&para;</a></h3>
+<p>恢复出厂设置，这个指令不仅清除 WiFi 网络信息，也清除秘钥等猫眼自身数据。</p>
+<p><strong>MCU 发送</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>字节数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>帧头</td>
+<td>2</td>
+<td>0x55aa</td>
+</tr>
+<tr>
+<td>版本</td>
+<td>1</td>
+<td>0x00</td>
+</tr>
+<tr>
+<td>命令字</td>
+<td>1</td>
+<td>0x11</td>
+</tr>
+<tr>
+<td>数据长度</td>
+<td>2</td>
+<td>0x0001</td>
+</tr>
+<tr>
+<td>序号</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>数据</td>
+<td>0</td>
+<td>无</td>
+</tr>
+<tr>
+<td>校验和</td>
+<td>1</td>
+<td>从帧头开始，按字节求和，得出的结果对 256 求余</td>
+</tr>
+</tbody>
+</table>
+<p><strong>模组返回</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>字节数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>帧头</td>
+<td>2</td>
+<td>0x55aa</td>
+</tr>
+<tr>
+<td>版本</td>
+<td>1</td>
+<td>0x00</td>
+</tr>
+<tr>
+<td>命令字</td>
+<td>1</td>
+<td>0x11</td>
+</tr>
+<tr>
+<td>数据长度</td>
+<td>2</td>
+<td>0x0001</td>
+</tr>
+<tr>
+<td>序号</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>数据</td>
+<td>0</td>
+<td>无</td>
+</tr>
+<tr>
+<td>校验和</td>
+<td>1</td>
+<td>从帧头开始，按字节求和，得出的结果对 256 求余</td>
+</tr>
+</tbody>
+</table>
+<p><strong>示例</strong>：</p>
+<pre><code class="language-uart">55 AA 00 11 00 01 00 11
+
+55 AA 00 11 00 01 00 11
+</code></pre>
+<h3 id="0x16">比对动态密码 0x16<a class="headerlink" href="#0x16" title="Permanent link">&para;</a></h3>
+<p>门锁设备和云端都独立拥有一套完全相同的动态密码生成算法，两者唯一的联系在于 UNIX 时间戳。如果门锁设备和云端的 UNIX 时间戳在有效期内，则认为两者生成的动态密码一致。</p>
+<p><strong>MCU 发送</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>字节数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>帧头</td>
+<td>2</td>
+<td>0x55aa</td>
+</tr>
+<tr>
+<td>版本</td>
+<td>1</td>
+<td>0x00</td>
+</tr>
+<tr>
+<td>命令字</td>
+<td>1</td>
+<td>0x16</td>
+</tr>
+<tr>
+<td>数据长度</td>
+<td>2</td>
+<td>1 + N</td>
+</tr>
+<tr>
+<td>序号</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>数据</td>
+<td>N</td>
+<td>Data[0-3]：时间戳<br />Data[4]：密码长度<br />Data[5~N]：密码（16进制的数字）</td>
+</tr>
+<tr>
+<td>校验和</td>
+<td>1</td>
+<td>从帧头开始，按字节求和，得出的结果对 256 求余</td>
+</tr>
+</tbody>
+</table>
+<p><strong>模组回复</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>字节数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>帧头</td>
+<td>2</td>
+<td>0x55aa</td>
+</tr>
+<tr>
+<td>版本</td>
+<td>1</td>
+<td>0x00</td>
+</tr>
+<tr>
+<td>命令字</td>
+<td>1</td>
+<td>0x16</td>
+</tr>
+<tr>
+<td>数据长度</td>
+<td>2</td>
+<td>0x0002</td>
+</tr>
+<tr>
+<td>序号</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>数据</td>
+<td>1</td>
+<td>时间戳：比对通过<br />0x00000001：比对失败 <br />0x00000002：保留 <br />0x00000003：数据长度错误</td>
+</tr>
+<tr>
+<td>校验和</td>
+<td>1</td>
+<td>从帧头开始，按字节求和，得出的结果对 256 求余</td>
+</tr>
+</tbody>
+</table>
+<p><strong>示例</strong>：</p>
+<pre><code class="language-uart"># MCU 请求比对校验动态密码：480796，时间戳：1787626129
+55 AA 00 16 00 0C 00 6A 8D 02 91 06 04 08 00 07 09 06 D3
+
+# 模组返回比对结果，比对正确。
+55 AA 00 16 00 02 00 6A 8D 02 91 A1
+</code></pre>
+<h2 id="ota">OTA 升级服务<a class="headerlink" href="#ota" title="Permanent link">&para;</a></h2>
+<p>支持以下固件类型的 OTA 升级。</p>
+<p><a id="ota-type-id"></a></p>
+<table>
+<thead>
+<tr>
+<th>固件类型</th>
+<th>固件类型编号</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>WIFI模组</td>
+<td>1</td>
+</tr>
+<tr>
+<td>视频模组</td>
+<td>4</td>
+</tr>
+<tr>
+<td>前锁板</td>
+<td>6</td>
+</tr>
+<tr>
+<td>后锁板</td>
+<td>7</td>
+</tr>
+<tr>
+<td>语音flash</td>
+<td>24</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="language-mermaid">sequenceDiagram
+    participant 锁板
+    participant 通信模块
+
+通信模块-&gt;&gt;锁板: 14 升级通知request
+锁板-&gt;&gt;通信模块: 15 升级通知response
+
+loop 传输数据
+    通信模块-&gt;&gt;锁板: 16 升级包下发
+    锁板-&gt;&gt;通信模块: 17 回复升级包序号，接收下一包
+end
+
+锁板-&gt;&gt;通信模块: 18 升级文件传输结果通知
+通信模块-&gt;&gt;锁板: 19 应答
+
+alt 升级模式为命令模式
+    通信模块-&gt;&gt;锁板: 20 切换镜像request
+    锁板-&gt;&gt;通信模块: 21 切换镜像response
+end
+
+锁板--&gt;&gt;锁板: 22 重启切换至新镜像
+
+锁板-&gt;&gt;通信模块: 23 升级结果通知
+通信模块-&gt;&gt;锁板: 24 应答
+
+锁板-&gt;&gt;通信模块: 25 上报版本号
+</code></pre>
+<h3 id="0xa0">升级通知 0xA0<a class="headerlink" href="#0xa0" title="Permanent link">&para;</a></h3>
+<p>当收到升级推送时，模组会将升级固件包的信息给 MCU（主要包含文件大小），若 MCU 已准备好了接收升级包了，就回复允许升级，将开始升级流程。</p>
+<p><strong>模组发送</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>字节数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>帧头</td>
+<td>2</td>
+<td>0x55aa</td>
+</tr>
+<tr>
+<td>版本</td>
+<td>1</td>
+<td>0x00</td>
+</tr>
+<tr>
+<td>命令字</td>
+<td>1</td>
+<td>0xA1</td>
+</tr>
+<tr>
+<td>数据长度</td>
+<td>2</td>
+<td>0x0025</td>
+</tr>
+<tr>
+<td>序号</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>数据</td>
+<td>4</td>
+<td>Data[0]：     <a href="#ota-type-id">固件类型编号</a><br />Data[1~4]： 固件包大小（大端），4 字节<br />Data[5-36]：固件 MD5 校验值，32 字节</td>
+</tr>
+<tr>
+<td>校验和</td>
+<td>1</td>
+<td>从帧头开始，按字节求和，得出的结果对 256 求余</td>
+</tr>
+</tbody>
+</table>
+<p><strong>MCU 返回</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>字节数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>帧头</td>
+<td>2</td>
+<td>0x55aa</td>
+</tr>
+<tr>
+<td>版本</td>
+<td>1</td>
+<td>0x00</td>
+</tr>
+<tr>
+<td>命令字</td>
+<td>1</td>
+<td>0xA1</td>
+</tr>
+<tr>
+<td>数据长度</td>
+<td>2</td>
+<td>0x0002</td>
+</tr>
+<tr>
+<td>序号</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>数据</td>
+<td>1</td>
+<td>0x00：允许升级<br />0x01：拒绝升级</td>
+</tr>
+<tr>
+<td>校验和</td>
+<td>1</td>
+<td>从帧头开始，按字节求和，得出的结果对 256 求余</td>
+</tr>
+</tbody>
+</table>
+<p><strong>示例</strong>：</p>
+<pre><code class="language-uart"># 模组发送升级前锁固件大小（固件包长度 26624 Bytes）。
+55 AA 00 A0 00 26 00 06 00 00 68 00 01 02 03 04 ...
+
+# MCU 确认包回复
+55 AA 00 A0 00 02 00 00 A1
+</code></pre>
+<h3 id="0xa1">升级数据传输 0xA1<a class="headerlink" href="#0xa1" title="Permanent link">&para;</a></h3>
+<ul>
+<li>升级包传输数据格式：文件偏移量 + 包数据。</li>
+<li>升级数据包不做加密，明文传输的。</li>
+<li>MCU 每收到1包都要回复，重发3次后若超时 8s 还没有回应，则会终止升级流程。</li>
+<li>模组收到 MCU 的回复后，序号要正确，则会触发下一包的发送。</li>
+</ul>
+<p><strong>模组发送</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>字节数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>帧头</td>
+<td>2</td>
+<td>0x55aa</td>
+</tr>
+<tr>
+<td>版本</td>
+<td>1</td>
+<td>0x00</td>
+</tr>
+<tr>
+<td>命令字</td>
+<td>1</td>
+<td>0xA2</td>
+</tr>
+<tr>
+<td>数据长度</td>
+<td>2</td>
+<td>0x0005 + N</td>
+</tr>
+<tr>
+<td>包序号</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>数据</td>
+<td>4+N</td>
+<td>Data[0~3]：固定为文件偏移<br />Data[4~n]：升级数据</td>
+</tr>
+<tr>
+<td>校验和</td>
+<td>1</td>
+<td>从帧头开始，按字节求和，得出的结果对 256 求余</td>
+</tr>
+</tbody>
+</table>
+<p><strong>MCU 回复</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>字节数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>帧头</td>
+<td>2</td>
+<td>0x55aa</td>
+</tr>
+<tr>
+<td>版本</td>
+<td>1</td>
+<td>0x00</td>
+</tr>
+<tr>
+<td>命令字</td>
+<td>1</td>
+<td>0xA2</td>
+</tr>
+<tr>
+<td>数据长度</td>
+<td>2</td>
+<td>0x0001</td>
+</tr>
+<tr>
+<td>包序号</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>数据</td>
+<td>0</td>
+<td>无</td>
+</tr>
+<tr>
+<td>校验和</td>
+<td>1</td>
+<td>从帧头开始，按字节求和，得出的结果对 256 求余</td>
+</tr>
+</tbody>
+</table>
+<p><strong>示例</strong>：</p>
+<pre><code class="language-uart"># 模组发送文件数据
+# 第一包数据，包偏移为 0x00000000，分包升级数据长度为 1024。
+55 AA 00 A1 0405 00 00000000 XX…XX XX
+
+# MCU 回应包序号，准备接收下一包
+55 AA 00 A1 00 01 00
+
+# 第二包数据，包偏移为 0x00000400，分包升级数据长度为 1024。
+55 AA 00 A1 0405 01 00000400 XX…XX XX
+55 AA 00 A1 00 01 01
+
+# 最后一包，包偏移为 0x00000800，分包升级数据长度为 512（传输完成）。
+55 AA 00 A1 0205 02 00000800 XX…XX XX
+55 AA 00 A1 00 01 02
+</code></pre>
+<h3 id="0xa2">升级状态反馈 0xA2<a class="headerlink" href="#0xa2" title="Permanent link">&para;</a></h3>
+<p><strong>MCU 发送</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>字节数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>帧头</td>
+<td>2</td>
+<td>0x55aa</td>
+</tr>
+<tr>
+<td>版本</td>
+<td>1</td>
+<td>0x00</td>
+</tr>
+<tr>
+<td>命令字</td>
+<td>1</td>
+<td>0xA2</td>
+</tr>
+<tr>
+<td>数据长度</td>
+<td>2</td>
+<td>0x0002</td>
+</tr>
+<tr>
+<td>序号</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>数据</td>
+<td>1</td>
+<td>0x00：MCU 升级成功<br />0x01：MCU 升级失败<br />0x02：文件接收完成</td>
+</tr>
+<tr>
+<td>校验和</td>
+<td>1</td>
+<td>从帧头开始，按字节求和，得出的结果对 256 求余</td>
+</tr>
+</tbody>
+</table>
+<p><strong>模组回复</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>字节数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>帧头</td>
+<td>2</td>
+<td>0x55aa</td>
+</tr>
+<tr>
+<td>版本</td>
+<td>1</td>
+<td>0x00</td>
+</tr>
+<tr>
+<td>命令字</td>
+<td>1</td>
+<td>0xA2</td>
+</tr>
+<tr>
+<td>数据长度</td>
+<td>2</td>
+<td>0x0001</td>
+</tr>
+<tr>
+<td>序号</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>数据</td>
+<td>0</td>
+<td>无</td>
+</tr>
+<tr>
+<td>校验和</td>
+<td>1</td>
+<td>从帧头开始，按字节求和，得出的结果对 256 求余</td>
+</tr>
+</tbody>
+</table>
+<p><strong>示例</strong>：</p>
+<pre><code class="language-uart"># 文件接收完成。
+55 AA 00 A2 00 02 F0 02
+
+# 升级完成。
+55 AA 00 A2 00 02 00 00
+</code></pre>
+<h3 id="0xa3">升级状态通知 0xA3<a class="headerlink" href="#0xa3" title="Permanent link">&para;</a></h3>
+<p><strong>猫眼发送</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>字节数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>帧头</td>
+<td>2</td>
+<td>0x55aa</td>
+</tr>
+<tr>
+<td>版本</td>
+<td>1</td>
+<td>0x00</td>
+</tr>
+<tr>
+<td>命令字</td>
+<td>1</td>
+<td>0xA3</td>
+</tr>
+<tr>
+<td>数据长度</td>
+<td>2</td>
+<td>0x0002</td>
+</tr>
+<tr>
+<td>序号</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>数据</td>
+<td>1</td>
+<td>0x01：启动失败<br />0x02：没收到应答包提醒<br />0x03：文件发送结束<br />0x04：超时，升级服务终止<br />0x05：文件下载失败</td>
+</tr>
+<tr>
+<td>校验和</td>
+<td>1</td>
+<td>从帧头开始，按字节求和，得出的结果对 256 求余</td>
+</tr>
+</tbody>
+</table>
+<p><strong>MCU 回复</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>字节数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>帧头</td>
+<td>2</td>
+<td>0x55aa</td>
+</tr>
+<tr>
+<td>版本</td>
+<td>1</td>
+<td>0x00</td>
+</tr>
+<tr>
+<td>命令字</td>
+<td>1</td>
+<td>0xA2</td>
+</tr>
+<tr>
+<td>数据长度</td>
+<td>2</td>
+<td>0x0001</td>
+</tr>
+<tr>
+<td>序号</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>数据</td>
+<td>0</td>
+<td>无</td>
+</tr>
+<tr>
+<td>校验和</td>
+<td>1</td>
+<td>从帧头开始，按字节求和，得出的结果对 256 求余</td>
+</tr>
+</tbody>
+</table>
+<p><strong>示例</strong>：</p>
+<pre><code class="language-uart"># 文件发送完毕。
+55 AA 00 A3 00 02 F0 03
+</code></pre>
+<h2 id="_4">调试功能<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<h3 id="0xd0">猫眼版本号 0xD0<a class="headerlink" href="#0xd0" title="Permanent link">&para;</a></h3>
+<p><strong>MCU 发送</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>字节数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>帧头</td>
+<td>2</td>
+<td>0x55aa</td>
+</tr>
+<tr>
+<td>版本</td>
+<td>1</td>
+<td>0x00</td>
+</tr>
+<tr>
+<td>命令字</td>
+<td>1</td>
+<td>0xD0</td>
+</tr>
+<tr>
+<td>数据长度</td>
+<td>2</td>
+<td>0x0001</td>
+</tr>
+<tr>
+<td>序号</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>数据</td>
+<td>0</td>
+<td>无</td>
+</tr>
+<tr>
+<td>校验和</td>
+<td>1</td>
+<td>从帧头开始，按字节求和，得出的结果对 256 求余</td>
+</tr>
+</tbody>
+</table>
+<p><strong>模组返回</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>字节数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>帧头</td>
+<td>2</td>
+<td>0x55aa</td>
+</tr>
+<tr>
+<td>版本</td>
+<td>1</td>
+<td>0x00</td>
+</tr>
+<tr>
+<td>命令字</td>
+<td>1</td>
+<td>0xD0</td>
+</tr>
+<tr>
+<td>数据长度</td>
+<td>2</td>
+<td>0x0007</td>
+</tr>
+<tr>
+<td>序号</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>数据</td>
+<td>6</td>
+<td>byte[0~1] 主版本号<br />byte[2~3] 次版本号<br />byte[4~5] 软件版本号</td>
+</tr>
+<tr>
+<td>校验和</td>
+<td>1</td>
+<td>从帧头开始，按字节求和，得出的结果对 256 求余</td>
+</tr>
+</tbody>
+</table>
+<p><strong>示例</strong>：</p>
+<pre><code class="language-uart"># MCU 查询猫眼版本号。
+55 AA 00 D0 00 01 00 D0
+
+# 模组返回版本 V1.02.003（主版本 1，次版本 2，软件版本 3）。
+55 AA 00 D0 00 07 00 00 01 00 02 00 03 DC
+</code></pre>
+<h3 id="0xd1">电量读取 0xD1<a class="headerlink" href="#0xd1" title="Permanent link">&para;</a></h3>
+<p><strong>MCU 上报</strong></p>
+<table>
+<thead>
+<tr>
+<th>帧头版本</th>
+<th>命令字</th>
+<th>数据长度</th>
+<th>序号</th>
+<th>数据内容</th>
+<th>校验</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0x55AA00</td>
+<td>0xD1</td>
+<td>0x0002</td>
+<td>0x00</td>
+<td>电量(1字节)</td>
+<td>校验和</td>
+</tr>
+</tbody>
+</table>
+<p><strong>模块发送</strong></p>
+<table>
+<thead>
+<tr>
+<th>帧头版本</th>
+<th>命令字</th>
+<th>数据长度</th>
+<th>序号</th>
+<th>数据内容</th>
+<th>校验</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0x55AA00</td>
+<td>0xD1</td>
+<td>0x0005</td>
+<td>0x00</td>
+<td>byte[0] 电量百分比<br />byte[1~3] 电压毫伏值</td>
+<td>校验和</td>
+</tr>
+</tbody>
+</table>
+<p><strong>示例</strong>：</p>
+<pre><code class="language-uart">55 AA 00 D1 00 02 00 00 D2
+
+# 电量100%, 8226 mV
+55 AA 00 D1 00 05 00 64 00 20 22 7B
+</code></pre>
+<h3 id="0xd2">屏幕显示 0xD2<a class="headerlink" href="#0xd2" title="Permanent link">&para;</a></h3>
+<p>用于锁控 MCU 控制猫眼设备本地拉流，打开镜头并点亮屏幕显示视频流。</p>
+<p><strong>MCU 发送</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>字节数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>帧头</td>
+<td>2</td>
+<td>0x55aa</td>
+</tr>
+<tr>
+<td>版本</td>
+<td>1</td>
+<td>0x00</td>
+</tr>
+<tr>
+<td>命令字</td>
+<td>1</td>
+<td>0xD2</td>
+</tr>
+<tr>
+<td>数据长度</td>
+<td>2</td>
+<td>0x0002</td>
+</tr>
+<tr>
+<td>序号</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>数据</td>
+<td>1</td>
+<td>0x00：关闭<br />0x01：开启</td>
+</tr>
+<tr>
+<td>校验和</td>
+<td>1</td>
+<td>从帧头开始，按字节求和，得出的结果对 256 求余</td>
+</tr>
+</tbody>
+</table>
+<p><strong>模组返回</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>字节数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>帧头</td>
+<td>2</td>
+<td>0x55aa</td>
+</tr>
+<tr>
+<td>版本</td>
+<td>1</td>
+<td>0x00</td>
+</tr>
+<tr>
+<td>命令字</td>
+<td>1</td>
+<td>0xD2</td>
+</tr>
+<tr>
+<td>数据长度</td>
+<td>2</td>
+<td>0x0002</td>
+</tr>
+<tr>
+<td>序号</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>数据</td>
+<td>1</td>
+<td>0x00：操作成功<br />0x01：操作失败</td>
+</tr>
+<tr>
+<td>校验和</td>
+<td>1</td>
+<td>从帧头开始，按字节求和，得出的结果对 256 求余</td>
+</tr>
+</tbody>
+</table>
+<p><strong>示例</strong>：</p>
+<pre><code class="language-uart"># MCU 开启屏幕显示。
+55 AA 00 D2 00 02 00 01 D4
+
+# 模组返回操作成功。
+55 AA 00 D2 00 02 00 00 D3
+</code></pre>
+<pre><code class="language-uart"># MCU 关闭屏幕显示。
+55 AA 00 D2 00 02 00 00 D3
+</code></pre>
+<h3 id="0xd3">语音控制 0xD3<a class="headerlink" href="#0xd3" title="Permanent link">&para;</a></h3>
+<p><strong>MCU 发送</strong></p>
+<table>
+<thead>
+<tr>
+<th>帧头版本</th>
+<th>命令字</th>
+<th>数据长度</th>
+<th>序号</th>
+<th>语音</th>
+<th>校验</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0x55AA00</td>
+<td>0xD3</td>
+<td>0x0006</td>
+<td>0xXX</td>
+<td>0xB0: 门铃音</td>
+<td>校验和</td>
+</tr>
+</tbody>
+</table>
+<p><strong>猫眼回复</strong></p>
+<table>
+<thead>
+<tr>
+<th>帧头版本</th>
+<th>命令字</th>
+<th>数据长度</th>
+<th>序号</th>
+<th>数据内容</th>
+<th>校验</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0x55AA00</td>
+<td>0xD3</td>
+<td>0x0006</td>
+<td>0xXX</td>
+<td>0: 成功<br />1: 失败</td>
+<td>校验和</td>
+</tr>
+</tbody>
+</table>
+<p><strong>示例</strong>：</p>
+<pre><code class="language-uart">55 AA 00 D3 00 02 00 B0 84
+
+55 AA 00 D3 00 02 00 00 D4
+</code></pre>
+<h3 id="0xd4">查询信号强度 0xD4<a class="headerlink" href="#0xd4" title="Permanent link">&para;</a></h3>
+<ul>
+<li>使用场景：需要得知当前 Wi-Fi 设备与路由器热点间的信号强度怎么样，可通过该指令查询。</li>
+<li>必须在设备的联网状态为 <strong>已成功连接上路由器</strong> 以后使用，否则发送此命令将返回失败的结果。</li>
+</ul>
+<p><strong>MCU 发送</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>字节数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>帧头</td>
+<td>2</td>
+<td>0x55aa</td>
+</tr>
+<tr>
+<td>版本</td>
+<td>1</td>
+<td>0x00</td>
+</tr>
+<tr>
+<td>命令字</td>
+<td>1</td>
+<td>0xD4</td>
+</tr>
+<tr>
+<td>数据长度</td>
+<td>2</td>
+<td>0x0001</td>
+</tr>
+<tr>
+<td>序号</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>数据</td>
+<td>0</td>
+<td>无</td>
+</tr>
+<tr>
+<td>校验和</td>
+<td>1</td>
+<td>从帧头开始，按字节求和，得出的结果对 256 求余</td>
+</tr>
+</tbody>
+</table>
+<p><strong>模组返回</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>字节数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>帧头</td>
+<td>2</td>
+<td>0x55aa</td>
+</tr>
+<tr>
+<td>版本</td>
+<td>1</td>
+<td>0x00</td>
+</tr>
+<tr>
+<td>命令字</td>
+<td>1</td>
+<td>0xD4</td>
+</tr>
+<tr>
+<td>数据长度</td>
+<td>2</td>
+<td>0x0003</td>
+</tr>
+<tr>
+<td>序号</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>数据</td>
+<td>2</td>
+<td>Data[0]：表示查询结果<br />    0x00：失败<br />    0x01：成功<br />Data[1]：表示具体结果<br />    成功时：表示信号强度百分比，范围 0~100（0-最差，100-最强）<br />    失败时：0 表示设备未连接上路由</td>
+</tr>
+<tr>
+<td>校验和</td>
+<td>1</td>
+<td>从帧头开始，按字节求和，得出的结果对 256 求余</td>
+</tr>
+</tbody>
+</table>
+<p><strong>示例</strong>：</p>
+<pre><code class="language-uart"># MCU 查询连接路由器的信号强度。
+55 AA 00 D4 00 01 00 D4
+
+# 模组返回当前信号强度值百分比为 80。
+55 AA 00 D4 00 03 00 01 50 27
+</code></pre>
+<h3 id="0xd6">获取推流状态 0xD6<a class="headerlink" href="#0xd6" title="Permanent link">&para;</a></h3>
+<p>在主动查看视频阶段，当前模组不会主动唤醒锁板并同步状态。对于一些特殊应用场景上，可能会出现逻辑上的冲突。例如，锁板雷达被触发，是打开人脸模组红外准备人脸识别，导致看到红色视频流。</p>
+<p>为解决锁板需获取特定状态来做逻辑判定问题，您可以使用下述协议获取模组当前推流状态。</p>
+<p><strong>MCU 发送</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>字节数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>帧头</td>
+<td>2</td>
+<td>0x55aa</td>
+</tr>
+<tr>
+<td>版本</td>
+<td>1</td>
+<td>0x00</td>
+</tr>
+<tr>
+<td>命令字</td>
+<td>1</td>
+<td>0x6B</td>
+</tr>
+<tr>
+<td>数据长度</td>
+<td>2</td>
+<td>0x0001</td>
+</tr>
+<tr>
+<td>序号</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>数据</td>
+<td>０</td>
+<td></td>
+</tr>
+<tr>
+<td>校验和</td>
+<td>1</td>
+<td>从帧头开始，按字节求和，得出的结果对 256 求余</td>
+</tr>
+</tbody>
+</table>
+<p><strong>模组回复</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>字节数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>帧头</td>
+<td>2</td>
+<td>0x55aa</td>
+</tr>
+<tr>
+<td>版本</td>
+<td>1</td>
+<td>0x00</td>
+</tr>
+<tr>
+<td>命令字</td>
+<td>1</td>
+<td>0x6B</td>
+</tr>
+<tr>
+<td>数据长度</td>
+<td>2</td>
+<td>0x0002</td>
+</tr>
+<tr>
+<td>序号</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>数据</td>
+<td>１</td>
+<td>0x00：未处于<br />0x01：正处于</td>
+</tr>
+<tr>
+<td>校验和</td>
+<td>1</td>
+<td>从帧头开始，按字节求和，得出的结果对 256 求余</td>
+</tr>
+</tbody>
+</table>
+<h3 id="0xda">获取设备联网状态 0xDA<a class="headerlink" href="#0xda" title="Permanent link">&para;</a></h3>
+<p>MCU 可根据此条命令获取 Wi-Fi 状态，例如 MCU 重上电或软件重启，可主动向模组查询当前联网状态。</p>
+<p><strong>MCU 发送</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>字节数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>帧头</td>
+<td>2</td>
+<td>0x55aa</td>
+</tr>
+<tr>
+<td>版本</td>
+<td>1</td>
+<td>0x00</td>
+</tr>
+<tr>
+<td>命令字</td>
+<td>1</td>
+<td>0xDA</td>
+</tr>
+<tr>
+<td>数据长度</td>
+<td>2</td>
+<td>0x0001</td>
+</tr>
+<tr>
+<td>序号</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>数据</td>
+<td>0</td>
+<td>无</td>
+</tr>
+<tr>
+<td>校验和</td>
+<td>1</td>
+<td>从帧头开始，按字节求和，得出的结果对 256 求余</td>
+</tr>
+</tbody>
+</table>
+<p><strong>模组返回</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>字节数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>帧头</td>
+<td>2</td>
+<td>0x55aa</td>
+</tr>
+<tr>
+<td>版本</td>
+<td>1</td>
+<td>0x00</td>
+</tr>
+<tr>
+<td>命令字</td>
+<td>1</td>
+<td>0xDA</td>
+</tr>
+<tr>
+<td>数据长度</td>
+<td>2</td>
+<td>0x0002</td>
+</tr>
+<tr>
+<td>序号</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>数据</td>
+<td>1</td>
+<td>Data[0]：详见<a href="#Devlinkstatus">设备联网状态表</a></td>
+</tr>
+<tr>
+<td>校验和</td>
+<td>1</td>
+<td>从帧头开始，按字节求和，得出的结果对 256 求余</td>
+</tr>
+</tbody>
+</table>
+<p><strong>示例</strong>：</p>
+<pre><code class="language-uart"># MCU 主动查询 Wi-Fi 联网状态。
+55 AA 00 DA 00 01 00 DA
+
+# 模组返回查询结果为 0x04-已连上路由器且连接到云端，同时模组为已激活状态。
+55 AA 00 DA 00 02 00 04 E0
+</code></pre>
+<h3 id="0xdb">日志等级 0xDB<a class="headerlink" href="#0xdb" title="Permanent link">&para;</a></h3>
+<p>为了方便后续排查测试过程中出现的问题，为了实时调整日志等级，方便测试时改变日志输出等级。</p>
+<p><strong>MCU 发送</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>字节数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>帧头</td>
+<td>2</td>
+<td>0x55aa</td>
+</tr>
+<tr>
+<td>版本</td>
+<td>1</td>
+<td>0x00</td>
+</tr>
+<tr>
+<td>命令字</td>
+<td>1</td>
+<td>0xDB</td>
+</tr>
+<tr>
+<td>数据长度</td>
+<td>2</td>
+<td>0x0003</td>
+</tr>
+<tr>
+<td>序号</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>数据</td>
+<td>1</td>
+<td>0x00：关闭日志 <br />0x01：err 级别 <br />0x02：warning 级别 <br />0x03：info 级别 <br />0x04：debug 级别 <br />0x05：trace 级别<br /></td>
+</tr>
+<tr>
+<td>校验和</td>
+<td>1</td>
+<td>从帧头开始，按字节求和，得出的结果对 256 求余</td>
+</tr>
+</tbody>
+</table>
+<p><strong>模组返回</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>字节数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>帧头</td>
+<td>2</td>
+<td>0x55aa</td>
+</tr>
+<tr>
+<td>版本</td>
+<td>1</td>
+<td>0x00</td>
+</tr>
+<tr>
+<td>命令字</td>
+<td>1</td>
+<td>0xDB</td>
+</tr>
+<tr>
+<td>数据长度</td>
+<td>2</td>
+<td>0x0001</td>
+</tr>
+<tr>
+<td>序号</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>数据</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>校验和</td>
+<td>1</td>
+<td>从帧头开始，按字节求和，得出的结果对 256 求余</td>
+</tr>
+</tbody>
+</table>
+<p><strong>示例</strong>：</p>
+<pre><code class="language-uart"># 调整日志等级为 info 级别。
+55 AA 00 DB 00 03 00 03 B8
+
+# 模组回复设置成功。
+55 AA 00 DB 00 01 00 B3
+</code></pre>
+<h3 id="wifi-mac-0xdd">获取 WiFi MAC地址 0xDD<a class="headerlink" href="#wifi-mac-0xdd" title="Permanent link">&para;</a></h3>
+<p>如果获取失败，返回的 MAC 全是0。</p>
+<p><strong>MCU 发送</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>字节数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>帧头</td>
+<td>2</td>
+<td>0x55aa</td>
+</tr>
+<tr>
+<td>版本</td>
+<td>1</td>
+<td>0x00</td>
+</tr>
+<tr>
+<td>命令字</td>
+<td>1</td>
+<td>0xDD</td>
+</tr>
+<tr>
+<td>数据长度</td>
+<td>2</td>
+<td>0x0001</td>
+</tr>
+<tr>
+<td>序号</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>数据</td>
+<td>0</td>
+<td>无</td>
+</tr>
+<tr>
+<td>校验和</td>
+<td>1</td>
+<td>从帧头开始，按字节求和，得出的结果对 256 求余</td>
+</tr>
+</tbody>
+</table>
+<p><strong>模组返回</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>字节数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>帧头</td>
+<td>2</td>
+<td>0x55aa</td>
+</tr>
+<tr>
+<td>版本</td>
+<td>1</td>
+<td>0x00</td>
+</tr>
+<tr>
+<td>命令字</td>
+<td>1</td>
+<td>0xDD</td>
+</tr>
+<tr>
+<td>数据长度</td>
+<td>2</td>
+<td>0x0007</td>
+</tr>
+<tr>
+<td>序号</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>数据</td>
+<td>6</td>
+<td>MAC地址</td>
+</tr>
+<tr>
+<td>校验和</td>
+<td>1</td>
+<td>从帧头开始，按字节求和，得出的结果对 256 求余</td>
+</tr>
+</tbody>
+</table>
+<p><strong>示例</strong>：</p>
+<pre><code class="language-c">55 AA 00 DD 00 01 00 DD
+
+# mac 地址（CA 0A 00 00 BE 00）
+55 AA 00 DD 00 07 00 CA 0A 00 00 BE 00 75
+</code></pre>
+<h3 id="mac-0xde">获取蓝牙MAC地址 0xDE<a class="headerlink" href="#mac-0xde" title="Permanent link">&para;</a></h3>
+<p>如果获取失败，返回的 MAC 全是0。</p>
+<p><strong>MCU 发送</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>字节数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>帧头</td>
+<td>2</td>
+<td>0x55aa</td>
+</tr>
+<tr>
+<td>版本</td>
+<td>1</td>
+<td>0x00</td>
+</tr>
+<tr>
+<td>命令字</td>
+<td>1</td>
+<td>0xDE</td>
+</tr>
+<tr>
+<td>数据长度</td>
+<td>2</td>
+<td>0x0001</td>
+</tr>
+<tr>
+<td>序号</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>数据</td>
+<td>0</td>
+<td>无</td>
+</tr>
+<tr>
+<td>校验和</td>
+<td>1</td>
+<td>从帧头开始，按字节求和，得出的结果对 256 求余</td>
+</tr>
+</tbody>
+</table>
+<p><strong>模组返回</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>字节数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>帧头</td>
+<td>2</td>
+<td>0x55aa</td>
+</tr>
+<tr>
+<td>版本</td>
+<td>1</td>
+<td>0x00</td>
+</tr>
+<tr>
+<td>命令字</td>
+<td>1</td>
+<td>0xDE</td>
+</tr>
+<tr>
+<td>数据长度</td>
+<td>2</td>
+<td>0x0007</td>
+</tr>
+<tr>
+<td>序号</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>数据</td>
+<td>6</td>
+<td>MAC地址</td>
+</tr>
+<tr>
+<td>校验和</td>
+<td>1</td>
+<td>从帧头开始，按字节求和，得出的结果对 256 求余</td>
+</tr>
+</tbody>
+</table>
+<p><strong>示例</strong>：</p>
+<pre><code class="language-c">55 AA 00 DE 00 01 00 DE
+
+# mac 地址（CA 0A 00 00 BE 01）
+55 AA 00 DE 00 07 00 CA 0A 00 00 BE 01 77
+</code></pre>
+<h2 id="_5">产测服务<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<h3 id="0xf0">猫眼产测 0xF0<a class="headerlink" href="#0xf0" title="Permanent link">&para;</a></h3>
+<ul>
+<li>指定的 SSID 固定为：<code>tuya_mdev_test</code>，密码为：<code>test1234</code>，要求路由器为 <strong>2.4G 信号</strong>。<br /></li>
+</ul>
+<p><strong>MCU 发送</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>字节数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>帧头</td>
+<td>2</td>
+<td>0x55aa</td>
+</tr>
+<tr>
+<td>版本</td>
+<td>1</td>
+<td>0x00</td>
+</tr>
+<tr>
+<td>命令字</td>
+<td>1</td>
+<td>0xF0</td>
+</tr>
+<tr>
+<td>数据长度</td>
+<td>2</td>
+<td>0x0003</td>
+</tr>
+<tr>
+<td>序号</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>数据</td>
+<td>2</td>
+<td>Data[0]：产测功能点 <ul><li> 0x00：扫描指定路由器 </li><li> 0x01：连接指定路由器 </li><li> 0x02：猫眼硬件测试 </li><li> 0x03：猫眼音频对讲 </li></ul></td>
+</tr>
+<tr>
+<td>校验和</td>
+<td>1</td>
+<td>从帧头开始，按字节求和，得出的结果对 256 求余</td>
+</tr>
+</tbody>
+</table>
+<p><strong>模组返回</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>字节数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>帧头</td>
+<td>2</td>
+<td>0x55aa</td>
+</tr>
+<tr>
+<td>版本</td>
+<td>1</td>
+<td>0x00</td>
+</tr>
+<tr>
+<td>命令字</td>
+<td>1</td>
+<td>0xF0</td>
+</tr>
+<tr>
+<td>数据长度</td>
+<td>2</td>
+<td>0x0003</td>
+</tr>
+<tr>
+<td>序号</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>数据</td>
+<td>2</td>
+<td>Data[0]：产测结果 <br /> 0x00：成功<br /> 0x01：失败<br /> 0x03：人工检查<br /> 0x04：没有这个测试项<br />Data[1]：具体信息，详见下文信号强度/失败原因/猫眼测试结果</td>
+</tr>
+<tr>
+<td>校验和</td>
+<td>1</td>
+<td>从帧头开始，按字节求和，得出的结果对 256 求余</td>
+</tr>
+</tbody>
+</table>
+<p>具体产测步骤及结果回复：</p>
+<ul>
+<li>
+<p>扫描指定路由器</p>
+</li>
+<li>
+<p>Data[0] = 0x00 时表示扫描成功
+    <br>Data[1]表示扫描到的路由器信号强度百分比（0-100% 对应 -100dB 到 -0 dB）。</p>
+</li>
+<li>
+<p>Data[0] = 0x01 时表示扫描失败
+    <br>Data[1] = 0x00 表示未扫描到指定 SSID
+    <br>Data[1] = 0x01 表示模组未授权</p>
+</li>
+<li>
+<p>连接指定路由器</p>
+</li>
+<li>
+<p>Data[0] = 0x00 时表示连接成功
+    <br>Data[1] = 0x00 默认为 0x00</p>
+</li>
+<li>
+<p>Data[0] = 0x01 时表示连接失败
+    <br>Data[1] = 0x00 默认为 0x00 连接超时
+    <br>Data[1] = 0x01 其他原因失败</p>
+</li>
+<li>
+<p>猫眼硬件测试</p>
+</li>
+<li>
+<p>Data[0] = 0x00 时表示测试成功
+    <br>Data[1] = 0x00 表示猫眼板按键正常
+    <br></p>
+</li>
+<li>
+<p>Data[0] = 0x01 时表示测试失败
+    <br>Data[1] = 0x01 猫眼板按键异常</p>
+</li>
+<li>猫眼音频对讲</li>
+<li>直接返回0x03，要人工判断好坏</li>
+</ul>
+<p><strong>示例</strong>：</p>
+<pre><code class="language-uart"># MCU 发起&quot;扫描指定路由器&quot;（功能点 0x00）。
+55 AA 00 F0 00 03 00 00 00 F2
+
+# 模组返回扫描成功，信号强度 80%
+55 AA 00 F0 00 03 00 00 50 42
+</code></pre>
+<pre><code class="language-uart"># MCU 发起&quot;连接指定路由器&quot;（功能点 0x01）
+55 AA 00 F0 00 03 00 01 00 F3
+
+# 模组返回连接成功。
+55 AA 00 F0 00 03 00 00 00 F2
+</code></pre>
+<h3 id="0xf1">猫眼休眠 0xF1<a class="headerlink" href="#0xf1" title="Permanent link">&para;</a></h3>
+<p>用于锁控 MCU 控制猫眼强制进入休眠，用于功耗测试。</p>
+<p><strong>MCU 发送</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>字节数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>帧头</td>
+<td>2</td>
+<td>0x55aa</td>
+</tr>
+<tr>
+<td>版本</td>
+<td>1</td>
+<td>0x00</td>
+</tr>
+<tr>
+<td>命令字</td>
+<td>1</td>
+<td>0xF1</td>
+</tr>
+<tr>
+<td>数据长度</td>
+<td>2</td>
+<td>1</td>
+</tr>
+<tr>
+<td>序号</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>数据</td>
+<td>0</td>
+<td>无</td>
+</tr>
+<tr>
+<td>校验和</td>
+<td>1</td>
+<td>从帧头开始，按字节求和，得出的结果对 256 求余</td>
+</tr>
+</tbody>
+</table>
+<p><strong>示例</strong>：</p>
+<pre><code class="language-uart"># MCU 控制猫眼强制进入休眠。
+55 AA 00 F1 00 01 00 F1
+</code></pre>
+<h2 id="_6">加密功能<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<h3 id="0xe0">获取秘钥 0xE0<a class="headerlink" href="#0xe0" title="Permanent link">&para;</a></h3>
+<p><strong>MCU 上报</strong></p>
+<table>
+<thead>
+<tr>
+<th>帧头版本</th>
+<th>命令字</th>
+<th>数据长度</th>
+<th>序号</th>
+<th>校验</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0x55AA00</td>
+<td>0xE0</td>
+<td>0x0001</td>
+<td>0xXX</td>
+<td>校验和</td>
+</tr>
+</tbody>
+</table>
+<p><strong>模块发送</strong></p>
+<table>
+<thead>
+<tr>
+<th>帧头版本</th>
+<th>命令字</th>
+<th>数据长度</th>
+<th>序号</th>
+<th>数据内容</th>
+<th>校验</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0x55AA00</td>
+<td>0xE0</td>
+<td>0x0011</td>
+<td>0xXX</td>
+<td>16字节秘钥</td>
+<td>校验和</td>
+</tr>
+</tbody>
+</table>
+<p><strong>示例</strong>：</p>
+<pre><code class="language-uart">55 AA 00 E0 00 01 00 E0
+
+# 16字节秘钥是 2F AE BD 80 40 B6 05 7D F8 6D 13 A3 A3 2E C0 5A
+55 AA 00 E0 00 11 00 2F AE BD 80 40 B6 05 7D F8 6D 13 A3 A3 2E C0 5A 88
+</code></pre>
+<h3 id="0xe1">请求秘钥 0xE1<a class="headerlink" href="#0xe1" title="Permanent link">&para;</a></h3>
+<p>反向获取秘钥，当猫眼发现自己的秘钥异常时，向前锁请求秘钥，前锁将自己保存的秘钥回复。</p>
+<p><strong>猫眼发送</strong></p>
+<table>
+<thead>
+<tr>
+<th>帧头版本</th>
+<th>命令字</th>
+<th>数据长度</th>
+<th>序号</th>
+<th>校验</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0x55AA00</td>
+<td>0xE1</td>
+<td>0x0001</td>
+<td>0xXX</td>
+<td>校验和</td>
+</tr>
+</tbody>
+</table>
+<p><strong>MCU 回复</strong></p>
+<table>
+<thead>
+<tr>
+<th>帧头版本</th>
+<th>命令字</th>
+<th>数据长度</th>
+<th>序号</th>
+<th>数据内容</th>
+<th>校验</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0x55AA00</td>
+<td>0xE1</td>
+<td>0x0011</td>
+<td>0xXX</td>
+<td>16字节秘钥</td>
+<td>校验和</td>
+</tr>
+</tbody>
+</table>
+<p><strong>示例</strong>：</p>
+<pre><code class="language-uart">55 AA 00 E1 00 01 00 E1
+
+# 16字节秘钥是 2F AE BD 80 40 B6 05 7D F8 6D 13 A3 A3 2E C0 5A
+55 AA 00 E1 00 11 00 2F AE BD 80 40 B6 05 7D F8 6D 13 A3 A3 2E C0 5A 89
+</code></pre>
+<h3 id="0xe2">同步秘钥 0xE2<a class="headerlink" href="#0xe2" title="Permanent link">&para;</a></h3>
+<p>这条指令是加密的，数据长度和校验之间的数据都是密文。</p>
+<p>前锁将约定的16长度字符串加密作为数据发送，猫眼解密后发现字符串一致，就认为前锁秘钥正确，猫眼立即进入加密状态，也将字符串用秘钥加密回复。前锁收到后解密，比对字符串一样，就同步完成，反之重复获取秘钥和同步秘钥流程。</p>
+<p><strong>MCU 上报</strong></p>
+<table>
+<thead>
+<tr>
+<th>帧头版本</th>
+<th>命令字</th>
+<th>数据长度</th>
+<th>序号</th>
+<th>数据内容</th>
+<th>校验</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0x55AA00</td>
+<td>0xE2</td>
+<td>0x0011</td>
+<td>0xXX</td>
+<td>16长度字符串</td>
+<td>校验和</td>
+</tr>
+</tbody>
+</table>
+<p><strong>模块发送</strong></p>
+<table>
+<thead>
+<tr>
+<th>帧头版本</th>
+<th>命令字</th>
+<th>数据长度</th>
+<th>序号</th>
+<th>数据内容</th>
+<th>校验</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0x55AA00</td>
+<td>0xE2</td>
+<td>0x0011</td>
+<td>0xXX</td>
+<td>16长度字符串</td>
+<td>校验和</td>
+</tr>
+</tbody>
+</table>
+<p><strong>示例</strong>：</p>
+<pre><code class="language-uart">
+
+</code></pre>
+<h3 id="0xe3">清除秘钥 0xE3<a class="headerlink" href="#0xe3" title="Permanent link">&para;</a></h3>
+<p><strong>MCU 上报</strong></p>
+<table>
+<thead>
+<tr>
+<th>帧头版本</th>
+<th>命令字</th>
+<th>数据长度</th>
+<th>序号</th>
+<th>校验</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0x55AA00</td>
+<td>0xE3</td>
+<td>0x0001</td>
+<td>0xXX</td>
+<td>校验和</td>
+</tr>
+</tbody>
+</table>
+<p><strong>模块发送</strong></p>
+<table>
+<thead>
+<tr>
+<th>帧头版本</th>
+<th>命令字</th>
+<th>数据长度</th>
+<th>序号</th>
+<th>数据内容</th>
+<th>校验</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0x55AA00</td>
+<td>0xE3</td>
+<td>0x0002</td>
+<td>0xXX</td>
+<td>0: 开始<br />1: 失败<br />2: 完成</td>
+<td>校验和</td>
+</tr>
+</tbody>
+</table>
+<p><strong>示例</strong>：</p>
+<pre><code class="language-uart">55 AA 00 E3 00 01 00 E3
+
+55 AA 00 E3 00 02 00 00 E4
+</code></pre>
+<h2 id="_7">门锁控制<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<h3 id="0xc0">语音通知 0xC0<a class="headerlink" href="#0xc0" title="Permanent link">&para;</a></h3>
+<p>猫眼下发语音通知，让前锁播放提示音。</p>
+<p><strong>猫眼发送</strong></p>
+<table>
+<thead>
+<tr>
+<th>帧头版本</th>
+<th>命令字</th>
+<th>数据长度</th>
+<th>序号</th>
+<th>语音</th>
+<th>校验</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0x55AA00</td>
+<td>0xC0</td>
+<td>0x0002</td>
+<td>0xXX</td>
+<td><a href="#lock-voice-id">语音编号</a></td>
+<td>校验和</td>
+</tr>
+</tbody>
+</table>
+<p><strong>MCU 回复</strong></p>
+<table>
+<thead>
+<tr>
+<th>帧头版本</th>
+<th>命令字</th>
+<th>数据长度</th>
+<th>序号</th>
+<th>数据内容</th>
+<th>校验</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0x55AA00</td>
+<td>0xC0</td>
+<td>0x0006</td>
+<td>0xXX</td>
+<td>0: 成功<br />1: 失败</td>
+<td>校验和</td>
+</tr>
+</tbody>
+</table>
+<p><a id="lock-voice-id"></a></p>
+<p><strong>语音编号</strong></p>
+<pre><code class="language-c">0：设置成功
+1：设置失败
+2：物品请放门口，谢谢
+3：物品请放快递柜，谢谢
+4：主人不在家，请您电话联系他，谢谢
+5：主人已录制视频报警 ，请你马上离开
+6：留言结束
+</code></pre>
+<p><strong>示例</strong>：</p>
+<pre><code class="language-uart">55 AA 00 D3 00 02 00 00 D4
+
+55 AA 00 D3 00 02 00 00 D4
+</code></pre>
+<h2 id="kiot">KIOT 动作定义<a class="headerlink" href="#kiot" title="Permanent link">&para;</a></h2>
+<h3 id="id">动作ID<a class="headerlink" href="#id" title="Permanent link">&para;</a></h3>
+<p><a id="kiot-action-id"></a></p>
+<pre><code class="language-c">0x0102, //读取用户数据(HEX)
+0x0103, //添加数字钥匙
+0x0104, //取消添加数字钥匙
+0x0105, //删除数字钥匙
+0x0107, //添加用户(HEX)
+0x0108, //删除用户
+0x010a, //设置用户(HEX)
+0x010b, //读取用户表的时间戳
+0x010d, //读取历史记录数据
+0x010c, //远程开锁
+0x010e, //子设备绑定
+0x010f, //子设备解绑
+0x0114, //密钥操作通知
+0x0401, //下发云存储临时访问凭证
+0x0402, //下发云存储图片上传地址
+0x0501, //播放快捷回复语音
+0x0502, //个性化语音
+0x0505, //功能介绍语音(首次配网/恢复出厂设置后配网)
+0x0701, //锁显示屏背景图片
+0x0e01, //主题更新动作
+0x0f01, //资源包更新动作（设备上报资源包缺失/版本落后时，下发该动作触发更新）
+0x1001, //天气信息(关联室内开锁事件)
+0x1002, //天气预警信息(关联室内开锁事件)
+0x1101, //当天节日(关联室内开锁事件)
+
+</code></pre>
+<h3 id="_8">读取用户数据<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>数据流向</th>
+<th>动作ID</th>
+<th>参数长度（2字节）</th>
+<th>参数1</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>下发</td>
+<td>0x0102</td>
+<td>1</td>
+<td>用户ID</td>
+</tr>
+<tr>
+<td>上报</td>
+<td>0x0102</td>
+<td>变长（≤160）</td>
+<td><a href="#KIOT_TM_user_raw">用户数据</a></td>
+</tr>
+</tbody>
+</table>
+<p><a id="KIOT_TM_user_raw"></a>
+<strong>用户数据</strong></p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>长度</th>
+<th>描述</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>p_user_id</td>
+<td>1byte</td>
+<td>用户ID</td>
+<td></td>
+</tr>
+<tr>
+<td>p_user_name</td>
+<td>41byte</td>
+<td>用户名称</td>
+<td></td>
+</tr>
+<tr>
+<td>timestamp</td>
+<td>4byte</td>
+<td>用户时间戳</td>
+<td>该用户的最后编辑时间</td>
+</tr>
+<tr>
+<td>p_user_policy</td>
+<td>1byte</td>
+<td>用户策略：永久：0、自定义custom：1</td>
+<td></td>
+</tr>
+<tr>
+<td>p_user_effective_date</td>
+<td>4byte</td>
+<td>生效日期，时间戳</td>
+<td>用户策略为自定义时，后面生效时间字段才有效。</td>
+</tr>
+<tr>
+<td>p_user_expire_date</td>
+<td>4byte</td>
+<td>失效日期，时间戳</td>
+<td>/</td>
+</tr>
+<tr>
+<td>p_user_valid_day</td>
+<td>1byte</td>
+<td>生效天（周日~周六按bit表示，bit0表示周日，bit1~bit6表示周1~周6，对应bit为1表示当天生效，为0表示无效）</td>
+<td>/</td>
+</tr>
+<tr>
+<td>p_user_effective_time</td>
+<td>4byte</td>
+<td>当天的生效时间（0~86400s）</td>
+<td>/</td>
+</tr>
+<tr>
+<td>p_user_expire_time</td>
+<td>4byte</td>
+<td>当天的失效时间（0~86400s）</td>
+<td>/</td>
+</tr>
+<tr>
+<td>keys_num</td>
+<td>1byte</td>
+<td>数字钥匙数量，0~13</td>
+<td>钥匙数量为0时，无后面数字钥匙相关字段。数量有多少，后面就有多少这样的钥匙数据</td>
+</tr>
+<tr>
+<td>p_key_type</td>
+<td>1byte</td>
+<td>数字钥匙类型</td>
+<td>/</td>
+</tr>
+<tr>
+<td>p_key_id</td>
+<td>1byte</td>
+<td>数字钥匙ID</td>
+<td>/</td>
+</tr>
+<tr>
+<td>p_key_urgent</td>
+<td>1byte</td>
+<td>数字钥匙 胁迫标记（紧急标记）</td>
+<td>/</td>
+</tr>
+<tr>
+<td>timestamp</td>
+<td>4byte</td>
+<td>数字钥匙添加时间</td>
+<td>/</td>
+</tr>
+</tbody>
+</table>
+<p>以上数据用小端传输。</p>
+<p><strong>示例</strong>：</p>
+<pre><code class="language-uart"># 读取用户ID=0x00 的数据。
+55 AA 00 0A 00 06 00 01 02 00 01 00 13
+55 AA 00 0A 00 01 00 0A
+
+55 AA 00 0B 00 4D 09 01 02 00 48 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 96 86 8E 6A 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 96 86 8E 6A D4
+</code></pre>
+<h3 id="_9">添加数字钥匙<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>数据流向</th>
+<th>动作ID</th>
+<th>参数长度（2字节）</th>
+<th>参数1</th>
+<th>参数2</th>
+<th>参数3</th>
+<th>参数4</th>
+<th>参数5</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>下发</td>
+<td>0x0103</td>
+<td>17</td>
+<td>用户ID</td>
+<td>钥匙ID</td>
+<td><a href="#key-type">数字钥匙类型</a></td>
+<td>0 无胁迫<br />1 胁迫</td>
+<td>密码字符串[13]</td>
+</tr>
+<tr>
+<td>上报</td>
+<td>0x0103</td>
+<td>1</td>
+<td>操作状态：<br />0x00：成功<br />0x01：失败</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>前锁收到指令后，自行添加对应的数字钥匙，用事件反馈数字钥匙添加状态。</p>
+<pre><code class="language-c"># 00用户添加密码：369235
+55 AA 00 0A 00 16 00 01 03 00 11 00 FF 00 00 33 36 39 32 35 38 00 00 00 00 00 00 00 74
+# 回复添加成功并上报添加成功事件
+55 AA 00 0B 00 06 00 01 03 00 01 00 15
+55 AA 00 08 00 0A 00 00 00 00 00 01 08 01 00 00 1B
+
+# 01用户添加卡片，且不是胁迫
+55 AA 00 0A 00 16 00 01 03 00 11 01 FF 03 00 31 32 33 00 00 00 00 00 00 00 00 00 00 CD
+55 AA 00 0A 00 01 00 0A
+
+# 添加之后
+55 AA 00 0B 00 06 00 01 03 00 01 00 15
+55 AA 00 0B 00 02 00 00 0C
+
+# 上报添加卡片成功事件
+55 AA 00 08 00 0A 00 00 00 00 00 01 08 01 03 08 26
+55 AA 00 08 00 02 00 00 09
+</code></pre>
+<h3 id="_10">取消添加数字钥匙<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>数据流向</th>
+<th>动作ID</th>
+<th>参数长度（2字节）</th>
+<th>参数1</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>下发</td>
+<td>0x0104</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>上报</td>
+<td>0x0104</td>
+<td>1</td>
+<td>操作状态：<br />0x00：成功<br />0x01：失败</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="language-c">55 AA 00 0A 00 05 00 01 04 00 00 13
+55 AA 00 0A 00 01 00 0A
+
+55 AA 00 0B 00 06 00 01 04 00 01 00 16
+55 AA 00 0B 00 02 00 00 0C
+</code></pre>
+<h3 id="_11">删除数字钥匙<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>数据流向</th>
+<th>动作ID</th>
+<th>参数长度（2字节）</th>
+<th>参数1</th>
+<th>参数2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>下发</td>
+<td>0x0105</td>
+<td>2</td>
+<td>钥匙ID</td>
+<td><a href="#key-type">数字钥匙类型</a></td>
+</tr>
+<tr>
+<td>上报</td>
+<td>0x0105</td>
+<td>1</td>
+<td>操作状态：<br />0x00：成功<br />0x01：失败</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>前锁收到指令后，自行删除对应的数字钥匙，用事件反馈删除状态。</p>
+<pre><code class="language-c"># 删除卡片09
+55 AA 00 0A 00 07 00 01 05 00 02 09 03 24
+55 AA 00 0A 00 01 00 0A
+
+55 AA 00 0B 00 06 00 01 05 00 01 00 17
+55 AA 00 0B 00 02 00 00 0C
+</code></pre>
+<h3 id="_12">添加用户<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>数据流向</th>
+<th>动作ID</th>
+<th>参数长度（2字节）</th>
+<th>参数1</th>
+<th>参数2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>下发</td>
+<td>0x0107</td>
+<td>变长（≤160）</td>
+<td><a href="#KIOT_TM_user_args">用户参数</a></td>
+<td></td>
+</tr>
+<tr>
+<td>上报</td>
+<td>0x0107</td>
+<td>2</td>
+<td>操作状态：<br />0x00：成功<br />0x01：失败</td>
+<td>用户ID</td>
+</tr>
+</tbody>
+</table>
+<p><a id="KIOT_TM_user_args"></a>
+<strong>用户参数</strong></p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>长度</th>
+<th>描述</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>p_user_id</td>
+<td>1byte</td>
+<td>用户ID</td>
+<td>0xFF 表示由设备端分配 ID</td>
+</tr>
+<tr>
+<td>p_user_name</td>
+<td>41byte</td>
+<td>用户名称</td>
+<td></td>
+</tr>
+<tr>
+<td>timestamp</td>
+<td>4byte</td>
+<td>用户时间戳</td>
+<td>该用户的最后编辑时间</td>
+</tr>
+<tr>
+<td>p_user_policy</td>
+<td>1byte</td>
+<td>用户策略：永久：0、自定义custom：1</td>
+<td></td>
+</tr>
+<tr>
+<td>p_user_effective_date</td>
+<td>4byte</td>
+<td>生效日期，时间戳</td>
+<td>用户策略为自定义时，后面生效时间字段才有效。</td>
+</tr>
+<tr>
+<td>p_user_expire_date</td>
+<td>4byte</td>
+<td>失效日期，时间戳</td>
+<td>/</td>
+</tr>
+<tr>
+<td>p_user_valid_day</td>
+<td>1byte</td>
+<td>生效天（周日~周六按bit表示，bit0表示周日，bit1~bit6表示周1~周6，对应bit为1表示当天生效，为0表示无效）</td>
+<td>/</td>
+</tr>
+<tr>
+<td>p_user_effective_time</td>
+<td>4byte</td>
+<td>当天的生效时间（0~86400s）</td>
+<td>/</td>
+</tr>
+<tr>
+<td>p_user_expire_time</td>
+<td>4byte</td>
+<td>当天的失效时间（0~86400s）</td>
+<td>/</td>
+</tr>
+<tr>
+<td>keys_num</td>
+<td>1byte</td>
+<td>数字钥匙数量，0~13</td>
+<td>/</td>
+</tr>
+</tbody>
+</table>
+<p>以上数据用小端传输。</p>
+<p><strong>示例</strong>：</p>
+<pre><code class="language-uart"># 下发添加用户（动作ID=0x0107，无数字钥匙）
+55 AA 00 0A 00 1D 00 01 07 00 18 FF 6A 8E 86 26 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 E9
+
+# MCU 添加成功（操作状态 0x00 成功 + 用户ID 0x01）。
+55 AA 00 0B 00 07 00 01 07 00 02 00 01 1C
+
+</code></pre>
+<h3 id="_13">删除用户<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>数据流向</th>
+<th>动作ID</th>
+<th>参数长度（2字节）</th>
+<th>参数1</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>下发</td>
+<td>0x0108</td>
+<td>1</td>
+<td>用户ID</td>
+</tr>
+<tr>
+<td>上报</td>
+<td>0x0108</td>
+<td>1</td>
+<td>操作状态：<br />0x00：删除成功<br />0x01：删除失败</td>
+</tr>
+</tbody>
+</table>
+<p><strong>示例</strong>：</p>
+<pre><code class="language-uart"># 删除用户ID=0x03。
+55 AA 00 0A 00 06 00 01 08 00 01 03 1C
+55 AA 00 0A 00 01 00 0A
+
+# 上报删除成功。
+55 AA 00 0B 00 06 00 01 08 00 01 00 1A
+</code></pre>
+<h3 id="_14">设置用户<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>数据流向</th>
+<th>动作ID</th>
+<th>参数长度（2字节）</th>
+<th>参数1</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>下发</td>
+<td>0x010a</td>
+<td>变长（≤160）</td>
+<td><a href="#KIOT_TM_user_args">用户参数</a></td>
+</tr>
+<tr>
+<td>上报</td>
+<td>0x010a</td>
+<td>1</td>
+<td>操作状态：<br />0x00：成功<br />0x01：失败</td>
+</tr>
+</tbody>
+</table>
+<p><strong>示例</strong>：</p>
+<pre><code class="language-uart"># 下发设置用户（用户参数24字节，此处全0简化，参数长度=0x18）。
+55 AA 00 0A 00 1D 00 01 0A 00 18 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 49
+
+# 上报设置成功。
+55 AA 00 0B 00 06 00 01 0A 00 01 00 1C
+
+# 用户01修改了生效时间
+55 AA 00 0A 00 1D 00 01 0A 00 18 01 6A 8F F9 CB 01 6A 8F 0D 80 6B 08 57 7F 3F 00 00 00 00 00 01 51 7F 00 E7
+55 AA 00 0B 00 06 00 01 0A 00 01 00 1C
+</code></pre>
+<h3 id="_15">读取用户表的时间戳<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>数据流向</th>
+<th>动作ID</th>
+<th>参数长度（2字节）</th>
+<th>参数1</th>
+<th>参数2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>下发</td>
+<td>0x010b</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>上报</td>
+<td>0x010b</td>
+<td>1 + 4*N (最多50个用户)</td>
+<td>u8用户数量</td>
+<td>u32[N]数组：N个用户的4字节时间戳</td>
+</tr>
+</tbody>
+</table>
+<p>如果前面编号没有用户，后面的编号有用户，前面编号的用户时间戳填0。比如 没有 00，只有 01，就是：<code>01 0B 09 02 00 00 00 00 6A A8 C1 2E</code></p>
+<p><strong>示例</strong>：</p>
+<pre><code class="language-uart"># 下发读取用户表时间戳（无参数）。
+55 AA 00 0A 00 05 00 01 0B 00 00 1A
+55 AA 00 0A 00 01 00 0A
+
+# 上报1个用户，时间戳=1。
+55 AA 00 0B 00 0A 00 01 0B 00 05 01 00 00 00 01 27
+</code></pre>
+<h3 id="_16">远程开锁<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h3>
+<p>视频页面开锁，下发密码，验证成功开锁后，上报开锁事件。</p>
+<table>
+<thead>
+<tr>
+<th>数据流向</th>
+<th>动作ID</th>
+<th>参数长度（2字节）</th>
+<th>参数1</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>下发</td>
+<td>0x010c</td>
+<td>密码长度</td>
+<td>密码</td>
+</tr>
+<tr>
+<td>上报</td>
+<td>0x010c</td>
+<td>1</td>
+<td>00 合法指令<br />01 指令过期<br />02 签名错误<br />03 密码错误<br />04 其它错误<br />05 系统已锁定<br />06 门已反锁</td>
+</tr>
+</tbody>
+</table>
+<p><strong>示例</strong>：</p>
+<pre><code class="language-uart"># 下发密码 123456，16进制的数字。
+55 AA 00 0A 00 0B 00 01 0C 00 06 01 02 03 04 05 06 3C
+55 AA 00 0A 00 01 00 0A
+
+55 AA 00 0B 00 06 00 01 0C 00 01 00 1E
+55 AA 00 0B 00 02 00 00 0C
+
+# 上报开锁事件
+55 AA 00 08 00 0A 00 00 00 00 00 01 02 00 00 07 1B
+55 AA 00 08 00 02 00 00 09
+</code></pre>
+<h3 id="_17">读取历史记录数据<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>数据流向</th>
+<th>动作ID</th>
+<th>参数长度（2字节）</th>
+<th>参数1</th>
+<th>参数2</th>
+<th>参数3</th>
+<th>参数4</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>下发</td>
+<td>0x010d</td>
+<td>7</td>
+<td>时间戳u32</td>
+<td>0 全部<br />1 操作记录<br />2 报警记录<br />3 访客记录</td>
+<td>获取数量(1~20)</td>
+<td>0 过去<br />1 未来</td>
+</tr>
+<tr>
+<td>上报</td>
+<td>0x010d</td>
+<td>8 * N（单次最多20条）</td>
+<td><a href="#KIOT_TM_record">历史记录数据</a></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>示例</strong>：</p>
+<pre><code class="language-c"># 编号01的密码开锁
+55 AA 00 0B 00 0D 00 01 0D 00 08 01 01 AF 82 AF 6A 00 01 7A
+
+# 编号01的密码开锁 + 验证失败3次报警
+55 AA 00 0B 00 15 00 01 0D 00 10 01 01 CD 82 AF 6A 00 01 02 03 DD 82 AF 6A 00 00 25
+</code></pre>
+<p><a id="KIOT_TM_record"></a>
+<strong>历史记录数据</strong></p>
+<table>
+  <tr>
+    <td>[byte0] 门锁记录事件类型</td>
+    <td colspan="3">记录类型（0全部、1操作记录、2报警、3访客）</td>
+  </tr>
+  <tr>
+    <td>[byte1] 事件类型</td>
+    <td><a href="#recode-operation-type">操作记录类型</td>
+    <td><a href="#recode-alarm-type">报警记录类型</td>
+    <td><a href="#recode-vustor-type">访客记录类型</td>
+  </tr>
+  <tr>
+    <td>[byte2:5] 时间戳</td>
+    <td colspan="3"></td>
+  </tr>
+  <tr>
+    <td>[byte6] 参数1</td>
+    <td><a href="#recode-unlock-type">开锁类型</a> / NULL</td>
+    <td>电池编号 / NULL</td>
+    <td>NULL</td>
+  </tr>
+  <tr>
+    <td>[byte7] 参数2 (s)</td>
+    <td>钥匙ID / NULL</td>
+    <td>NULL</td>
+    <td>NULL</td>
+  </tr>
+</table>
+
+<p>所有记录都是8字节，数据是透传的，有些记录参数 NULL 表示该字段无效，填0即可。</p>
+<p><a id="recode-operation-type"></a>
+<strong>操作记录类型</strong></p>
+<pre><code class="language-c">1, //开锁记录
+2, //关锁记录
+3, //添加用户
+4, //修改用户
+5, //删除用户
+6, //停用用户
+7, //启用用户
+8, //添加数字钥匙
+9, //修改数字钥匙
+10, //删除数字钥匙
+11, //停用数字钥匙
+12, //启用数字钥匙
+13, //恢复出厂设置
+14, //反锁
+15, //门内呼叫已接听
+16, //门内呼叫未接听
+17, //删除全部普通钥匙
+18, //删除全部普通用户
+</code></pre>
+<p><a id="recode-alarm-type"></a></p>
+<p><strong>报警记录类型</strong></p>
+<pre><code class="language-c"> 1, //锁定报警（输入错误密码或指纹或卡片超过5次就会系统锁定报警）
+ 2, //劫持报警（输入防劫持密码或防劫持指纹开锁就报警）
+ 3, //三次错误，上报提醒
+ 4, //撬锁报警（锁被撬开）
+ 8, //机械钥匙报警（使用机械钥匙开锁）
+ 16, //低电压报警
+ 32, //门锁异常报警
+ 63, //门虚掩报警
+ 64, //门锁布防报警（门外布防后，从门内开锁了就会报警）
+ 65, //锁体堵转报警
+ 80, //徘徊报警 (历史设备可能有用到，新设备改用0x70或0x71)
+ 112, //PIR报警
+ 113, //人脸徘徊报警
+ 114, //雷达入侵侦测告警，进入雷达范围就录像报警
+ 115, //包裹数量增加告警
+ 116, //包裹数量减少告警
+</code></pre>
+<p><a id="recode-vustor-type"></a></p>
+<p><strong>访客记录类型</strong></p>
+<pre><code class="language-c">1, //门铃
+2, //访客留言
+3, //访客开锁
+</code></pre>
+<p><a id="recode-unlock-type"></a></p>
+<p><strong>开锁类型</strong></p>
+<pre><code class="language-c">0, //密码开锁
+2, //手动模式开锁
+3, //卡片开锁
+4, //指纹开锁
+7, //人脸开锁
+8, //APP开锁
+9, //机械方式开锁
+10, //OPEN键开锁
+11, //感应把手开锁
+12, //掌静脉开锁
+13, //小天才手表开锁
+14, //UWB开锁
+15, //快开把手开锁
+16, //小度开锁
+17, //天猫精灵开锁
+18, //指静脉开锁
+20, //蓝牙钥匙开锁
+21, //门磁检测开门
+22, //门磁检测关门
+23, //长按触摸键盘一键上锁
+24, //机械方式上锁
+25, //自动上锁
+26, //敲击开锁
+27, //触摸唤醒开锁
+28, //反锁（隐私模式）
+104, //BLE自动开锁
+250, //离线密码开锁
+251, //体验模式开锁
+252, //一次性密码开锁
+253, //访客密码开锁
+</code></pre>
+<p><strong>示例</strong>：</p>
+<pre><code class="language-uart"># 下发读取历史记录：时间戳=0，事件类型=1(操作记录)，获取数量=1，方向=0过去。
+55 AA 00 0A 00 0C 00 01 0D 00 07 00 00 00 00 01 01 00 2C
+
+# 模组应答。
+55 AA 00 0A 00 01 00 0A
+</code></pre>
+<h3 id="_18">~~子设备绑定~~<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>数据流向</th>
+<th>动作ID</th>
+<th>参数长度（2字节）</th>
+<th>参数1</th>
+<th>参数2</th>
+<th>参数3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>下发</td>
+<td>0x010e</td>
+<td>97</td>
+<td>子设备SN[32]</td>
+<td>子设备类型编号</td>
+<td>子设备pwd1[64]</td>
+</tr>
+<tr>
+<td>上报</td>
+<td>0x010e</td>
+<td>1</td>
+<td>操作状态：<br />0x00：成功<br />0x01：失败</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>示例</strong>：</p>
+<pre><code class="language-uart">
+</code></pre>
+<h3 id="_19">~~子设备解绑~~<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>数据流向</th>
+<th>动作ID</th>
+<th>参数长度（2字节）</th>
+<th>参数1</th>
+<th>参数2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>下发</td>
+<td>0x010f</td>
+<td>33</td>
+<td>子设备SN[32]</td>
+<td>子设备类型编号</td>
+</tr>
+<tr>
+<td>上报</td>
+<td>0x010f</td>
+<td>1</td>
+<td>操作状态：<br />0x00：成功<br />0x01：失败</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>示例</strong>：</p>
+<pre><code class="language-uart">
+</code></pre>
+<h3 id="_20">用户/钥匙操作通知<a class="headerlink" href="#_20" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>数据流向</th>
+<th>动作ID</th>
+<th>参数长度（2字节）</th>
+<th>参数1</th>
+<th>参数2</th>
+<th>参数3</th>
+<th>参数4</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>下发</td>
+<td>0x0114</td>
+<td>44</td>
+<td><a href="#key-type">数字钥匙类型</a></td>
+<td>用户ID</td>
+<td>用户名称[41]</td>
+<td><a href="#user-key-operation-type">用户/数字钥匙操作类型</a></td>
+</tr>
+<tr>
+<td>上报</td>
+<td>0x0114</td>
+<td>1</td>
+<td>操作状态：<br />0x00：成功<br />0x01：失败</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="_21">示例<a class="headerlink" href="#_21" title="Permanent link">&para;</a></h3>
+<pre><code class="language-uart"># 下发密钥操作通知：key_type=1，用户ID=0，用户名称[41]全0，操作类型=1（参数长度=0x2C）。
+55 AA 00 0A 00 31 00 01 14 00 2C 01 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 01 7D
+
+# 模组应答。
+55 AA 00 0A 00 01 00 0A
+
+# 上报操作成功。
+55 AA 00 0B 00 06 00 01 14 00 01 00 26
+</code></pre>
+<h2 id="kiot_1">KIOT 属性定义<a class="headerlink" href="#kiot_1" title="Permanent link">&para;</a></h2>
+<h3 id="id_1">属性ID<a class="headerlink" href="#id_1" title="Permanent link">&para;</a></h3>
+<p><a id="kiot-prop-id"></a></p>
+<p>凯迪仕云平台物模型属性 ID 定义，</p>
+<pre><code class="language-c">0x0113, //勿扰模式的开关
+0x0114, //勿扰模式生效时间
+0x0115, //锁体类型
+0x0116, //物模型实例版本
+0x0117, //固件版本
+0x0118, //软件版本
+0x011c, //双重验证模式
+0x011d, //布防模式
+0x011e, //门锁支持语言
+0x011f, //门锁当前语言
+0x0120, //开门方向
+0x0122, //锁舌回转时间
+0x0123, //斜舌回弹时间
+0x0124, //自动上锁时间
+0x0125, //上锁模式
+0x0127, //开门力量(数值越大扭力越大)
+0x0129, //开锁方向
+0x012f, //WiFi名称
+0x0130, //WiFi信号强度
+0x0131, //WiFi版本号
+0x0132, //mac地址
+0x0133, //前面板版本号
+0x0134, //后面板版本号
+0x013f, //门锁音量
+0x0140, //门锁状态
+0x0141, //门内反锁状态
+0x0147, //人脸防误开时间
+0x014f, //已绑定的子设备
+0x0150, //子设备固件版本
+0x0151, //子设备研发型号
+0x0152, //蓝牙钥匙开关
+0x016e, //设备端故障码（私有格式hex）
+0x0201, //视频模组版本
+0x0203, //镜头版本号
+0x0204, //摄像头开关
+0x0205, //语音版本
+0x0206, //副镜头版本号
+0x021a, //语音算法模组版本
+0x021c, //前板LCD组版本
+0x0301, //P2P主机编码,域名
+0x0302, //P2P主机编码,IP
+0x0303, //P2P的DID
+0x0304, //p2p 提供的crcKey
+0x0305, //p2p提供的p2pKey
+0x0306, //用于设备端检验客户端，服务器生成
+0x0307, //P2P的API License
+0x040a, //云存套餐ID
+0x0505, //出门个性化语音提醒开关
+0x0506, //出门个性化语音提醒时间段,2024-12-10 08:10~2024-12-19 08:10
+0x0507, //个性化语音切换成功编号、MD5值
+0x0606, //电池信息
+0x060a, //子设备电池信息
+0x060e, //电源工作模式
+0x0701, //屏幕亮度
+0x0702, //亮屏时间
+0x0703, //亮屏开关
+0x0704, //屏幕版本号
+0x0705, //锁显示屏背景图片url。default为默认背景图片
+0x0706, //锁显示屏背景图片md5值
+0x0708, //前锁显示屏开关
+0x0801, //徘徊功能开关
+0x0802, //徘徊检测停留时间
+0x080c, //人体传感器灵敏度
+0x0811, //逗留侦测的触发时间
+0x0817, //感应识别开关
+0x0819, //感应识别计划
+0x0901, //人脸识别开关
+0x0902, //未录入人脸识别报警开关
+0x0903, //未录入人脸告警识别灵敏度
+0x0904, //人脸模组版本
+0x0909, //人脸识别唤醒模式
+0x090a, //指纹模组版本
+0x0e01, //主题Id
+0x0e02, //主题类型
+0x0e03, //主题版本
+0x0f04, //资源包信息（包含ID、版本、类型）
+0x1202, //室外语音助手开关
+0x1203, //室外语音助手触发方式
+0x1204, //室内语音助手开关
+0x1205, //室内语音助手触发方式
+</code></pre>
+<h3 id="_22">属性参数<a class="headerlink" href="#_22" title="Permanent link">&para;</a></h3>
+<p>以下那些属性参数都用大端传输，高字节在前面。</p>
+<p><a id="kiot-prop-args"></a></p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>ID byte[0~1]</th>
+<th>参数长度 byte[2]</th>
+<th>参数1 byte[3:N]</th>
+<th>参数2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>勿扰模式开关</td>
+<td>0x0113</td>
+<td>1</td>
+<td>enum （1开，0关）</td>
+<td></td>
+</tr>
+<tr>
+<td>勿扰模式生效时间</td>
+<td>0x0114</td>
+<td>4</td>
+<td>u32 生效时间</td>
+<td></td>
+</tr>
+<tr>
+<td>锁体类型</td>
+<td>0x0115</td>
+<td>1</td>
+<td>enum （1机械锁体，2电子锁体）</td>
+<td></td>
+</tr>
+<tr>
+<td>物模型实例版本</td>
+<td>0x0116</td>
+<td>变长</td>
+<td>string 字符串</td>
+<td></td>
+</tr>
+<tr>
+<td>固件版本</td>
+<td>0x0117</td>
+<td>变长</td>
+<td>string 字符串</td>
+<td></td>
+</tr>
+<tr>
+<td>软件版本</td>
+<td>0x0118</td>
+<td>变长</td>
+<td>string 字符串</td>
+<td></td>
+</tr>
+<tr>
+<td>双重验证模式</td>
+<td>0x011c</td>
+<td>1</td>
+<td>enum （1安全模式、双重验证模式)，0通用模式）</td>
+<td></td>
+</tr>
+<tr>
+<td>布防模式</td>
+<td>0x011d</td>
+<td>1</td>
+<td>enum （1布防，0撤防）</td>
+<td></td>
+</tr>
+<tr>
+<td>门锁支持语言</td>
+<td>0x011e</td>
+<td>N</td>
+<td>多个<a href="#p-lock-language">门锁语言</a></td>
+<td></td>
+</tr>
+<tr>
+<td>门锁当前语言</td>
+<td>0x011f</td>
+<td>1</td>
+<td><a href="#p-lock-language">门锁语言</a></td>
+<td></td>
+</tr>
+<tr>
+<td>开门方向</td>
+<td>0x0120</td>
+<td>1</td>
+<td>enum （1右开门，2左开门）</td>
+<td></td>
+</tr>
+<tr>
+<td>锁舌回转时间</td>
+<td>0x0122</td>
+<td>2</td>
+<td>enum （200，300，400，500）ms</td>
+<td></td>
+</tr>
+<tr>
+<td>斜舌回弹时间</td>
+<td>0x0123</td>
+<td>1</td>
+<td>u8 时间</td>
+<td></td>
+</tr>
+<tr>
+<td>自动上锁时间</td>
+<td>0x0124</td>
+<td>1</td>
+<td>u8 时间（秒）</td>
+<td></td>
+</tr>
+<tr>
+<td>上锁模式</td>
+<td>0x0125</td>
+<td>1</td>
+<td>enum （0自动模式，1手动模式）</td>
+<td></td>
+</tr>
+<tr>
+<td>开门力量</td>
+<td>0x0127</td>
+<td>1</td>
+<td>u8 扭力（1低， 2中， 3高）</td>
+<td></td>
+</tr>
+<tr>
+<td>开锁方向</td>
+<td>0x0129</td>
+<td>1</td>
+<td>u8 （0无方向，1左， 2右）</td>
+<td></td>
+</tr>
+<tr>
+<td>WiFi名称</td>
+<td>0x012f</td>
+<td>变长</td>
+<td>string 字符串</td>
+<td></td>
+</tr>
+<tr>
+<td>WiFi信号强度</td>
+<td>0x0130</td>
+<td>1</td>
+<td>int8_t 信号强度</td>
+<td></td>
+</tr>
+<tr>
+<td>WiFi 模组版本号</td>
+<td>0x0131</td>
+<td>1</td>
+<td>字符串（最长16）</td>
+<td></td>
+</tr>
+<tr>
+<td>MAC</td>
+<td>0x0132</td>
+<td>变长</td>
+<td>string 字符串</td>
+<td></td>
+</tr>
+<tr>
+<td>前面板版本</td>
+<td>0x0133</td>
+<td>变长</td>
+<td>string 字符串（最长16）</td>
+<td></td>
+</tr>
+<tr>
+<td>后面板版本</td>
+<td>0x0134</td>
+<td>变长</td>
+<td>string 字符串（最长16）</td>
+<td></td>
+</tr>
+<tr>
+<td>门锁音量</td>
+<td>0x013f</td>
+<td>1</td>
+<td>u8 音量</td>
+<td></td>
+</tr>
+<tr>
+<td>门锁状态</td>
+<td>0x0140</td>
+<td>1</td>
+<td>enum （2开锁，1关锁）</td>
+<td></td>
+</tr>
+<tr>
+<td>门内反锁状态</td>
+<td>0x0141</td>
+<td>1</td>
+<td>enum （0未反锁，1反锁）</td>
+<td></td>
+</tr>
+<tr>
+<td>人脸防误开时间</td>
+<td>0x0147</td>
+<td>1</td>
+<td>enum （0关闭，5，10，15，20，30，60）s</td>
+<td></td>
+</tr>
+<tr>
+<td>已绑定的子设备</td>
+<td>0x014f</td>
+<td>33</td>
+<td>string 子设备SN[32]</td>
+<td>u8 子设备类型编号</td>
+</tr>
+<tr>
+<td>子设备固件版本</td>
+<td>0x0150</td>
+<td>变长</td>
+<td>string 字符串</td>
+<td></td>
+</tr>
+<tr>
+<td>子设备研发型号</td>
+<td>0x0151</td>
+<td>变长</td>
+<td>string 字符串</td>
+<td></td>
+</tr>
+<tr>
+<td>蓝牙钥匙开关</td>
+<td>0x0152</td>
+<td>1</td>
+<td>enum （1开启，0关闭）</td>
+<td></td>
+</tr>
+<tr>
+<td>设备端故障码</td>
+<td>0x016e</td>
+<td>32</td>
+<td>hex 故障码[32]</td>
+<td></td>
+</tr>
+<tr>
+<td>视频模组版本</td>
+<td>0x0201</td>
+<td>变长</td>
+<td>string 字符串</td>
+<td></td>
+</tr>
+<tr>
+<td>镜头版本号</td>
+<td>0x0203</td>
+<td>变长</td>
+<td>string 字符串</td>
+<td></td>
+</tr>
+<tr>
+<td>摄像头开关</td>
+<td>0x0204</td>
+<td>1</td>
+<td>enum （1开，0关）</td>
+<td></td>
+</tr>
+<tr>
+<td>语音版本</td>
+<td>0x0205</td>
+<td>变长</td>
+<td>string 字符串（最长16）</td>
+<td></td>
+</tr>
+<tr>
+<td>副镜头版本号</td>
+<td>0x0206</td>
+<td>变长</td>
+<td>string 字符串</td>
+<td></td>
+</tr>
+<tr>
+<td>语音算法模组版本</td>
+<td>0x021a</td>
+<td>变长</td>
+<td>string 字符串</td>
+<td></td>
+</tr>
+<tr>
+<td>前板LCD组版本</td>
+<td>0x021c</td>
+<td>变长</td>
+<td>string 字符串</td>
+<td></td>
+</tr>
+<tr>
+<td>P2P主机编码,域名</td>
+<td>0x0301</td>
+<td>变长</td>
+<td>string 字符串</td>
+<td></td>
+</tr>
+<tr>
+<td>P2P主机编码,IP</td>
+<td>0x0302</td>
+<td>变长</td>
+<td>string 字符串</td>
+<td></td>
+</tr>
+<tr>
+<td>P2P的DID</td>
+<td>0x0303</td>
+<td>变长</td>
+<td>string 字符串</td>
+<td></td>
+</tr>
+<tr>
+<td>p2p 提供的crcKey</td>
+<td>0x0304</td>
+<td>变长</td>
+<td>string 字符串</td>
+<td></td>
+</tr>
+<tr>
+<td>p2p提供的p2pKey</td>
+<td>0x0305</td>
+<td>变长</td>
+<td>string 字符串</td>
+<td></td>
+</tr>
+<tr>
+<td>设备认证Key</td>
+<td>0x0306</td>
+<td>变长</td>
+<td>string 字符串</td>
+<td></td>
+</tr>
+<tr>
+<td>P2P的API License</td>
+<td>0x0307</td>
+<td>变长</td>
+<td>string 字符串</td>
+<td></td>
+</tr>
+<tr>
+<td>云存套餐ID</td>
+<td>0x040a</td>
+<td>变长</td>
+<td>string 字符串</td>
+<td></td>
+</tr>
+<tr>
+<td>出门个性化语音提醒开关</td>
+<td>0x0505</td>
+<td>1</td>
+<td>enum （1开，0关）</td>
+<td></td>
+</tr>
+<tr>
+<td>出门个性化语音提醒时间段</td>
+<td>0x0506</td>
+<td>16</td>
+<td>u32 生效日期<br />u32 失效日期<br />u32 生效时间<br />u32 失效时间</td>
+<td></td>
+</tr>
+<tr>
+<td>个性化语音切换成功编号、MD5值</td>
+<td>0x0507</td>
+<td>34</td>
+<td>u8 个性化语音编号<br />string MD5值[33]</td>
+<td></td>
+</tr>
+<tr>
+<td>电池信息</td>
+<td>0x0606</td>
+<td>N * 38</td>
+<td>u8 电池索引<br />string 电池SN[32]<br />u8 电池电量<br />u16 充电次数<br />u8 充电状态（0未充电，1充电中）<br />u8 <a href="#p-battery-state">电池状态</a></td>
+<td></td>
+</tr>
+<tr>
+<td>子设备电池信息</td>
+<td>0x060a</td>
+<td>33</td>
+<td>string 电池SN[32]<br />u8 电池电量</td>
+<td></td>
+</tr>
+<tr>
+<td>电源工作模式</td>
+<td>0x060e</td>
+<td>1</td>
+<td>enum （0标准模式，1超级省电模式）</td>
+<td></td>
+</tr>
+<tr>
+<td>屏幕亮度</td>
+<td>0x0701</td>
+<td>1</td>
+<td>enum （80高亮，60中亮，30低亮）</td>
+<td></td>
+</tr>
+<tr>
+<td>亮屏时间</td>
+<td>0x0702</td>
+<td>1</td>
+<td>enum （5，10，15）s</td>
+<td></td>
+</tr>
+<tr>
+<td>亮屏开关</td>
+<td>0x0703</td>
+<td>1</td>
+<td>enum （1开，0关）</td>
+<td></td>
+</tr>
+<tr>
+<td>屏幕版本号</td>
+<td>0x0704</td>
+<td>变长</td>
+<td>string 字符串</td>
+<td></td>
+</tr>
+<tr>
+<td>锁显示屏背景图片url</td>
+<td>0x0705</td>
+<td>变长</td>
+<td>string 字符串</td>
+<td></td>
+</tr>
+<tr>
+<td>锁显示屏背景图片md5值</td>
+<td>0x0706</td>
+<td>变长</td>
+<td>string 字符串</td>
+<td></td>
+</tr>
+<tr>
+<td>前锁显示屏开关</td>
+<td>0x0708</td>
+<td>1</td>
+<td>enum （1开启，0关闭）</td>
+<td></td>
+</tr>
+<tr>
+<td>徘徊功能开关</td>
+<td>0x0801</td>
+<td>1</td>
+<td>enum （1开，0关）</td>
+<td></td>
+</tr>
+<tr>
+<td>徘徊检测停留时间</td>
+<td>0x0802</td>
+<td>1</td>
+<td>enum （5，10，20，30，60）s</td>
+<td></td>
+</tr>
+<tr>
+<td>人体传感器灵敏度</td>
+<td>0x080c</td>
+<td>1</td>
+<td>enum （1高，3低）</td>
+<td></td>
+</tr>
+<tr>
+<td>逗留侦测的触发时间</td>
+<td>0x0811</td>
+<td>1</td>
+<td>u8 时间（秒）</td>
+<td></td>
+</tr>
+<tr>
+<td>感应识别开关</td>
+<td>0x0817</td>
+<td>1</td>
+<td>enum （1开，0关）</td>
+<td></td>
+</tr>
+<tr>
+<td>感应识别计划</td>
+<td>0x0819</td>
+<td>9</td>
+<td>u8 生效周期<br />u32 生效时间<br />u32 失效时间</td>
+<td></td>
+</tr>
+<tr>
+<td>人脸识别开关</td>
+<td>0x0901</td>
+<td>1</td>
+<td>enum （1开，0关）</td>
+<td></td>
+</tr>
+<tr>
+<td>未录入人脸识别报警开关</td>
+<td>0x0902</td>
+<td>1</td>
+<td>enum （1开，0关）</td>
+<td></td>
+</tr>
+<tr>
+<td>未录入人脸告警识别灵敏度</td>
+<td>0x0903</td>
+<td>1</td>
+<td>enum （0低/人脸验证三次失败，1中/人脸验证二次失败，2高/人脸验证一次失败）</td>
+<td></td>
+</tr>
+<tr>
+<td>人脸模组版本</td>
+<td>0x0904</td>
+<td>变长</td>
+<td>string 字符串</td>
+<td></td>
+</tr>
+<tr>
+<td>人脸识别唤醒模式</td>
+<td>0x0909</td>
+<td>1</td>
+<td>enum （1自动唤醒，2手动唤醒）</td>
+<td></td>
+</tr>
+<tr>
+<td>指纹模组版本</td>
+<td>0x090a</td>
+<td>变长</td>
+<td>string 字符串</td>
+<td></td>
+</tr>
+<tr>
+<td>主题Id</td>
+<td>0x0e01</td>
+<td>变长</td>
+<td>string 字符串</td>
+<td></td>
+</tr>
+<tr>
+<td>主题类型</td>
+<td>0x0e02</td>
+<td>1</td>
+<td>enum （1系统主题，2自定义主题）</td>
+<td></td>
+</tr>
+<tr>
+<td>主题版本</td>
+<td>0x0e03</td>
+<td>4</td>
+<td>u32 版本</td>
+<td></td>
+</tr>
+<tr>
+<td>资源包信息</td>
+<td>0x0f04</td>
+<td>38</td>
+<td>string 资源包编号[33]<br />u32 资源包版本<br />u8 资源包类型（1后屏图片、2图标动画、3音频）</td>
+<td></td>
+</tr>
+<tr>
+<td>室外语音助手开关</td>
+<td>0x1202</td>
+<td>1</td>
+<td>enum （0关闭，1开启）</td>
+<td></td>
+</tr>
+<tr>
+<td>室外语音助手触发方式</td>
+<td>0x1203</td>
+<td>1</td>
+<td>enum （0唤醒词触发，1按键触发）</td>
+<td></td>
+</tr>
+<tr>
+<td>室内语音助手开关</td>
+<td>0x1204</td>
+<td>1</td>
+<td>enum （0关闭，1开启）</td>
+<td></td>
+</tr>
+<tr>
+<td>室内语音助手触发方式</td>
+<td>0x1205</td>
+<td>1</td>
+<td>enum （1按键触发）</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>电池状态</td>
+<td>0xFF00</td>
+<td>1</td>
+<td>u8 <a href="#p-battery-state">电池状态</a></td>
+<td></td>
+</tr>
+<tr>
+<td>电池充电状态</td>
+<td>0xFF01</td>
+<td>1</td>
+<td>u8 充电状态（0未充电，1充电中）</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><a id="p-lock-language"></a>
+<strong>门锁语言</strong></p>
+<pre><code class="language-c">0=简体中文
+1=英文
+2=日文
+3=德文
+4=西班牙语
+5=拉丁语
+6=法语
+7=俄语
+8=意大利语
+9=繁体中文
+10=韩语
+11=葡萄牙
+</code></pre>
+<p><a id="p-battery-state"></a>
+<strong>电池状态</strong></p>
+<pre><code class="language-c">P_BATTERY_STATE_ZHENG_CHANG = 0, //正常
+P_BATTERY_STATE_WEI_CHA_RU_DIAN_CHI = 1, //未插入电池
+P_BATTERY_STATE_DIAN_LIANG_JIAN_CE_ZHONG = 2, //电量检测中
+P_BATTERY_STATE_DI_DIAN_LIANG = 3, //低电量
+P_BATTERY_STATE_FEI_FA_DIAN_CHI = 4, //非法电池
+</code></pre>
+<h3 id="_23">示例<a class="headerlink" href="#_23" title="Permanent link">&para;</a></h3>
+<pre><code class="language-c"># 开门方向—左
+55 AA 00 05 00 05 00 01 20 01 02 2D
+
+# 低扭力
+55 AA 00 05 00 05 00 01 27 01 01 33
+
+# 前锁版本：123456
+55 AA 00 05 00 0A 00 01 33 06 31 32 33 34 35 37
+</code></pre>
+<h2 id="kiot_2">KIOT 事件定义<a class="headerlink" href="#kiot_2" title="Permanent link">&para;</a></h2>
+<h3 id="id_2">事件ID<a class="headerlink" href="#id_2" title="Permanent link">&para;</a></h3>
+<p><a id="kiot-event-id"></a></p>
+<pre><code class="language-c">0x0101, //上锁事件
+0x0102, //开锁事件
+0x0103, //数字钥匙操作事件
+0x0104, //用户操作事件
+0x0105, //访客留言
+0x0106, //恢复出厂设置事件
+0x0107, //指纹添加状态/进度
+0x0108, //数字钥匙添加完成
+0x0109, //锁定报警(输入错误密码或指静脉或卡片超过10次就会触发系统锁定报警)
+0x010a, //劫持报警(输入防劫持密码或防劫持指静脉开锁就报警)
+0x010b, //三次错误报警
+0x010c, //撬锁报警
+0x010d, //机械钥匙报警
+0x010e, //锁体异常报警(门锁不上报警)
+0x010f, //门锁布防报警
+0x0110, //锁体堵转报警
+0x0111, //门铃
+0x0112, //门虚掩报警
+0x0113, //访客开锁
+0x0115, //子设备绑定失败
+0x0116, //子设备绑定成功
+0x011f, //设备故障
+0x0601, //电量变化事件
+0x0603, //低电报警
+0x0605, //非法电池
+0x0801, //PIR徘徊告警
+0x0805, //逗留侦测报警事件
+0x0901, //人脸徘徊告警(多次识别到未录入人脸告警)
+0x0e01, //更新结果上报事件
+0x0e02, //主题配置异常上报事件(事件上报后,触发主题更新，服务器下发当前记录的主题版本给设备)
+0x0f01, //资源包更新结果上报事件（反馈资源包更新的成功/失败状态）
+0x0f02, //资源配置异常上报事件(事件上报后,触发资源更新，服务器下发当前记录的资源版本给设备)
+</code></pre>
+<h3 id="_24">事件参数<a class="headerlink" href="#_24" title="Permanent link">&para;</a></h3>
+<p><a id="kiot-event-args"></a></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">事件</th>
+<th>ID</th>
+<th>参数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">关锁</td>
+<td>0x0101</td>
+<td>byte[0] <a href="#door-action-type">门锁动作类型</a></td>
+</tr>
+<tr>
+<td style="text-align: left;">开锁</td>
+<td>0x0102</td>
+<td>byte[0] <a href="#door-action-type">门锁动作类型</a><br />byte[1] 用户ID （预留）<br />byte[2] 数字钥匙ID</td>
+</tr>
+<tr>
+<td style="text-align: left;">数字钥匙操作</td>
+<td>0x0103</td>
+<td>byte[0] 数字钥匙ID<br />byte[1] <a href="#key-type">数字钥匙类型</a><br />byte[2] <a href="#user-key-operation-type">用户/数字钥匙操作类型</a></td>
+</tr>
+<tr>
+<td style="text-align: left;">用户操作</td>
+<td>0x0104</td>
+<td>byte[0] 用户ID<br />byte[1] <a href="#user-key-operation-type">用户/数字钥匙操作类型</a></td>
+</tr>
+<tr>
+<td style="text-align: left;">访客留言</td>
+<td>0x0105</td>
+<td>无</td>
+</tr>
+<tr>
+<td style="text-align: left;">恢复出厂设置</td>
+<td>0x0106</td>
+<td>无</td>
+</tr>
+<tr>
+<td style="text-align: left;">指纹添加进度</td>
+<td>0x0107</td>
+<td>byte[0] 按压次数</td>
+</tr>
+<tr>
+<td style="text-align: left;">数字钥匙添加状态</td>
+<td>0x0108</td>
+<td>byte[0] <a href="#add-key-result">数字钥匙添加结果</a><br />byte[1] <a href="#key-type">数字钥匙类型</a><br />byte[2] 数字钥匙ID</td>
+</tr>
+<tr>
+<td style="text-align: left;">锁定报警</td>
+<td>0x0109</td>
+<td>无</td>
+</tr>
+<tr>
+<td style="text-align: left;">劫持报警</td>
+<td>0x010a</td>
+<td>byte[0] 数字钥匙ID<br />byte[1] <a href="#key-type">数字钥匙类型</a></td>
+</tr>
+<tr>
+<td style="text-align: left;">三次错误报警</td>
+<td>0x010b</td>
+<td>无</td>
+</tr>
+<tr>
+<td style="text-align: left;">撬锁报警</td>
+<td>0x010c</td>
+<td>无</td>
+</tr>
+<tr>
+<td style="text-align: left;">机械钥匙报警</td>
+<td>0x010d</td>
+<td>无</td>
+</tr>
+<tr>
+<td style="text-align: left;">锁体异常报警</td>
+<td>0x010e</td>
+<td>无</td>
+</tr>
+<tr>
+<td style="text-align: left;">门锁布防报警</td>
+<td>0x010f</td>
+<td>无</td>
+</tr>
+<tr>
+<td style="text-align: left;">锁体堵转报警</td>
+<td>0x0110</td>
+<td>无</td>
+</tr>
+<tr>
+<td style="text-align: left;">门铃</td>
+<td>0x0111</td>
+<td>无</td>
+</tr>
+<tr>
+<td style="text-align: left;">门虚掩报警</td>
+<td>0x0112</td>
+<td>无</td>
+</tr>
+<tr>
+<td style="text-align: left;">访客开锁</td>
+<td>0x0113</td>
+<td>无</td>
+</tr>
+<tr>
+<td style="text-align: left;">子设备绑定失败</td>
+<td>0x0115</td>
+<td>byte[0..31] 子设备SN<br />byte[32] 子设备类型编号</td>
+</tr>
+<tr>
+<td style="text-align: left;">子设备绑定成功</td>
+<td>0x0116</td>
+<td>byte[0..31] 子设备SN<br />byte[32] 子设备类型编号<br />byte[33..48] 子设备固件版本<br />byte[49..64] 子设备研发型号</td>
+</tr>
+<tr>
+<td style="text-align: left;">设备故障</td>
+<td>0x011f</td>
+<td>byte[0..31] 设备端故障码（私有格式hex）</td>
+</tr>
+<tr>
+<td style="text-align: left;">电量变化事件</td>
+<td>0x0601</td>
+<td>byte[0] 电池索引<br />byte[1..32] 电池SN<br />byte[33] 电池电量<br />byte[34..35] 充电次数（u16 大端）<br />byte[36] 电池状态</td>
+</tr>
+<tr>
+<td style="text-align: left;">低电量告警</td>
+<td>0x0603</td>
+<td>byte[0] 电池索引</td>
+</tr>
+<tr>
+<td style="text-align: left;">非法电池</td>
+<td>0x0605</td>
+<td>byte[0] 电池索引</td>
+</tr>
+<tr>
+<td style="text-align: left;">PIR徘徊告警</td>
+<td>0x0801</td>
+<td>无</td>
+</tr>
+<tr>
+<td style="text-align: left;">逗留侦测报警事件</td>
+<td>0x0805</td>
+<td>无</td>
+</tr>
+<tr>
+<td style="text-align: left;">人脸徘徊告警</td>
+<td>0x0901</td>
+<td>无</td>
+</tr>
+<tr>
+<td style="text-align: left;">主题更新结果上报事件</td>
+<td>0x0e01</td>
+<td>byte[0..32] 主题更新任务ID<br />byte[33] 主题更新状态<br />byte[34] 主题更新进度</td>
+</tr>
+<tr>
+<td style="text-align: left;">主题配置异常上报事件</td>
+<td>0x0e02</td>
+<td>byte[0] 主题配置文件故障类型</td>
+</tr>
+<tr>
+<td style="text-align: left;">资源包更新结果上报事件</td>
+<td>0x0f01</td>
+<td>byte[0..32] 资源包编号<br />byte[33..36] 资源包版本（u32 大端）<br />byte[37] 资源包更新状态</td>
+</tr>
+<tr>
+<td style="text-align: left;">资源配置异常上报事件</td>
+<td>0x0f02</td>
+<td>byte[0] 资源包类型<br />byte[1] 设备资源配置文件故障类型</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align: left;">反锁</td>
+<td>0xee0e</td>
+<td>无</td>
+</tr>
+</tbody>
+</table>
+<p><a id="door-action-type"></a>
+<strong>门锁动作类型</strong></p>
+<pre><code class="language-c">0, //密码开锁
+2, //手动模式开锁
+3, //卡片开锁
+4, //指纹开锁
+7, //人脸开锁
+8, //APP开锁
+9, //机械方式开锁
+10, //OPEN键开锁
+11, //感应把手开锁
+12, //掌静脉开锁
+13, //小天才手表开锁
+14, //UWB开锁
+15, //快开把手开锁
+16, //小度开锁
+17, //天猫精灵开锁
+18, //指静脉开锁
+20, //蓝牙钥匙开锁
+21, //门磁检测开门
+22, //门磁检测关门
+23, //长按触摸键盘一键上锁
+24, //机械方式上锁
+25, //自动上锁
+26, //敲击开锁
+27, //触摸唤醒开锁
+28, //反锁（隐私模式）
+104, //BLE自动开锁
+250, //离线密码开锁
+251, //体验模式开锁
+252, //一次性密码开锁
+253, //访客密码开锁
+
+</code></pre>
+<p><a id="key-type"></a>
+<strong>数字钥匙类型</strong></p>
+<pre><code class="language-c">    KIOT_TM_P_KEY_TYPE_MI_MA = 0, //密码
+    KIOT_TM_P_KEY_TYPE_KA_PIAN = 3, //卡片
+    KIOT_TM_P_KEY_TYPE_ZHI_WEN = 4, //指纹
+    KIOT_TM_P_KEY_TYPE_REN_LIAN = 7, //人脸
+    KIOT_TM_P_KEY_TYPE_ZHANG_JING_MAI = 12, //掌静脉
+    KIOT_TM_P_KEY_TYPE_XIAO_TIAN_CAI = 13, //小天才
+    KIOT_TM_P_KEY_TYPE_LAN_YA_YAO_SHI = 14, //蓝牙钥匙
+    KIOT_TM_P_KEY_TYPE_SIM_KA = 15, //SIM卡
+    KIOT_TM_P_KEY_TYPE_ZHI_JING_MAI = 18, //指静脉
+</code></pre>
+<p><a id="user-key-operation-type"></a>
+<strong>用户/数字钥匙操作类型</strong></p>
+<pre><code class="language-c">    KIOT_TM_P_USER_KEY_OPERATION_TYPE_TIAN_JIA = 1, //添加
+    KIOT_TM_P_USER_KEY_OPERATION_TYPE_XIU_GAI = 2, //修改
+    KIOT_TM_P_USER_KEY_OPERATION_TYPE_SHAN_CHU = 3, //删除
+    KIOT_TM_P_USER_KEY_OPERATION_TYPE_TING_YONG = 4, //停用
+    KIOT_TM_P_USER_KEY_OPERATION_TYPE_QI_YONG = 5, //启用
+    KIOT_TM_P_USER_KEY_OPERATION_TYPE_SHAN_CHU_QUAN_BU = 6, //删除全部
+</code></pre>
+<p><a id="add-key-result"></a>
+<strong>数字钥匙添加结果</strong></p>
+<pre><code class="language-c">    KIOT_TM_P_ADD_KEY_RESULT_TIAN_JIA_CHENG_GONG = 1, //添加成功
+    KIOT_TM_P_ADD_KEY_RESULT_TIAN_JIA_SHI_BAI = 2, //添加失败
+    KIOT_TM_P_ADD_KEY_RESULT_TIAN_JIA_CHAO_SHI = 3, //添加超时
+    KIOT_TM_P_ADD_KEY_RESULT_MI_YAO_YI_CUN_ZAI = 4, //密钥已存在
+    KIOT_TM_P_ADD_KEY_RESULT_MI_YAO_KU_YI_MAN = 5, //密钥库已满
+</code></pre>
+<h3 id="_25">示例<a class="headerlink" href="#_25" title="Permanent link">&para;</a></h3>
+<pre><code class="language-c"># 关锁（机械关锁）
+55 AA 00 08 00 08 00 00 00 00 00 01 01 18 29
+
+# 密码07开锁
+55 AA 00 08 00 0A 00 00 00 00 00 01 02 00 00 07 1B
+
+# 指纹08开锁
+55 AA 00 08 00 0A 00 00 00 00 00 01 02 04 00 08 20
+
+# 失败5次锁定告警
+55 AA 00 08 00 07 00 00 00 00 00 01 09 18
+
+# 门铃
+55 AA 00 08 00 07 00 00 00 00 00 01 11 20
+
+# 低电量
+55 AA 00 08 00 08 00 00 00 00 00 06 03 00 18
+
+# 删除卡片09
+55 AA 00 08 00 0A 00 00 00 00 00 01 03 09 03 03 24
+</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.expand", "toc.integrate", "navigation.top"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>
