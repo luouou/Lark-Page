@@ -747,6 +747,28 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#kds-0xfa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        KDS产测下发 0xFA
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kds-0xfb" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        KDS产测响应 0xFB
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1250,6 +1272,8 @@
 <li><a href="#_5">产测服务</a><ul>
 <li><a href="#0xf0">猫眼产测 0xF0</a></li>
 <li><a href="#0xf1">猫眼休眠 0xF1</a></li>
+<li><a href="#kds-0xfa">KDS产测下发 0xFA</a></li>
+<li><a href="#kds-0xfb">KDS产测响应 0xFB</a></li>
 </ul>
 </li>
 <li><a href="#_6">加密功能</a><ul>
@@ -1877,7 +1901,7 @@
 <tr>
 <td>数据</td>
 <td>1</td>
-<td>0x00：取消配网<br />0x01：进入配网模式<br />0x03：没激活仍要配网<br />0x05：先重置后配网</td>
+<td>0x00：取消配网<br />0x01：进入配网模式<br />0x03：没激活仍要配网<br />0x05：重置并配网<br />0x07：没激活+重置+配网</td>
 </tr>
 <tr>
 <td>校验和</td>
@@ -4772,6 +4796,215 @@ end
 <p><strong>示例</strong>：</p>
 <pre><code class="language-uart"># MCU 控制猫眼强制进入休眠。
 55 AA 00 F1 00 01 00 F1
+</code></pre>
+<h3 id="kds-0xfa">KDS产测下发 0xFA<a class="headerlink" href="#kds-0xfa" title="Permanent link">&para;</a></h3>
+<p>直接把 KDS 产测工具下发给 MCU 的数据透传过来，请参考 <a href="#https://kaadasrd.yuque.com/tshy1g/yzte0s/gpn28tudt6ffhgnh#SyEkg"><strong>KIOT产测交互命令</strong></a></p>
+<p><strong>猫眼发送</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>字节数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>帧头</td>
+<td>2</td>
+<td>0x55aa</td>
+</tr>
+<tr>
+<td>版本</td>
+<td>1</td>
+<td>0x00</td>
+</tr>
+<tr>
+<td>命令字</td>
+<td>1</td>
+<td>0xFA</td>
+</tr>
+<tr>
+<td>数据长度</td>
+<td>2</td>
+<td>1 + N</td>
+</tr>
+<tr>
+<td>序号</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>数据</td>
+<td>N</td>
+<td><a href="#https://kaadasrd.yuque.com/tshy1g/yzte0s/gpn28tudt6ffhgnh#SyEkg"><strong>KIOT产测交互命令</strong></a> （code + <flag> + args）</td>
+</tr>
+<tr>
+<td>校验和</td>
+<td>1</td>
+<td>从帧头开始，按字节求和，得出的结果对 256 求余</td>
+</tr>
+</tbody>
+</table>
+<p><strong>MCU 回复</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>字节数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>帧头</td>
+<td>2</td>
+<td>0x55aa</td>
+</tr>
+<tr>
+<td>版本</td>
+<td>1</td>
+<td>0x00</td>
+</tr>
+<tr>
+<td>命令字</td>
+<td>1</td>
+<td>0xFA</td>
+</tr>
+<tr>
+<td>数据长度</td>
+<td>2</td>
+<td>0x0001</td>
+</tr>
+<tr>
+<td>序号</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>数据</td>
+<td>0</td>
+<td>无</td>
+</tr>
+<tr>
+<td>校验和</td>
+<td>1</td>
+<td>从帧头开始，按字节求和，得出的结果对 256 求余</td>
+</tr>
+</tbody>
+</table>
+<p><strong>示例</strong>：</p>
+<pre><code class="language-uart"># 02 01写三元组 wq10cj0nw1 g9z1l8fth1yyy1 wq10cj0nw1g9z1l8fth1yyy1
+55 AA 00 FA 00 33 46 02 01 77 71 31 30 63 6A 30 6E 77 31 67 39 7A 31 6C 38 66 74 68 31 79 79 79 31 77 71 31 30 63 6A 30 6E 77 31 67 39 7A 31 6C 38 66 74 68 31 79 79 79 31 29
+
+# 03 02读条形码
+55 AA 00 FA 00 03 00 03 02 01
+
+# 04 02读激活码
+55 AA 00 FA 00 03 4A 04 02 4C
+</code></pre>
+<h3 id="kds-0xfb">KDS产测响应 0xFB<a class="headerlink" href="#kds-0xfb" title="Permanent link">&para;</a></h3>
+<p>用来响应 KDS 产测工具下发给 MCU 的读数据操作，当收到 FA 的指令是要读取 MCU 的数据时，用 FB 指令回应相应的数据。请参考 <a href="#https://kaadasrd.yuque.com/tshy1g/yzte0s/gpn28tudt6ffhgnh#SyEkg"><strong>KIOT产测交互命令</strong></a></p>
+<p><strong>MCU发送</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>字节数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>帧头</td>
+<td>2</td>
+<td>0x55aa</td>
+</tr>
+<tr>
+<td>版本</td>
+<td>1</td>
+<td>0x00</td>
+</tr>
+<tr>
+<td>命令字</td>
+<td>1</td>
+<td>0xFB</td>
+</tr>
+<tr>
+<td>数据长度</td>
+<td>2</td>
+<td>1 + N</td>
+</tr>
+<tr>
+<td>序号</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>数据</td>
+<td>N</td>
+<td><a href="#https://kaadasrd.yuque.com/tshy1g/yzte0s/gpn28tudt6ffhgnh#SyEkg"><strong>KIOT产测交互命令</strong></a> （code + args）</td>
+</tr>
+<tr>
+<td>校验和</td>
+<td>1</td>
+<td>从帧头开始，按字节求和，得出的结果对 256 求余</td>
+</tr>
+</tbody>
+</table>
+<p><strong>猫眼回复</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>字节数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>帧头</td>
+<td>2</td>
+<td>0x55aa</td>
+</tr>
+<tr>
+<td>版本</td>
+<td>1</td>
+<td>0x00</td>
+</tr>
+<tr>
+<td>命令字</td>
+<td>1</td>
+<td>0xFB</td>
+</tr>
+<tr>
+<td>数据长度</td>
+<td>2</td>
+<td>0x0001</td>
+</tr>
+<tr>
+<td>序号</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>数据</td>
+<td>0</td>
+<td>无</td>
+</tr>
+<tr>
+<td>校验和</td>
+<td>1</td>
+<td>从帧头开始，按字节求和，得出的结果对 256 求余</td>
+</tr>
+</tbody>
+</table>
+<p><strong>示例</strong>：</p>
+<pre><code class="language-uart"># 02 00 三元组 wq10cj0nw1 g9z1l8fth1yyy1 wq10cj0nw1g9z1l8fth1yyy1
+55 AA 00 FB 00 33 00 02 00 77 71 31 30 63 6A 30 6E 77 31 67 39 7A 31 6C 38 66 74 68 31 79 79 79 31 77 71 31 30 63 6A 30 6E 77 31 67 39 7A 31 6C 38 66 74 68 31 79 79 79 31 E3
+
+# 0B 00 前锁版本 Q7FV6_6_V1.01.003
+55 AA 00 FB 00 14 00 0B 00 51 37 46 56 36 5F 36 5F 56 31 2E 30 31 2E 30 30 33 3E
 </code></pre>
 <h2 id="_6">加密功能<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
 <h3 id="0xe0">获取秘钥 0xE0<a class="headerlink" href="#0xe0" title="Permanent link">&para;</a></h3>
