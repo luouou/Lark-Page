@@ -801,7 +801,7 @@
   <a href="#0xe1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        请求秘钥 0xE1
+        索取秘钥 0xE1
       
     </span>
   </a>
@@ -823,7 +823,18 @@
   <a href="#0xe3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        清除秘钥 0xE3
+        同步秘钥 0xE3
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0xe4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        清除秘钥 0xE4
       
     </span>
   </a>
@@ -1278,9 +1289,10 @@
 </li>
 <li><a href="#_6">加密功能</a><ul>
 <li><a href="#0xe0">获取秘钥 0xE0</a></li>
-<li><a href="#0xe1">请求秘钥 0xE1</a></li>
+<li><a href="#0xe1">索取秘钥 0xE1</a></li>
 <li><a href="#0xe2">同步秘钥 0xE2</a></li>
-<li><a href="#0xe3">清除秘钥 0xE3</a></li>
+<li><a href="#0xe3">同步秘钥 0xE3</a></li>
+<li><a href="#0xe4">清除秘钥 0xE4</a></li>
 </ul>
 </li>
 <li><a href="#_7">门锁控制</a><ul>
@@ -1618,8 +1630,16 @@
 <td>0x0C</td>
 </tr>
 <tr>
-<td>网络数据重置</td>
+<td>移除网络</td>
 <td>0x30</td>
+</tr>
+<tr>
+<td>恢复出厂设置开始</td>
+<td>0x31</td>
+</tr>
+<tr>
+<td>恢复出厂设置结束</td>
+<td>0x32</td>
 </tr>
 <tr>
 <td>拉流开始</td>
@@ -2981,6 +3001,7 @@
 </code></pre>
 <h3 id="0x11">恢复出厂设置 0x11<a class="headerlink" href="#0x11" title="Permanent link">&para;</a></h3>
 <p>恢复出厂设置，这个指令不仅清除 WiFi 网络信息，也清除秘钥等猫眼自身数据。</p>
+<p>这个指令永远是明文的，不加密。</p>
 <p><strong>MCU 发送</strong>：</p>
 <table>
 <thead>
@@ -3218,30 +3239,28 @@
 </table>
 <pre><code class="language-mermaid">sequenceDiagram
     participant 锁板
-    participant 通信模块
+    participant 猫眼
 
-通信模块-&gt;&gt;锁板: 14 升级通知request
-锁板-&gt;&gt;通信模块: 15 升级通知response
+猫眼-&gt;&gt;+锁板: A0 升级通知
+锁板--&gt;&gt;-猫眼: A0 回复
+
+Note right of 猫眼: 收到允许升级后&lt;br/&gt;开始发第0包
 
 loop 传输数据
-    通信模块-&gt;&gt;锁板: 16 升级包下发
-    锁板-&gt;&gt;通信模块: 17 回复升级包序号，接收下一包
+    猫眼-&gt;&gt;+锁板: A1 升级包下发
+    锁板--&gt;&gt;-猫眼: A1 回复升级包序号
+    猫眼-&gt;&gt;猫眼: 收到序号后，发下个序号的包
 end
 
-锁板-&gt;&gt;通信模块: 18 升级文件传输结果通知
-通信模块-&gt;&gt;锁板: 19 应答
+猫眼-&gt;&gt;锁板: A3 文件发送结束
 
-alt 升级模式为命令模式
-    通信模块-&gt;&gt;锁板: 20 切换镜像request
-    锁板-&gt;&gt;通信模块: 21 切换镜像response
-end
+锁板-&gt;&gt;+猫眼: A2 文件接收完成
 
-锁板--&gt;&gt;锁板: 22 重启切换至新镜像
+锁板--&gt;&gt;锁板: 自行升级
 
-锁板-&gt;&gt;通信模块: 23 升级结果通知
-通信模块-&gt;&gt;锁板: 24 应答
+锁板-&gt;&gt;+猫眼: A2 升级结果通知
 
-锁板-&gt;&gt;通信模块: 25 上报版本号
+锁板-&gt;&gt;猫眼: 05 上报版本号
 </code></pre>
 <h3 id="0xa0">升级通知 0xA0<a class="headerlink" href="#0xa0" title="Permanent link">&para;</a></h3>
 <p>当收到升级推送时，模组会将升级固件包的信息给 MCU（主要包含文件大小），若 MCU 已准备好了接收升级包了，就回复允许升级，将开始升级流程。</p>
@@ -5007,8 +5026,35 @@ end
 55 AA 00 FB 00 14 00 0B 00 51 37 46 56 36 5F 36 5F 56 31 2E 30 31 2E 30 30 33 3E
 </code></pre>
 <h2 id="_6">加密功能<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<p>串口加密功能是把数据长度和校验和之前的数据内容全部用秘钥异或，同时需要将版本号字段和数值0xE0做或运算（比如 00 | E0 = E0），用来指示当前帧是一个加密帧。</p>
+<p>有些指令是不加密的，保持明文通信，比如：E0、E1、E4、全部产测和 OTA 指令。</p>
+<p>秘钥同步流程如下：</p>
+<pre><code class="language-mermaid">sequenceDiagram
+    participant 锁板
+    participant 猫眼
+
+锁板-&gt;&gt;+猫眼: E0 获取秘钥
+猫眼--&gt;&gt;-锁板: E0 生成秘钥并返回
+
+
+loop 同步秘钥
+    锁板-&gt;&gt;+猫眼: E2 用刚才获取到的秘钥，加密字符串
+    猫眼-&gt;&gt;猫眼: 解密，比对字符串是否正确
+    猫眼--&gt;&gt;-锁板: E2 返回结果
+
+    Note right of 猫眼: 如果前面比对成功&lt;br/&gt;进入加密状态
+
+    猫眼-&gt;&gt;+锁板: E3 加密字符串
+    锁板-&gt;&gt;锁板: 解密，比对字符串是否正确
+    锁板--&gt;&gt;-猫眼: E3 返回结果
+    Note left of 锁板: 如果字符串比对成功&lt;br/&gt;进入加密状态&lt;br/&gt;结束同步
+end
+
+</code></pre>
 <h3 id="0xe0">获取秘钥 0xE0<a class="headerlink" href="#0xe0" title="Permanent link">&para;</a></h3>
-<p><strong>MCU 上报</strong></p>
+<p>锁板向猫眼申请秘钥，猫眼会生成一个16字节的秘钥返回。</p>
+<p>这个指令永远是明文的，不加密。</p>
+<p><strong>MCU发送</strong></p>
 <table>
 <thead>
 <tr>
@@ -5029,7 +5075,7 @@ end
 </tr>
 </tbody>
 </table>
-<p><strong>模块发送</strong></p>
+<p><strong>模块回复</strong></p>
 <table>
 <thead>
 <tr>
@@ -5058,8 +5104,9 @@ end
 # 16字节秘钥是 2F AE BD 80 40 B6 05 7D F8 6D 13 A3 A3 2E C0 5A
 55 AA 00 E0 00 11 00 2F AE BD 80 40 B6 05 7D F8 6D 13 A3 A3 2E C0 5A 88
 </code></pre>
-<h3 id="0xe1">请求秘钥 0xE1<a class="headerlink" href="#0xe1" title="Permanent link">&para;</a></h3>
-<p>反向获取秘钥，当猫眼发现自己的秘钥异常时，向前锁请求秘钥，前锁将自己保存的秘钥回复。</p>
+<h3 id="0xe1">索取秘钥 0xE1<a class="headerlink" href="#0xe1" title="Permanent link">&para;</a></h3>
+<p>猫眼向锁板反向获取秘钥，当猫眼发现自己的秘钥异常时，向前锁请求秘钥，前锁将自己保存的秘钥回复。</p>
+<p>这个指令永远是明文的，不加密。</p>
 <p><strong>猫眼发送</strong></p>
 <table>
 <thead>
@@ -5081,7 +5128,7 @@ end
 </tr>
 </tbody>
 </table>
-<p><strong>MCU 回复</strong></p>
+<p><strong>MCU回复</strong></p>
 <table>
 <thead>
 <tr>
@@ -5111,9 +5158,11 @@ end
 55 AA 00 E1 00 11 00 2F AE BD 80 40 B6 05 7D F8 6D 13 A3 A3 2E C0 5A 89
 </code></pre>
 <h3 id="0xe2">同步秘钥 0xE2<a class="headerlink" href="#0xe2" title="Permanent link">&para;</a></h3>
+<h3 id="0xe3">同步秘钥 0xE3<a class="headerlink" href="#0xe3" title="Permanent link">&para;</a></h3>
 <p>这条指令是加密的，数据长度和校验之间的数据都是密文。</p>
-<p>前锁将约定的16长度字符串加密作为数据发送，猫眼解密后发现字符串一致，就认为前锁秘钥正确，猫眼立即进入加密状态，也将字符串用秘钥加密回复。前锁收到后解密，比对字符串一样，就同步完成，反之重复获取秘钥和同步秘钥流程。</p>
-<p><strong>MCU 上报</strong></p>
+<p>前锁将约定的16长度字符串加密作为数据发送，猫眼解密后发现字符串一致，就认为前锁秘钥正确，猫眼立即进入加密状态。同时也将字符串用秘钥加密用 E3 指令发送。前锁收到后解密，比对字符串一样，就同步完成，反之重复获取秘钥和同步秘钥流程。</p>
+<p>若第1次同步失败了，由锁体自己决定要再尝试多少次同步。</p>
+<p><strong>MCU发送</strong></p>
 <table>
 <thead>
 <tr>
@@ -5136,7 +5185,7 @@ end
 </tr>
 </tbody>
 </table>
-<p><strong>模块发送</strong></p>
+<p><strong>猫眼回复</strong></p>
 <table>
 <thead>
 <tr>
@@ -5152,18 +5201,66 @@ end
 <tr>
 <td>0x55AA00</td>
 <td>0xE2</td>
+<td>0x0002</td>
+<td>0xXX</td>
+<td>0: 成功<br />1: 失败</td>
+<td>校验和</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><strong>猫眼发送</strong></p>
+<table>
+<thead>
+<tr>
+<th>帧头版本</th>
+<th>命令字</th>
+<th>数据长度</th>
+<th>序号</th>
+<th>数据内容</th>
+<th>校验</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0x55AA00</td>
+<td>0xE3</td>
 <td>0x0011</td>
 <td>0xXX</td>
 <td>16长度字符串</td>
+<td>校验和</td>
+</tr>
+</tbody>
+</table>
+<p><strong>MCU回复</strong></p>
+<table>
+<thead>
+<tr>
+<th>帧头版本</th>
+<th>命令字</th>
+<th>数据长度</th>
+<th>序号</th>
+<th>数据内容</th>
+<th>校验</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0x55AA00</td>
+<td>0xE3</td>
+<td>0x0002</td>
+<td>0xXX</td>
+<td>0: 成功<br />1: 失败</td>
 <td>校验和</td>
 </tr>
 </tbody>
 </table>
 <p><strong>示例</strong>：</p>
 <pre><code class="language-uart">
-
 </code></pre>
-<h3 id="0xe3">清除秘钥 0xE3<a class="headerlink" href="#0xe3" title="Permanent link">&para;</a></h3>
+<h3 id="0xe4">清除秘钥 0xE4<a class="headerlink" href="#0xe4" title="Permanent link">&para;</a></h3>
+<p>这个指令会让猫眼解除当前的加密状态，同时清除保存的秘钥。务必要判断返回值是否是清除成功的。</p>
+<p>这个指令永远是明文的，不加密。</p>
 <p><strong>MCU 上报</strong></p>
 <table>
 <thead>
@@ -5203,15 +5300,15 @@ end
 <td>0xE3</td>
 <td>0x0002</td>
 <td>0xXX</td>
-<td>0: 开始<br />1: 失败<br />2: 完成</td>
+<td>0: 成功<br />1: 失败</td>
 <td>校验和</td>
 </tr>
 </tbody>
 </table>
 <p><strong>示例</strong>：</p>
-<pre><code class="language-uart">55 AA 00 E3 00 01 00 E3
+<pre><code class="language-uart">55 AA 00 E4 00 01 00 E4
 
-55 AA 00 E3 00 02 00 00 E4
+55 AA 00 E4 00 02 00 00 E5
 </code></pre>
 <h2 id="_7">门锁控制<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
 <h3 id="0xc0">语音通知 0xC0<a class="headerlink" href="#0xc0" title="Permanent link">&para;</a></h3>
