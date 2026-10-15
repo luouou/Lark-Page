@@ -433,6 +433,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#0x12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        同步本地时间 0x12
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#0x0c" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1250,6 +1261,7 @@
 <li><a href="#0x10">获取格林时间 0x10</a></li>
 <li><a href="#0x06">获取本地日期 0x06</a></li>
 <li><a href="#0x07">时间同步 0x07</a></li>
+<li><a href="#0x12">同步本地时间 0x12</a></li>
 <li><a href="#0x0c">属性读取 0x0C</a></li>
 <li><a href="#0x05">属性上报 0x05</a></li>
 <li><a href="#0x09">属性下发 0x09</a></li>
@@ -1406,7 +1418,7 @@
 <h2 id="_3">常用指令<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <h3 id="0x01">查询产品信息 0x01<a class="headerlink" href="#0x01" title="Permanent link">&para;</a></h3>
 <p>使用场景：模组查询设备的产品信息，MCU 上报设备三元组（<code>pid</code>、<code>device_name</code>、<code>secret_key</code>），供模组/云端识别产品与设备身份。MCU 也可以主动发送，模组若自身没有也会来查询。</p>
-<p>**模组查询：</p>
+<p><strong>模组查询</strong>：</p>
 <table>
 <thead>
 <tr>
@@ -1642,6 +1654,14 @@
 <td>0x32</td>
 </tr>
 <tr>
+<td>配网时 WiFi 扫描失败</td>
+<td>0x40</td>
+</tr>
+<tr>
+<td>配网时 WiFi 配置失败</td>
+<td>0x41</td>
+</tr>
+<tr>
 <td>拉流开始</td>
 <td>0x60</td>
 </tr>
@@ -1664,14 +1684,6 @@
 <tr>
 <td>BLE配对超时</td>
 <td>0xB2</td>
-</tr>
-<tr>
-<td>猫眼数据清除成功</td>
-<td>0xC0</td>
-</tr>
-<tr>
-<td>猫眼数据清除失败</td>
-<td>0xC1</td>
 </tr>
 <tr>
 <td>猫眼进入产测</td>
@@ -2287,7 +2299,7 @@
 <tr>
 <td>数据</td>
 <td>12</td>
-<td>数据长度 12 字节，格式定义如下：<br />Data[0]：获取时间结果标识<br />    0x00：失败<br />    0x01：成功<br />Data[1-8]：64 位时间戳（大端，单位秒，UTC 格林时间<br />Data[9]：获取时区信息结果标识<br />    0x00：失败<br />    0x01：成功<br />Data[10]：表示东/西时区及分钟位，用 bit 定义<br />    bit7-4：保留，默认 0<br />    bit3：3/4H-45分钟，0：无，1：有<br />    bit2：1/4H-15分钟，0：无，1：有<br />    bit1：1/2H-30分钟，0：无，1：有<br />    bit0：0：东区，1：西区<br />Data[11]：时区整数位。例如，东 8 区值=0x08，西 3 区值=0x03</td>
+<td>数据长度 12 字节，格式定义如下：<br />Data[0]：获取时间结果标识<br />    0x00：失败<br />    0x01：成功<br />Data[1-8]：64 位时间戳（大端，单位秒，本地时间）<br />Data[9]：获取时区信息结果标识<br />    0x00：失败<br />    0x01：成功<br />Data[10]：表示东/西时区及分钟位，用 bit 定义<br />    bit7-4：保留，默认 0<br />    bit3：3/4H-45分钟，0：无，1：有<br />    bit2：1/4H-15分钟，0：无，1：有<br />    bit1：1/2H-30分钟，0：无，1：有<br />    bit0：0：东区，1：西区<br />Data[11]：时区整数位。例如，东 8 区值=0x08，西 3 区值=0x03</td>
 </tr>
 <tr>
 <td>校验和</td>
@@ -2309,6 +2321,108 @@
 # Data[9]=01，时区获取成功。
 # Data[10]=00，东区。
 # Data[11]=08，东 8 区。
+</code></pre>
+<h3 id="0x12">同步本地时间 0x12<a class="headerlink" href="#0x12" title="Permanent link">&para;</a></h3>
+<p>猫眼连上网络后，主动把当前本地时间发给锁板。</p>
+<p><strong>猫眼发送</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>字节数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>帧头</td>
+<td>2</td>
+<td>0x55aa</td>
+</tr>
+<tr>
+<td>版本</td>
+<td>1</td>
+<td>0x00</td>
+</tr>
+<tr>
+<td>命令字</td>
+<td>1</td>
+<td>0x12</td>
+</tr>
+<tr>
+<td>数据长度</td>
+<td>2</td>
+<td>0x0005</td>
+</tr>
+<tr>
+<td>序号</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>数据</td>
+<td>4</td>
+<td>32 位时间戳（大端，单位秒，本地时间）</td>
+</tr>
+<tr>
+<td>校验和</td>
+<td>1</td>
+<td>从帧头开始，按字节求和，得出的结果对 256 求余</td>
+</tr>
+</tbody>
+</table>
+<p><strong>MCU 回复</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>字节数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>帧头</td>
+<td>2</td>
+<td>0x55aa</td>
+</tr>
+<tr>
+<td>版本</td>
+<td>1</td>
+<td>0x00</td>
+</tr>
+<tr>
+<td>命令字</td>
+<td>1</td>
+<td>0x12</td>
+</tr>
+<tr>
+<td>数据长度</td>
+<td>2</td>
+<td>0x0001</td>
+</tr>
+<tr>
+<td>序号</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>数据</td>
+<td>0</td>
+<td>无</td>
+</tr>
+<tr>
+<td>校验和</td>
+<td>1</td>
+<td>从帧头开始，按字节求和，得出的结果对 256 求余</td>
+</tr>
+</tbody>
+</table>
+<p><strong>示例</strong>：</p>
+<pre><code class="language-uart"># 1792062786
+55 AA 00 12 00 05 73 6A D0 B5 42 BA
+
+55 AA 00 12 00 01 73 12
 </code></pre>
 <h3 id="0x0c">属性读取 0x0C<a class="headerlink" href="#0x0c" title="Permanent link">&para;</a></h3>
 <p>被叫号的属性，MCU 收到后应及时用 05 指令上报被点名的属性。 可一次性点名多个属性。</p>
@@ -6290,8 +6404,8 @@ end
 <td>勿扰模式生效时间</td>
 <td>0x0114</td>
 <td>8</td>
-<td>u32 时间开始（多少秒，小时和分钟加起来换算成秒），从 0 到 0 就是全天</td>
-<td>u32 时间结束</td>
+<td>u32 开始时间（多少秒，小时和分钟加起来换算成秒），从 0 到 0 就是全天</td>
+<td>u32 结束时间</td>
 </tr>
 <tr>
 <td>锁体类型</td>
