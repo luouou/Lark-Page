@@ -759,10 +759,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#kds-0xfa" class="md-nav__link">
+  <a href="#0xf7" class="md-nav__link">
     <span class="md-ellipsis">
       
-        KDS产测下发 0xFA
+        电量校准 0xF7
       
     </span>
   </a>
@@ -770,10 +770,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#kds-0xfb" class="md-nav__link">
+  <a href="#kds-0xf9" class="md-nav__link">
     <span class="md-ellipsis">
       
-        KDS产测响应 0xFB
+        KDS产测下发 0xF9
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kds-0xf8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        KDS产测响应 0xF8
       
     </span>
   </a>
@@ -1295,8 +1306,9 @@
 <li><a href="#_5">产测服务</a><ul>
 <li><a href="#0xf0">猫眼产测 0xF0</a></li>
 <li><a href="#0xf1">猫眼休眠 0xF1</a></li>
-<li><a href="#kds-0xfa">KDS产测下发 0xFA</a></li>
-<li><a href="#kds-0xfb">KDS产测响应 0xFB</a></li>
+<li><a href="#0xf7">电量校准 0xF7</a></li>
+<li><a href="#kds-0xf9">KDS产测下发 0xF9</a></li>
+<li><a href="#kds-0xf8">KDS产测响应 0xF8</a></li>
 </ul>
 </li>
 <li><a href="#_6">加密功能</a><ul>
@@ -4930,7 +4942,109 @@ end
 <pre><code class="language-uart"># MCU 控制猫眼强制进入休眠。
 55 AA 00 F1 00 01 00 F1
 </code></pre>
-<h3 id="kds-0xfa">KDS产测下发 0xFA<a class="headerlink" href="#kds-0xfa" title="Permanent link">&para;</a></h3>
+<h3 id="0xf7">电量校准 0xF7<a class="headerlink" href="#0xf7" title="Permanent link">&para;</a></h3>
+<p>这个指令用来校准板子电量检测的偏差，用一个已知电压值的电源给板子供电，发指令后，就会记下实际电压与测量电压的偏差。</p>
+<p><strong>猫眼发送</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>字节数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>帧头</td>
+<td>2</td>
+<td>0x55aa</td>
+</tr>
+<tr>
+<td>版本</td>
+<td>1</td>
+<td>0x00</td>
+</tr>
+<tr>
+<td>命令字</td>
+<td>1</td>
+<td>0xF8</td>
+</tr>
+<tr>
+<td>数据长度</td>
+<td>2</td>
+<td>3</td>
+</tr>
+<tr>
+<td>序号</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>数据</td>
+<td>2</td>
+<td>电源的实际电压 mV（大端）</td>
+</tr>
+<tr>
+<td>校验和</td>
+<td>1</td>
+<td>从帧头开始，按字节求和，得出的结果对 256 求余</td>
+</tr>
+</tbody>
+</table>
+<p><strong>MCU 回复</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>字节数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>帧头</td>
+<td>2</td>
+<td>0x55aa</td>
+</tr>
+<tr>
+<td>版本</td>
+<td>1</td>
+<td>0x00</td>
+</tr>
+<tr>
+<td>命令字</td>
+<td>1</td>
+<td>0xF8</td>
+</tr>
+<tr>
+<td>数据长度</td>
+<td>2</td>
+<td>0x0001</td>
+</tr>
+<tr>
+<td>序号</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>数据</td>
+<td>0</td>
+<td>无</td>
+</tr>
+<tr>
+<td>校验和</td>
+<td>1</td>
+<td>从帧头开始，按字节求和，得出的结果对 256 求余</td>
+</tr>
+</tbody>
+</table>
+<p><strong>示例</strong>：</p>
+<pre><code class="language-uart"># 实际电压 8.000V
+55 AA 00 F7 00 03 00 1F 40 58
+
+55 AA 00 F7 00 01 00 F7
+</code></pre>
+<h3 id="kds-0xf9">KDS产测下发 0xF9<a class="headerlink" href="#kds-0xf9" title="Permanent link">&para;</a></h3>
 <p>直接把 KDS 产测工具下发给 MCU 的数据透传过来，请参考 <a href="https://kaadasrd.yuque.com/tshy1g/yzte0s/gpn28tudt6ffhgnh#SyEkg"><strong>KIOT产测交互命令</strong></a></p>
 <p><strong>猫眼发送</strong>：</p>
 <table>
@@ -5028,15 +5142,15 @@ end
 </table>
 <p><strong>示例</strong>：</p>
 <pre><code class="language-uart"># 02 01写三元组 wq10cj0nw1 g9z1l8fth1yyy1 wq10cj0nw1g9z1l8fth1yyy1
-55 AA 00 FA 00 33 46 02 01 77 71 31 30 63 6A 30 6E 77 31 67 39 7A 31 6C 38 66 74 68 31 79 79 79 31 77 71 31 30 63 6A 30 6E 77 31 67 39 7A 31 6C 38 66 74 68 31 79 79 79 31 29
+55 AA 00 F9 00 33 46 02 01 77 71 31 30 63 6A 30 6E 77 31 67 39 7A 31 6C 38 66 74 68 31 79 79 79 31 77 71 31 30 63 6A 30 6E 77 31 67 39 7A 31 6C 38 66 74 68 31 79 79 79 31 28
 
 # 03 02读条形码
-55 AA 00 FA 00 03 00 03 02 01
+55 AA 00 F9 00 03 00 03 02 00
 
 # 04 02读激活码
-55 AA 00 FA 00 03 4A 04 02 4C
+55 AA 00 F9 00 03 4A 04 02 4B
 </code></pre>
-<h3 id="kds-0xfb">KDS产测响应 0xFB<a class="headerlink" href="#kds-0xfb" title="Permanent link">&para;</a></h3>
+<h3 id="kds-0xf8">KDS产测响应 0xF8<a class="headerlink" href="#kds-0xf8" title="Permanent link">&para;</a></h3>
 <p>用来响应 KDS 产测工具下发给 MCU 的读数据操作，当收到 FA 的指令是要读取 MCU 的数据时，用 FB 指令回应相应的数据。请参考 <a href="https://kaadasrd.yuque.com/tshy1g/yzte0s/gpn28tudt6ffhgnh#SyEkg"><strong>KIOT产测交互命令</strong></a></p>
 <p><strong>MCU发送</strong>：</p>
 <table>
@@ -5134,10 +5248,10 @@ end
 </table>
 <p><strong>示例</strong>：</p>
 <pre><code class="language-uart"># 02 00 三元组 wq10cj0nw1 g9z1l8fth1yyy1 wq10cj0nw1g9z1l8fth1yyy1
-55 AA 00 FB 00 33 00 02 00 77 71 31 30 63 6A 30 6E 77 31 67 39 7A 31 6C 38 66 74 68 31 79 79 79 31 77 71 31 30 63 6A 30 6E 77 31 67 39 7A 31 6C 38 66 74 68 31 79 79 79 31 E3
+55 AA 00 F8 00 33 00 02 00 77 71 31 30 63 6A 30 6E 77 31 67 39 7A 31 6C 38 66 74 68 31 79 79 79 31 77 71 31 30 63 6A 30 6E 77 31 67 39 7A 31 6C 38 66 74 68 31 79 79 79 31 E0
 
 # 0B 00 前锁版本 Q7FV6_6_V1.01.003
-55 AA 00 FB 00 14 00 0B 00 51 37 46 56 36 5F 36 5F 56 31 2E 30 31 2E 30 30 33 3E
+55 AA 00 F8 00 14 00 0B 00 51 37 46 56 36 5F 36 5F 56 31 2E 30 31 2E 30 30 33 3B
 </code></pre>
 <h2 id="_6">加密功能<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
 <p>串口加密功能是把数据长度和校验和之前的数据内容全部用秘钥异或，同时需要将版本号字段和数值0xE0做或运算（比如 00 | E0 = E0），用来指示当前帧是一个加密帧。</p>
@@ -7018,6 +7132,9 @@ P_BATTERY_STATE_FEI_FA_DIAN_CHI = 4, //非法电池
 
 # 前锁版本：123456
 55 AA 00 05 00 0A 00 01 33 06 31 32 33 34 35 37
+
+# 电池充电中
+55 AA 00 05 00 05 00 FF 01 01 01 0B
 </code></pre>
 <h2 id="kiot_2">KIOT 事件定义<a class="headerlink" href="#kiot_2" title="Permanent link">&para;</a></h2>
 <h3 id="id_2">事件ID<a class="headerlink" href="#id_2" title="Permanent link">&para;</a></h3>
