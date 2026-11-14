@@ -902,6 +902,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#0xc1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        门锁事务请求 0xC1
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1044,7 +1055,7 @@
   <a href="#xxx" class="md-nav__link">
     <span class="md-ellipsis">
       
-        xxx
+        ~~xxx子设备绑定~~
       
     </span>
   </a>
@@ -1055,7 +1066,7 @@
   <a href="#xxx_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        ~~xxx子设备绑定~~
+        ~~xxx子设备解绑~~
       
     </span>
   </a>
@@ -1066,29 +1077,7 @@
   <a href="#xxx_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        xxx子设备解绑~~
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#xxx_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        xxx用户/钥匙操作通知
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_18" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        示例
+        ~~xxx用户/钥匙操作通知~~
       
     </span>
   </a>
@@ -1124,7 +1113,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_19" class="md-nav__link">
+  <a href="#_18" class="md-nav__link">
     <span class="md-ellipsis">
       
         属性参数
@@ -1135,7 +1124,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_20" class="md-nav__link">
+  <a href="#_19" class="md-nav__link">
     <span class="md-ellipsis">
       
         示例
@@ -1174,7 +1163,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_21" class="md-nav__link">
+  <a href="#_20" class="md-nav__link">
     <span class="md-ellipsis">
       
         事件参数
@@ -1185,7 +1174,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_22" class="md-nav__link">
+  <a href="#_21" class="md-nav__link">
     <span class="md-ellipsis">
       
         示例
@@ -1344,6 +1333,7 @@
 </li>
 <li><a href="#_7">门锁控制</a><ul>
 <li><a href="#0xc0">语音通知 0xC0</a></li>
+<li><a href="#0xc1">门锁事务请求 0xC1</a></li>
 </ul>
 </li>
 <li><a href="#kiot">KIOT 动作定义</a><ul>
@@ -1358,23 +1348,21 @@
 <li><a href="#_15">读取用户表的时间戳</a></li>
 <li><a href="#_16">远程开锁</a></li>
 <li><a href="#_17">读取历史记录数据</a></li>
-<li><a href="#xxx">xxx</a></li>
-<li><a href="#xxx_1">~~xxx子设备绑定~~</a></li>
-<li><a href="#xxx_2">xxx子设备解绑~~</a></li>
-<li><a href="#xxx_3">xxx用户/钥匙操作通知</a></li>
-<li><a href="#_18">示例</a></li>
+<li><a href="#xxx">~~xxx子设备绑定~~</a></li>
+<li><a href="#xxx_1">~~xxx子设备解绑~~</a></li>
+<li><a href="#xxx_2">~~xxx用户/钥匙操作通知~~</a></li>
 </ul>
 </li>
 <li><a href="#kiot_1">KIOT 属性定义</a><ul>
 <li><a href="#id_1">属性ID</a></li>
-<li><a href="#_19">属性参数</a></li>
-<li><a href="#_20">示例</a></li>
+<li><a href="#_18">属性参数</a></li>
+<li><a href="#_19">示例</a></li>
 </ul>
 </li>
 <li><a href="#kiot_2">KIOT 事件定义</a><ul>
 <li><a href="#id_2">事件ID</a></li>
-<li><a href="#_21">事件参数</a></li>
-<li><a href="#_22">示例</a></li>
+<li><a href="#_20">事件参数</a></li>
+<li><a href="#_21">示例</a></li>
 </ul>
 </li>
 </ul>
@@ -1706,6 +1694,18 @@
 <td>0x61</td>
 </tr>
 <tr>
+<td>语音助手停止说话</td>
+<td>0x70</td>
+</tr>
+<tr>
+<td>语音助手开始说话</td>
+<td>0x71</td>
+</tr>
+<tr>
+<td>语音助手正在说话和聆听</td>
+<td>0x72</td>
+</tr>
+<tr>
 <td>猫眼OTA开始</td>
 <td>0xA0</td>
 </tr>
@@ -1720,6 +1720,10 @@
 <tr>
 <td>BLE配对超时</td>
 <td>0xB2</td>
+</tr>
+<tr>
+<td>BLE断开</td>
+<td>0xB3</td>
 </tr>
 <tr>
 <td>猫眼进入产测</td>
@@ -4039,7 +4043,7 @@ end
 55 AA 00 D0 00 07 00 00 01 00 02 00 03 DC
 </code></pre>
 <h3 id="0xd1">电量读取 0xD1<a class="headerlink" href="#0xd1" title="Permanent link">&para;</a></h3>
-<p><strong>MCU 上报</strong></p>
+<p><strong>猫眼/MCU 发送</strong></p>
 <table>
 <thead>
 <tr>
@@ -4047,7 +4051,6 @@ end
 <th>命令字</th>
 <th>数据长度</th>
 <th>序号</th>
-<th>数据内容</th>
 <th>校验</th>
 </tr>
 </thead>
@@ -4057,12 +4060,11 @@ end
 <td>0xD1</td>
 <td>0x0002</td>
 <td>0x00</td>
-<td>电量(1字节)</td>
 <td>校验和</td>
 </tr>
 </tbody>
 </table>
-<p><strong>模块发送</strong></p>
+<p><strong>猫眼/MCU 回复</strong></p>
 <table>
 <thead>
 <tr>
@@ -4086,7 +4088,7 @@ end
 </tbody>
 </table>
 <p><strong>示例</strong>：</p>
-<pre><code class="language-uart">55 AA 00 D1 00 02 00 00 D2
+<pre><code class="language-uart">55 AA 00 D1 00 01 00 D1
 
 # 电量100%, 8226 mV
 55 AA 00 D1 00 05 00 64 00 20 22 7B
@@ -4865,7 +4867,8 @@ end
 <h2 id="_5">产测服务<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <h3 id="0xf0">猫眼产测 0xF0<a class="headerlink" href="#0xf0" title="Permanent link">&para;</a></h3>
 <ul>
-<li>指定的 SSID 固定为：<code>tuya_mdev_test</code>，密码为：<code>test1234</code>，要求路由器为 <strong>2.4G 信号</strong>。<br /></li>
+<li>指定的 SSID 固定为：<code>tuya_mdev_test</code>，密码为：<code>test1234</code>，凯迪仕项目用的是：<code>KDStest</code>，密码：<code>12345678</code></li>
+<li>要求路由器为 2.4G 信号。</li>
 </ul>
 <p><strong>MCU 发送</strong>：</p>
 <table>
@@ -4905,7 +4908,7 @@ end
 <tr>
 <td>数据</td>
 <td>2</td>
-<td>Data[0]：产测功能点 <ul><li> 0x00：扫描指定路由器 </li><li> 0x01：连接指定路由器 </li><li> 0x02：猫眼硬件测试 </li><li> 0x03：猫眼音频对讲 </li></ul></td>
+<td>Data[0]：产测功能点 <br /> 0x00：扫描指定路由器 <br /> 0x01：连接指定路由器 <br /> 0x02：猫眼硬件测试 <br /> 0x03：猫眼音频对讲</td>
 </tr>
 <tr>
 <td>校验和</td>
@@ -4952,7 +4955,7 @@ end
 <tr>
 <td>数据</td>
 <td>2</td>
-<td>Data[0]：产测结果 <br /> 0x00：成功<br /> 0x01：失败<br /> 0x03：人工检查<br /> 0x04：没有这个测试项<br />Data[1]：具体信息，详见下文信号强度/失败原因/猫眼测试结果</td>
+<td>Data[0]：产测结果 <br /> 0x00：成功<br /> 0x01：失败<br /> 0x03：人工检查<br /> 0x04：没有这个测试项<br />Data[1]：具体信息（信号强度/失败原因/猫眼测试结果），详见下文</td>
 </tr>
 <tr>
 <td>校验和</td>
@@ -4963,43 +4966,27 @@ end
 </table>
 <p>具体产测步骤及结果回复：</p>
 <ul>
+<li>扫描指定路由器</li>
+<li>Data[0] = 0x00 时表示扫描成功，Data[1]表示扫描到的路由器信号强度百分比 rssi + 100（0-100% 对应 -100dB 到 -0 dB）。</li>
 <li>
-<p>扫描指定路由器</p>
-</li>
-<li>
-<p>Data[0] = 0x00 时表示扫描成功
-    <br>Data[1]表示扫描到的路由器信号强度百分比（0-100% 对应 -100dB 到 -0 dB）。</p>
-</li>
-<li>
-<p>Data[0] = 0x01 时表示扫描失败
-    <br>Data[1] = 0x00 表示未扫描到指定 SSID
-    <br>Data[1] = 0x01 表示模组未授权</p>
+<p>Data[0] = 0x01 时表示扫描失败，Data[1] = 0x00 表示未扫描到指定 SSID</p>
 </li>
 <li>
 <p>连接指定路由器</p>
 </li>
 <li>
-<p>Data[0] = 0x00 时表示连接成功
-    <br>Data[1] = 0x00 默认为 0x00</p>
-</li>
-<li>
-<p>Data[0] = 0x01 时表示连接失败
-    <br>Data[1] = 0x00 默认为 0x00 连接超时
-    <br>Data[1] = 0x01 其他原因失败</p>
+<p>Data[0] = 0x00 时表示连接成功，Data[1]表示信号强度百分比 rssi + 100（0-100% 对应 -100dB 到 -0 dB）。</p>
 </li>
 <li>
 <p>猫眼硬件测试</p>
 </li>
+<li>Data[0] = 0x00 时表示测试成功，Data[1] = 0x00 表示猫眼板按键正常</li>
 <li>
-<p>Data[0] = 0x00 时表示测试成功
-    <br>Data[1] = 0x00 表示猫眼板按键正常
-    <br></p>
+<p>Data[0] = 0x01 时表示测试失败，Data[1] = 0x01 猫眼板按键异常</p>
 </li>
 <li>
-<p>Data[0] = 0x01 时表示测试失败
-    <br>Data[1] = 0x01 猫眼板按键异常</p>
+<p>猫眼音频对讲</p>
 </li>
-<li>猫眼音频对讲</li>
 <li>直接返回0x03，要人工判断好坏</li>
 </ul>
 <p><strong>示例</strong>：</p>
@@ -5706,7 +5693,7 @@ end
 <tr>
 <td>0x55AA00</td>
 <td>0xC0</td>
-<td>0x0006</td>
+<td>0x0002</td>
 <td>0xXX</td>
 <td>0: 成功<br />1: 失败</td>
 <td>校验和</td>
@@ -5724,9 +5711,66 @@ end
 6：留言结束
 </code></pre>
 <p><strong>示例</strong>：</p>
-<pre><code class="language-uart">55 AA 00 D3 00 02 00 00 D4
+<pre><code class="language-uart">55 AA 00 C0 00 02 00 00 C1
 
-55 AA 00 D3 00 02 00 00 D4
+55 AA 00 C0 00 02 00 00 C1
+</code></pre>
+<h3 id="0xc1">门锁事务请求 0xC1<a class="headerlink" href="#0xc1" title="Permanent link">&para;</a></h3>
+<p>猫眼下发命令给到锁。</p>
+<p><strong>猫眼发送</strong></p>
+<table>
+<thead>
+<tr>
+<th>帧头版本</th>
+<th>命令字</th>
+<th>数据长度</th>
+<th>序号</th>
+<th>语音</th>
+<th>校验</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0x55AA00</td>
+<td>0xC1</td>
+<td>0x0002</td>
+<td>0xXX</td>
+<td><a href="#lock-transaction-id">事务编号</a></td>
+<td>校验和</td>
+</tr>
+</tbody>
+</table>
+<p><strong>MCU 回复</strong></p>
+<table>
+<thead>
+<tr>
+<th>帧头版本</th>
+<th>命令字</th>
+<th>数据长度</th>
+<th>序号</th>
+<th>数据内容</th>
+<th>校验</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0x55AA00</td>
+<td>0xC1</td>
+<td>0x0002</td>
+<td>0xXX</td>
+<td>0: 成功<br />1: 失败</td>
+<td>校验和</td>
+</tr>
+</tbody>
+</table>
+<p><a id="lock-transaction-id"></a></p>
+<p><strong>事务编号</strong></p>
+<pre><code class="language-c">0x1C：蓝牙钥匙开锁
+</code></pre>
+<p><strong>示例</strong>：</p>
+<pre><code class="language-uart">55 AA 00 C1 00 02 00 1C DE
+
+55 AA 00 C1 00 02 00 00 C2
 </code></pre>
 <h2 id="kiot">KIOT 动作定义<a class="headerlink" href="#kiot" title="Permanent link">&para;</a></h2>
 <h3 id="id">动作ID<a class="headerlink" href="#id" title="Permanent link">&para;</a></h3>
@@ -6314,8 +6358,14 @@ end
 <pre><code class="language-c"># 编号01的密码开锁
 55 AA 00 0B 00 0D 00 01 0D 00 08 01 01 AF 82 AF 6A 00 01 7A
 
+# 编号03的卡片开锁
+55 AA 00 0B 00 0D 00 01 0D 00 08 01 01 5e 8A E8 6A 03 03 6F
+
 # 编号01的密码开锁 + 验证失败3次报警
 55 AA 00 0B 00 15 00 01 0D 00 10 01 01 CD 82 AF 6A 00 01 02 03 DD 82 AF 6A 00 00 25
+
+# 删除 指纹 编号01
+55 AA 00 0B 00 0D 00 01 0D 00 08 01 0A F6 BD F5 6A 04 01 4F
 </code></pre>
 <p><a id="KIOT_TM_record"></a>
 <strong>历史记录数据</strong></p>
@@ -6435,35 +6485,7 @@ end
 # 模组应答。
 55 AA 00 0A 00 01 00 0A
 </code></pre>
-<h3 id="xxx">xxx<a class="headerlink" href="#xxx" title="Permanent link">&para;</a></h3>
-<table>
-<thead>
-<tr>
-<th>数据流向</th>
-<th>动作ID</th>
-<th>参数长度（2字节）</th>
-<th>参数1</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>下发</td>
-<td>0x0501</td>
-<td>1</td>
-<td><a href="#lock-voice-id">语音编号</a></td>
-</tr>
-<tr>
-<td>上报</td>
-<td>0x0501</td>
-<td>1</td>
-<td>操作状态：<br />0x00：成功<br />0x01：失败</td>
-</tr>
-</tbody>
-</table>
-<p><strong>示例</strong>：</p>
-<pre><code class="language-uart">
-</code></pre>
-<h3 id="xxx_1">~~xxx子设备绑定~~<a class="headerlink" href="#xxx_1" title="Permanent link">&para;</a></h3>
+<h3 id="xxx">~~xxx子设备绑定~~<a class="headerlink" href="#xxx" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
@@ -6497,7 +6519,7 @@ end
 <p><strong>示例</strong>：</p>
 <pre><code class="language-uart">
 </code></pre>
-<h3 id="xxx_2">xxx子设备解绑~~<a class="headerlink" href="#xxx_2" title="Permanent link">&para;</a></h3>
+<h3 id="xxx_1">~~xxx子设备解绑~~<a class="headerlink" href="#xxx_1" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
@@ -6528,7 +6550,7 @@ end
 <p><strong>示例</strong>：</p>
 <pre><code class="language-uart">
 </code></pre>
-<h3 id="xxx_3">xxx用户/钥匙操作通知<a class="headerlink" href="#xxx_3" title="Permanent link">&para;</a></h3>
+<h3 id="xxx_2">~~xxx用户/钥匙操作通知~~<a class="headerlink" href="#xxx_2" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
@@ -6562,7 +6584,7 @@ end
 </tr>
 </tbody>
 </table>
-<h3 id="_18">示例<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h3>
+<p><strong>示例</strong>：</p>
 <pre><code class="language-uart"># 下发密钥操作通知：key_type=1，用户ID=0，用户名称[41]全0，操作类型=1（参数长度=0x2C）。
 55 AA 00 0A 00 31 00 01 14 00 2C 01 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 01 7D
 
@@ -6657,7 +6679,7 @@ end
 0x1204, //室内语音助手开关
 0x1205, //室内语音助手触发方式
 </code></pre>
-<h3 id="_19">属性参数<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h3>
+<h3 id="_18">属性参数<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h3>
 <p>以下那些属性参数都用大端传输，高字节在前面。</p>
 <p><a id="kiot-prop-args"></a></p>
 <table>
@@ -6752,7 +6774,7 @@ end
 <td>锁舌回转时间</td>
 <td>0x0122</td>
 <td>2</td>
-<td>enum （200，300，400，500）ms</td>
+<td>enum （0：200，1：300，2：400，3：500）ms</td>
 <td></td>
 </tr>
 <tr>
@@ -7278,13 +7300,13 @@ end
 </code></pre>
 <p><a id="p-battery-state"></a>
 <strong>电池状态</strong></p>
-<pre><code class="language-c">P_BATTERY_STATE_ZHENG_CHANG = 0, //正常
-P_BATTERY_STATE_WEI_CHA_RU_DIAN_CHI = 1, //未插入电池
-P_BATTERY_STATE_DIAN_LIANG_JIAN_CE_ZHONG = 2, //电量检测中
-P_BATTERY_STATE_DI_DIAN_LIANG = 3, //低电量
-P_BATTERY_STATE_FEI_FA_DIAN_CHI = 4, //非法电池
+<pre><code class="language-c"> 0, //正常
+ 1, //未插入电池
+ 2, //电量检测中
+ 3, //低电量
+ 4, //非法电池
 </code></pre>
-<h3 id="_20">示例<a class="headerlink" href="#_20" title="Permanent link">&para;</a></h3>
+<h3 id="_19">示例<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h3>
 <pre><code class="language-c"># 开门方向—左
 55 AA 00 05 00 05 00 01 20 01 02 2D
 
@@ -7299,6 +7321,10 @@ P_BATTERY_STATE_FEI_FA_DIAN_CHI = 4, //非法电池
 
 # 支持双重验证
 55 AA 00 05 00 05 00 FF 02 01 01 0C
+
+# 电量 52%
+55 AA 00 05 00 2A 00 06 06 26 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 34 00 00 00 00 94
+
 </code></pre>
 <h2 id="kiot_2">KIOT 事件定义<a class="headerlink" href="#kiot_2" title="Permanent link">&para;</a></h2>
 <h3 id="id_2">事件ID<a class="headerlink" href="#id_2" title="Permanent link">&para;</a></h3>
@@ -7336,7 +7362,7 @@ P_BATTERY_STATE_FEI_FA_DIAN_CHI = 4, //非法电池
 0x0f01, //资源包更新结果上报事件（反馈资源包更新的成功/失败状态）
 0x0f02, //资源配置异常上报事件(事件上报后,触发资源更新，服务器下发当前记录的资源版本给设备)
 </code></pre>
-<h3 id="_21">事件参数<a class="headerlink" href="#_21" title="Permanent link">&para;</a></h3>
+<h3 id="_20">事件参数<a class="headerlink" href="#_20" title="Permanent link">&para;</a></h3>
 <p><a id="kiot-event-args"></a></p>
 <table>
 <thead>
@@ -7555,34 +7581,34 @@ P_BATTERY_STATE_FEI_FA_DIAN_CHI = 4, //非法电池
 </code></pre>
 <p><a id="key-type"></a>
 <strong>数字钥匙类型</strong></p>
-<pre><code class="language-c">    KIOT_TM_P_KEY_TYPE_MI_MA = 0, //密码
-    KIOT_TM_P_KEY_TYPE_KA_PIAN = 3, //卡片
-    KIOT_TM_P_KEY_TYPE_ZHI_WEN = 4, //指纹
-    KIOT_TM_P_KEY_TYPE_REN_LIAN = 7, //人脸
-    KIOT_TM_P_KEY_TYPE_ZHANG_JING_MAI = 12, //掌静脉
-    KIOT_TM_P_KEY_TYPE_XIAO_TIAN_CAI = 13, //小天才
-    KIOT_TM_P_KEY_TYPE_LAN_YA_YAO_SHI = 14, //蓝牙钥匙
-    KIOT_TM_P_KEY_TYPE_SIM_KA = 15, //SIM卡
-    KIOT_TM_P_KEY_TYPE_ZHI_JING_MAI = 18, //指静脉
+<pre><code class="language-c"> 0, //密码
+ 3, //卡片
+ 4, //指纹
+ 7, //人脸
+ 12, //掌静脉
+ 13, //小天才
+ 14, //蓝牙钥匙
+ 15, //SIM卡
+ 18, //指静脉
 </code></pre>
 <p><a id="user-key-operation-type"></a>
 <strong>用户/数字钥匙操作类型</strong></p>
-<pre><code class="language-c">    KIOT_TM_P_USER_KEY_OPERATION_TYPE_TIAN_JIA = 1, //添加
-    KIOT_TM_P_USER_KEY_OPERATION_TYPE_XIU_GAI = 2, //修改
-    KIOT_TM_P_USER_KEY_OPERATION_TYPE_SHAN_CHU = 3, //删除
-    KIOT_TM_P_USER_KEY_OPERATION_TYPE_TING_YONG = 4, //停用
-    KIOT_TM_P_USER_KEY_OPERATION_TYPE_QI_YONG = 5, //启用
-    KIOT_TM_P_USER_KEY_OPERATION_TYPE_SHAN_CHU_QUAN_BU = 6, //删除全部
+<pre><code class="language-c"> 1, //添加
+ 2, //修改
+ 3, //删除
+ 4, //停用
+ 5, //启用
+ 6, //删除全部
 </code></pre>
 <p><a id="add-key-result"></a>
 <strong>数字钥匙添加结果</strong></p>
-<pre><code class="language-c">    KIOT_TM_P_ADD_KEY_RESULT_TIAN_JIA_CHENG_GONG = 1, //添加成功
-    KIOT_TM_P_ADD_KEY_RESULT_TIAN_JIA_SHI_BAI = 2, //添加失败
-    KIOT_TM_P_ADD_KEY_RESULT_TIAN_JIA_CHAO_SHI = 3, //添加超时
-    KIOT_TM_P_ADD_KEY_RESULT_MI_YAO_YI_CUN_ZAI = 4, //密钥已存在
-    KIOT_TM_P_ADD_KEY_RESULT_MI_YAO_KU_YI_MAN = 5, //密钥库已满
+<pre><code class="language-c"> 1, //添加成功
+ 2, //添加失败
+ 3, //添加超时
+ 4, //密钥已存在
+ 5, //密钥库已满
 </code></pre>
-<h3 id="_22">示例<a class="headerlink" href="#_22" title="Permanent link">&para;</a></h3>
+<h3 id="_21">示例<a class="headerlink" href="#_21" title="Permanent link">&para;</a></h3>
 <pre><code class="language-c"># 关锁（机械关锁）
 55 AA 00 08 00 08 00 00 00 00 00 01 01 18 29
 
