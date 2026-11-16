@@ -1052,29 +1052,29 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        子设备绑定
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        子设备解绑
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#xxx" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        ~~xxx子设备绑定~~
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#xxx_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        ~~xxx子设备解绑~~
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#xxx_2" class="md-nav__link">
     <span class="md-ellipsis">
       
         ~~xxx用户/钥匙操作通知~~
@@ -1113,7 +1113,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_18" class="md-nav__link">
+  <a href="#_20" class="md-nav__link">
     <span class="md-ellipsis">
       
         属性参数
@@ -1124,7 +1124,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_19" class="md-nav__link">
+  <a href="#_21" class="md-nav__link">
     <span class="md-ellipsis">
       
         示例
@@ -1163,7 +1163,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_20" class="md-nav__link">
+  <a href="#_22" class="md-nav__link">
     <span class="md-ellipsis">
       
         事件参数
@@ -1174,7 +1174,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_21" class="md-nav__link">
+  <a href="#_23" class="md-nav__link">
     <span class="md-ellipsis">
       
         示例
@@ -1348,21 +1348,21 @@
 <li><a href="#_15">读取用户表的时间戳</a></li>
 <li><a href="#_16">远程开锁</a></li>
 <li><a href="#_17">读取历史记录数据</a></li>
-<li><a href="#xxx">~~xxx子设备绑定~~</a></li>
-<li><a href="#xxx_1">~~xxx子设备解绑~~</a></li>
-<li><a href="#xxx_2">~~xxx用户/钥匙操作通知~~</a></li>
+<li><a href="#_18">子设备绑定</a></li>
+<li><a href="#_19">子设备解绑</a></li>
+<li><a href="#xxx">~~xxx用户/钥匙操作通知~~</a></li>
 </ul>
 </li>
 <li><a href="#kiot_1">KIOT 属性定义</a><ul>
 <li><a href="#id_1">属性ID</a></li>
-<li><a href="#_18">属性参数</a></li>
-<li><a href="#_19">示例</a></li>
+<li><a href="#_20">属性参数</a></li>
+<li><a href="#_21">示例</a></li>
 </ul>
 </li>
 <li><a href="#kiot_2">KIOT 事件定义</a><ul>
 <li><a href="#id_2">事件ID</a></li>
-<li><a href="#_20">事件参数</a></li>
-<li><a href="#_21">示例</a></li>
+<li><a href="#_22">事件参数</a></li>
+<li><a href="#_23">示例</a></li>
 </ul>
 </li>
 </ul>
@@ -4995,13 +4995,13 @@ end
 </ul>
 <p><strong>示例</strong>：</p>
 <pre><code class="language-uart"># MCU 发起&quot;扫描指定路由器&quot;（功能点 0x00）。
-55 AA 00 F0 00 03 00 00 00 F2
+55 AA 00 F0 00 02 00 00 F1
 
 # 模组返回扫描成功，信号强度 80%
 55 AA 00 F0 00 03 00 00 50 42
 </code></pre>
 <pre><code class="language-uart"># MCU 发起&quot;连接指定路由器&quot;（功能点 0x01）
-55 AA 00 F0 00 03 00 01 00 F3
+55 AA 00 F0 00 02 00 01 F2
 
 # 模组返回连接成功。
 55 AA 00 F0 00 03 00 00 00 F2
@@ -6489,72 +6489,47 @@ end
 # 模组应答。
 55 AA 00 0A 00 01 00 0A
 </code></pre>
-<h3 id="xxx">~~xxx子设备绑定~~<a class="headerlink" href="#xxx" title="Permanent link">&para;</a></h3>
+<h3 id="_18">子设备绑定<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
 <th>数据流向</th>
 <th>动作ID</th>
 <th>参数长度（2字节）</th>
-<th>参数1</th>
-<th>参数2</th>
-<th>参数3</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>下发</td>
 <td>0x010e</td>
-<td>97</td>
-<td>子设备SN[32]</td>
-<td>子设备类型编号</td>
-<td>子设备pwd1[64]</td>
-</tr>
-<tr>
-<td>上报</td>
-<td>0x010e</td>
-<td>1</td>
-<td>操作状态：<br />0x00：成功<br />0x01：失败</td>
-<td></td>
-<td></td>
+<td>0</td>
 </tr>
 </tbody>
 </table>
 <p><strong>示例</strong>：</p>
 <pre><code class="language-uart">
 </code></pre>
-<h3 id="xxx_1">~~xxx子设备解绑~~<a class="headerlink" href="#xxx_1" title="Permanent link">&para;</a></h3>
+<h3 id="_19">子设备解绑<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
 <th>数据流向</th>
 <th>动作ID</th>
 <th>参数长度（2字节）</th>
-<th>参数1</th>
-<th>参数2</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>下发</td>
 <td>0x010f</td>
-<td>33</td>
-<td>子设备SN[32]</td>
-<td>子设备类型编号</td>
-</tr>
-<tr>
-<td>上报</td>
-<td>0x010f</td>
-<td>1</td>
-<td>操作状态：<br />0x00：成功<br />0x01：失败</td>
-<td></td>
+<td>0</td>
 </tr>
 </tbody>
 </table>
 <p><strong>示例</strong>：</p>
 <pre><code class="language-uart">
 </code></pre>
-<h3 id="xxx_2">~~xxx用户/钥匙操作通知~~<a class="headerlink" href="#xxx_2" title="Permanent link">&para;</a></h3>
+<h3 id="xxx">~~xxx用户/钥匙操作通知~~<a class="headerlink" href="#xxx" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
@@ -6683,7 +6658,7 @@ end
 0x1204, //室内语音助手开关
 0x1205, //室内语音助手触发方式
 </code></pre>
-<h3 id="_18">属性参数<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h3>
+<h3 id="_20">属性参数<a class="headerlink" href="#_20" title="Permanent link">&para;</a></h3>
 <p>以下那些属性参数都用大端传输，高字节在前面。</p>
 <p><a id="kiot-prop-args"></a></p>
 <table>
@@ -7310,7 +7285,7 @@ end
  3, //低电量
  4, //非法电池
 </code></pre>
-<h3 id="_19">示例<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h3>
+<h3 id="_21">示例<a class="headerlink" href="#_21" title="Permanent link">&para;</a></h3>
 <pre><code class="language-c"># 开门方向—左
 55 AA 00 05 00 05 00 01 20 01 02 2D
 
@@ -7366,7 +7341,7 @@ end
 0x0f01, //资源包更新结果上报事件（反馈资源包更新的成功/失败状态）
 0x0f02, //资源配置异常上报事件(事件上报后,触发资源更新，服务器下发当前记录的资源版本给设备)
 </code></pre>
-<h3 id="_20">事件参数<a class="headerlink" href="#_20" title="Permanent link">&para;</a></h3>
+<h3 id="_22">事件参数<a class="headerlink" href="#_22" title="Permanent link">&para;</a></h3>
 <p><a id="kiot-event-args"></a></p>
 <table>
 <thead>
@@ -7612,7 +7587,7 @@ end
  4, //密钥已存在
  5, //密钥库已满
 </code></pre>
-<h3 id="_21">示例<a class="headerlink" href="#_21" title="Permanent link">&para;</a></h3>
+<h3 id="_23">示例<a class="headerlink" href="#_23" title="Permanent link">&para;</a></h3>
 <pre><code class="language-c"># 关锁（机械关锁）
 55 AA 00 08 00 08 00 00 00 00 00 01 01 18 29
 
