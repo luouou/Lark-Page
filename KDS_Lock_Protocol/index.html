@@ -676,10 +676,21 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#0xd5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        镜头电源控制 0xD5
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#0xd6" class="md-nav__link">
     <span class="md-ellipsis">
       
-        获取推流状态 0xD6
+        ~~获取推流状态 0xD6~~
       
     </span>
   </a>
@@ -690,7 +701,7 @@
   <a href="#0xda" class="md-nav__link">
     <span class="md-ellipsis">
       
-        获取设备联网状态 0xDA
+        ~~获取设备联网状态 0xDA~~
       
     </span>
   </a>
@@ -1308,8 +1319,9 @@
 <li><a href="#0xd2">屏幕显示 0xD2</a></li>
 <li><a href="#0xd3">语音控制 0xD3</a></li>
 <li><a href="#0xd4">查询信号强度 0xD4</a></li>
-<li><a href="#0xd6">获取推流状态 0xD6</a></li>
-<li><a href="#0xda">获取设备联网状态 0xDA</a></li>
+<li><a href="#0xd5">镜头电源控制 0xD5</a></li>
+<li><a href="#0xd6">~~获取推流状态 0xD6~~</a></li>
+<li><a href="#0xda">~~获取设备联网状态 0xDA~~</a></li>
 <li><a href="#0xdb">日志等级 0xDB</a></li>
 <li><a href="#wifi-mac-0xdd">获取 WiFi MAC地址 0xDD</a></li>
 <li><a href="#mac-0xde">获取蓝牙MAC地址 0xDE</a></li>
@@ -4361,7 +4373,110 @@ end
 # 模组返回当前信号强度值百分比为 80。
 55 AA 00 D4 00 03 00 01 50 27
 </code></pre>
-<h3 id="0xd6">获取推流状态 0xD6<a class="headerlink" href="#0xd6" title="Permanent link">&para;</a></h3>
+<h3 id="0xd5">镜头电源控制 0xD5<a class="headerlink" href="#0xd5" title="Permanent link">&para;</a></h3>
+<p>用于锁控 MCU 控制猫眼关闭并打开 给 USB 镜头供电的电源。</p>
+<p><strong>MCU 发送</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>字节数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>帧头</td>
+<td>2</td>
+<td>0x55aa</td>
+</tr>
+<tr>
+<td>版本</td>
+<td>1</td>
+<td>0x00</td>
+</tr>
+<tr>
+<td>命令字</td>
+<td>1</td>
+<td>0xD2</td>
+</tr>
+<tr>
+<td>数据长度</td>
+<td>2</td>
+<td>0x0002</td>
+</tr>
+<tr>
+<td>序号</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>数据</td>
+<td>1</td>
+<td>0xB0：关闭<br />0xB1：复位</td>
+</tr>
+<tr>
+<td>校验和</td>
+<td>1</td>
+<td>从帧头开始，按字节求和，得出的结果对 256 求余</td>
+</tr>
+</tbody>
+</table>
+<p><strong>模组返回</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>字节数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>帧头</td>
+<td>2</td>
+<td>0x55aa</td>
+</tr>
+<tr>
+<td>版本</td>
+<td>1</td>
+<td>0x00</td>
+</tr>
+<tr>
+<td>命令字</td>
+<td>1</td>
+<td>0xD2</td>
+</tr>
+<tr>
+<td>数据长度</td>
+<td>2</td>
+<td>0x0002</td>
+</tr>
+<tr>
+<td>序号</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>数据</td>
+<td>1</td>
+<td>0x00：操作成功<br />0x01：操作失败</td>
+</tr>
+<tr>
+<td>校验和</td>
+<td>1</td>
+<td>从帧头开始，按字节求和，得出的结果对 256 求余</td>
+</tr>
+</tbody>
+</table>
+<p><strong>示例</strong>：</p>
+<pre><code class="language-uart"># 关闭 USB 电源。
+55 AA 00 D5 00 02 00 B0 86
+
+# 模组返回操作成功。
+55 AA 00 D5 00 02 00 00 D6
+</code></pre>
+<h3 id="0xd6">~~获取推流状态 0xD6~~<a class="headerlink" href="#0xd6" title="Permanent link">&para;</a></h3>
 <p>在主动查看视频阶段，当前模组不会主动唤醒锁板并同步状态。对于一些特殊应用场景上，可能会出现逻辑上的冲突。例如，锁板雷达被触发，是打开人脸模组红外准备人脸识别，导致看到红色视频流。</p>
 <p>为解决锁板需获取特定状态来做逻辑判定问题，您可以使用下述协议获取模组当前推流状态。</p>
 <p><strong>MCU 发送</strong>：</p>
@@ -4387,7 +4502,7 @@ end
 <tr>
 <td>命令字</td>
 <td>1</td>
-<td>0x6B</td>
+<td>0xD6</td>
 </tr>
 <tr>
 <td>数据长度</td>
@@ -4434,7 +4549,7 @@ end
 <tr>
 <td>命令字</td>
 <td>1</td>
-<td>0x6B</td>
+<td>0xD6</td>
 </tr>
 <tr>
 <td>数据长度</td>
@@ -4458,7 +4573,7 @@ end
 </tr>
 </tbody>
 </table>
-<h3 id="0xda">获取设备联网状态 0xDA<a class="headerlink" href="#0xda" title="Permanent link">&para;</a></h3>
+<h3 id="0xda">~~获取设备联网状态 0xDA~~<a class="headerlink" href="#0xda" title="Permanent link">&para;</a></h3>
 <p>MCU 可根据此条命令获取 Wi-Fi 状态，例如 MCU 重上电或软件重启，可主动向模组查询当前联网状态。</p>
 <p><strong>MCU 发送</strong>：</p>
 <table>
@@ -6370,6 +6485,9 @@ end
 
 # 删除 指纹 编号01
 55 AA 00 0B 00 0D 00 01 0D 00 08 01 0A F6 BD F5 6A 04 01 4F
+
+# 逗留告警
+55 AA 00 0B 00 0D 00 01 0D 00 08 02 70 1C 3E FD 6A 00 00 60
 </code></pre>
 <p><a id="KIOT_TM_record"></a>
 <strong>历史记录数据</strong></p>
@@ -6844,7 +6962,7 @@ end
 <td>门锁状态</td>
 <td>0x0140</td>
 <td>1</td>
-<td>enum （2开锁，1关锁）</td>
+<td>enum （1关锁，2开锁）</td>
 <td></td>
 </tr>
 <tr>
@@ -7254,10 +7372,10 @@ end
 <td></td>
 </tr>
 <tr>
-<td>是否支持双重验证</td>
+<td>主电池信息</td>
 <td>0xFF02</td>
 <td>1</td>
-<td>bool（0不支持，1支持）</td>
+<td>u8 电池电量<br />u8 (<a href="#p-battery-state">电池状态</a> &lt;&lt; 4 | 充电状态)，0未充电，1充电中</td>
 <td></td>
 </tr>
 </tbody>
@@ -7298,8 +7416,8 @@ end
 # 电池充电中
 55 AA 00 05 00 05 00 FF 01 01 01 0B
 
-# 支持双重验证
-55 AA 00 05 00 05 00 FF 02 01 01 0C
+# 主电池信息
+55 AA 00 05 00 06 00 FF 02 02 60 00 6D
 
 # 电量 52%
 55 AA 00 05 00 2A 00 06 06 26 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 34 00 00 00 00 94
@@ -7608,6 +7726,9 @@ end
 
 # 删除卡片09
 55 AA 00 08 00 0A 00 00 00 00 00 01 03 09 03 03 24
+
+# 逗留告警
+55 AA 00 08 00 07 00 6A FD 3E 1C 08 01 D8
 </code></pre>
 
 
