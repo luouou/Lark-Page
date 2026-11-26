@@ -690,7 +690,7 @@
   <a href="#0xd6" class="md-nav__link">
     <span class="md-ellipsis">
       
-        ~~获取推流状态 0xD6~~
+        获取推流状态 0xD6
       
     </span>
   </a>
@@ -701,7 +701,7 @@
   <a href="#0xda" class="md-nav__link">
     <span class="md-ellipsis">
       
-        ~~获取设备联网状态 0xDA~~
+        获取设备连接状态 0xDA
       
     </span>
   </a>
@@ -1085,10 +1085,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#xxx" class="md-nav__link">
+  <a href="#_20" class="md-nav__link">
     <span class="md-ellipsis">
       
-        ~~xxx用户/钥匙操作通知~~
+        用户/钥匙操作通知
       
     </span>
   </a>
@@ -1124,7 +1124,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_20" class="md-nav__link">
+  <a href="#_21" class="md-nav__link">
     <span class="md-ellipsis">
       
         属性参数
@@ -1135,7 +1135,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_21" class="md-nav__link">
+  <a href="#_22" class="md-nav__link">
     <span class="md-ellipsis">
       
         示例
@@ -1174,7 +1174,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_22" class="md-nav__link">
+  <a href="#_23" class="md-nav__link">
     <span class="md-ellipsis">
       
         事件参数
@@ -1185,7 +1185,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_23" class="md-nav__link">
+  <a href="#_24" class="md-nav__link">
     <span class="md-ellipsis">
       
         示例
@@ -1320,8 +1320,8 @@
 <li><a href="#0xd3">语音控制 0xD3</a></li>
 <li><a href="#0xd4">查询信号强度 0xD4</a></li>
 <li><a href="#0xd5">镜头电源控制 0xD5</a></li>
-<li><a href="#0xd6">~~获取推流状态 0xD6~~</a></li>
-<li><a href="#0xda">~~获取设备联网状态 0xDA~~</a></li>
+<li><a href="#0xd6">获取推流状态 0xD6</a></li>
+<li><a href="#0xda">获取设备连接状态 0xDA</a></li>
 <li><a href="#0xdb">日志等级 0xDB</a></li>
 <li><a href="#wifi-mac-0xdd">获取 WiFi MAC地址 0xDD</a></li>
 <li><a href="#mac-0xde">获取蓝牙MAC地址 0xDE</a></li>
@@ -1362,19 +1362,19 @@
 <li><a href="#_17">读取历史记录数据</a></li>
 <li><a href="#_18">子设备绑定</a></li>
 <li><a href="#_19">子设备解绑</a></li>
-<li><a href="#xxx">~~xxx用户/钥匙操作通知~~</a></li>
+<li><a href="#_20">用户/钥匙操作通知</a></li>
 </ul>
 </li>
 <li><a href="#kiot_1">KIOT 属性定义</a><ul>
 <li><a href="#id_1">属性ID</a></li>
-<li><a href="#_20">属性参数</a></li>
-<li><a href="#_21">示例</a></li>
+<li><a href="#_21">属性参数</a></li>
+<li><a href="#_22">示例</a></li>
 </ul>
 </li>
 <li><a href="#kiot_2">KIOT 事件定义</a><ul>
 <li><a href="#id_2">事件ID</a></li>
-<li><a href="#_22">事件参数</a></li>
-<li><a href="#_23">示例</a></li>
+<li><a href="#_23">事件参数</a></li>
+<li><a href="#_24">示例</a></li>
 </ul>
 </li>
 </ul>
@@ -1849,6 +1849,7 @@
 55 AA 00 02 00 01 00 02 
 </code></pre>
 <h3 id="wi-fi-0x03">重置 Wi-Fi 0x03<a class="headerlink" href="#wi-fi-0x03" title="Permanent link">&para;</a></h3>
+<p>注意这个指令回复后，会重启，请留意后面要发送的指令。</p>
 <p><strong>MCU 发送</strong>：</p>
 <table>
 <thead>
@@ -3171,6 +3172,7 @@
 </code></pre>
 <h3 id="0x11">恢复出厂设置 0x11<a class="headerlink" href="#0x11" title="Permanent link">&para;</a></h3>
 <p>恢复出厂设置，这个指令不仅清除 WiFi 网络信息，也清除秘钥等猫眼自身数据。</p>
+<p>注意这个指令回复后，会重启，请留意后面要发送的指令。</p>
 <p>这个指令永远是明文的，不加密。</p>
 <p><strong>MCU 发送</strong>：</p>
 <table>
@@ -4476,7 +4478,7 @@ end
 # 模组返回操作成功。
 55 AA 00 D5 00 02 00 00 D6
 </code></pre>
-<h3 id="0xd6">~~获取推流状态 0xD6~~<a class="headerlink" href="#0xd6" title="Permanent link">&para;</a></h3>
+<h3 id="0xd6">获取推流状态 0xD6<a class="headerlink" href="#0xd6" title="Permanent link">&para;</a></h3>
 <p>在主动查看视频阶段，当前模组不会主动唤醒锁板并同步状态。对于一些特殊应用场景上，可能会出现逻辑上的冲突。例如，锁板雷达被触发，是打开人脸模组红外准备人脸识别，导致看到红色视频流。</p>
 <p>为解决锁板需获取特定状态来做逻辑判定问题，您可以使用下述协议获取模组当前推流状态。</p>
 <p><strong>MCU 发送</strong>：</p>
@@ -4564,7 +4566,7 @@ end
 <tr>
 <td>数据</td>
 <td>１</td>
-<td>0x00：未处于<br />0x01：正处于</td>
+<td>0x00：未推流<br />0x01：正在推流</td>
 </tr>
 <tr>
 <td>校验和</td>
@@ -4573,8 +4575,14 @@ end
 </tr>
 </tbody>
 </table>
-<h3 id="0xda">~~获取设备联网状态 0xDA~~<a class="headerlink" href="#0xda" title="Permanent link">&para;</a></h3>
-<p>MCU 可根据此条命令获取 Wi-Fi 状态，例如 MCU 重上电或软件重启，可主动向模组查询当前联网状态。</p>
+<p><strong>示例</strong>：</p>
+<pre><code class="language-uart">55 AA 00 D6 00 01 00 D6
+
+# 正在推流。
+55 AA 00 D6 00 02 00 01 D8
+</code></pre>
+<h3 id="0xda">获取设备连接状态 0xDA<a class="headerlink" href="#0xda" title="Permanent link">&para;</a></h3>
+<p>MCU 可根据此条命令获取 Wi-Fi 状态，例如 MCU 重上电或软件重启，可主动向模组查询当前是否连接上 WiFi 或 蓝牙。</p>
 <p><strong>MCU 发送</strong>：</p>
 <table>
 <thead>
@@ -4660,7 +4668,7 @@ end
 <tr>
 <td>数据</td>
 <td>1</td>
-<td>Data[0]：详见<a href="#Devlinkstatus">设备联网状态表</a></td>
+<td>bit0 蓝牙连上，bit1 WiFi连上</td>
 </tr>
 <tr>
 <td>校验和</td>
@@ -4670,11 +4678,10 @@ end
 </tbody>
 </table>
 <p><strong>示例</strong>：</p>
-<pre><code class="language-uart"># MCU 主动查询 Wi-Fi 联网状态。
-55 AA 00 DA 00 01 00 DA
+<pre><code class="language-uart">55 AA 00 DA 00 01 00 DA
 
-# 模组返回查询结果为 0x04-已连上路由器且连接到云端，同时模组为已激活状态。
-55 AA 00 DA 00 02 00 04 E0
+# 模组返回查询结果为 0x03，蓝牙和 WiFi 都连上了。
+55 AA 00 DA 00 02 00 03 DE
 </code></pre>
 <h3 id="0xdb">日志等级 0xDB<a class="headerlink" href="#0xdb" title="Permanent link">&para;</a></h3>
 <p>为了方便后续排查测试过程中出现的问题，为了实时调整日志等级，方便测试时改变日志输出等级。</p>
@@ -5885,6 +5892,7 @@ end
 <p><a id="lock-transaction-id"></a></p>
 <p><strong>事务编号</strong></p>
 <pre><code class="language-c">0x1C：蓝牙钥匙开锁
+0x1D：蓝牙钥匙关锁
 </code></pre>
 <p><strong>示例</strong>：</p>
 <pre><code class="language-uart">55 AA 00 C1 00 02 00 1C DE
@@ -6473,22 +6481,6 @@ end
 </li>
 </ul>
 <p>历史记录数据为raw格式，多条记录数据raw里面是连续排列的，记录数据的先后顺序为：靠近A时刻的数据在前，远离A时刻的数据依次往后排列。</p>
-<p><strong>示例</strong>：</p>
-<pre><code class="language-c"># 编号01的密码开锁
-55 AA 00 0B 00 0D 00 01 0D 00 08 01 01 AF 82 AF 6A 00 01 7A
-
-# 编号03的卡片开锁
-55 AA 00 0B 00 0D 00 01 0D 00 08 01 01 5e 8A E8 6A 03 03 6F
-
-# 编号01的密码开锁 + 验证失败3次报警
-55 AA 00 0B 00 15 00 01 0D 00 10 01 01 CD 82 AF 6A 00 01 02 03 DD 82 AF 6A 00 00 25
-
-# 删除 指纹 编号01
-55 AA 00 0B 00 0D 00 01 0D 00 08 01 0A F6 BD F5 6A 04 01 4F
-
-# 逗留告警
-55 AA 00 0B 00 0D 00 01 0D 00 08 02 70 1C 3E FD 6A 00 00 60
-</code></pre>
 <p><a id="KIOT_TM_record"></a>
 <strong>历史记录数据</strong></p>
 <table>
@@ -6606,6 +6598,21 @@ end
 
 # 模组应答。
 55 AA 00 0A 00 01 00 0A
+
+# 编号01的密码开锁
+55 AA 00 0B 00 0D 00 01 0D 00 08 01 01 AF 82 AF 6A 00 01 7A
+
+# 编号03的卡片开锁
+55 AA 00 0B 00 0D 00 01 0D 00 08 01 01 5e 8A E8 6A 03 03 6F
+
+# 编号01的密码开锁 + 验证失败3次报警
+55 AA 00 0B 00 15 00 01 0D 00 10 01 01 CD 82 AF 6A 00 01 02 03 DD 82 AF 6A 00 00 25
+
+# 删除 指纹 编号01
+55 AA 00 0B 00 0D 00 01 0D 00 08 01 0A F6 BD F5 6A 04 01 4F
+
+# 逗留告警
+55 AA 00 0B 00 0D 00 01 0D 00 08 02 70 1C 3E FD 6A 00 00 60
 </code></pre>
 <h3 id="_18">子设备绑定<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h3>
 <table>
@@ -6647,7 +6654,7 @@ end
 <p><strong>示例</strong>：</p>
 <pre><code class="language-uart">
 </code></pre>
-<h3 id="xxx">~~xxx用户/钥匙操作通知~~<a class="headerlink" href="#xxx" title="Permanent link">&para;</a></h3>
+<h3 id="_20">用户/钥匙操作通知<a class="headerlink" href="#_20" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
@@ -6776,7 +6783,7 @@ end
 0x1204, //室内语音助手开关
 0x1205, //室内语音助手触发方式
 </code></pre>
-<h3 id="_20">属性参数<a class="headerlink" href="#_20" title="Permanent link">&para;</a></h3>
+<h3 id="_21">属性参数<a class="headerlink" href="#_21" title="Permanent link">&para;</a></h3>
 <p>以下那些属性参数都用大端传输，高字节在前面。</p>
 <p><a id="kiot-prop-args"></a></p>
 <table>
@@ -7403,7 +7410,7 @@ end
  3, //低电量
  4, //非法电池
 </code></pre>
-<h3 id="_21">示例<a class="headerlink" href="#_21" title="Permanent link">&para;</a></h3>
+<h3 id="_22">示例<a class="headerlink" href="#_22" title="Permanent link">&para;</a></h3>
 <pre><code class="language-c"># 开门方向—左
 55 AA 00 05 00 05 00 01 20 01 02 2D
 
@@ -7459,7 +7466,7 @@ end
 0x0f01, //资源包更新结果上报事件（反馈资源包更新的成功/失败状态）
 0x0f02, //资源配置异常上报事件(事件上报后,触发资源更新，服务器下发当前记录的资源版本给设备)
 </code></pre>
-<h3 id="_22">事件参数<a class="headerlink" href="#_22" title="Permanent link">&para;</a></h3>
+<h3 id="_23">事件参数<a class="headerlink" href="#_23" title="Permanent link">&para;</a></h3>
 <p><a id="kiot-event-args"></a></p>
 <table>
 <thead>
@@ -7636,7 +7643,7 @@ end
 <td></td>
 </tr>
 <tr>
-<td style="text-align: left;">反锁</td>
+<td style="text-align: left;">~~反锁~~</td>
 <td>0xee0e</td>
 <td>无</td>
 </tr>
@@ -7705,7 +7712,7 @@ end
  4, //密钥已存在
  5, //密钥库已满
 </code></pre>
-<h3 id="_23">示例<a class="headerlink" href="#_23" title="Permanent link">&para;</a></h3>
+<h3 id="_24">示例<a class="headerlink" href="#_24" title="Permanent link">&para;</a></h3>
 <pre><code class="language-c"># 关锁（机械关锁）
 55 AA 00 08 00 08 00 00 00 00 00 01 01 18 29
 
